@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maritime Learning Hub — Studi Kasus Keselamatan Pelayaran | Rafael Sukirno, CE</title>
+<style>
+:root{--navy:#0a1a2f;--navy2:#122b4a;--navy3:#1b3a5c;--cyan:#22d3ee;--cyan2:#06b6d4;--gold:#f5b942;--red:#ef4444;--green:#22c55e;--purple:#a78bfa;--txt:#e8eef7;--muted:#9fb3c8;--card:#132a45;--line:rgba(34,211,238,.18);--shadow:0 10px 40px rgba(0,0,0,.45)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',sans-serif;background:var(--navy);color:var(--txt);line-height:1.7;overflow-x:hidden}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--gold));z-index:9999;transition:width .1s}
+nav{position:sticky;top:0;z-index:1000;background:rgba(10,26,47,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.4px;cursor:pointer}
+.brand .logo{width:38px;height:38px;border-radius:10px;flex:0 0 38px;background:linear-gradient(135deg,var(--cyan),#0e7490);display:grid;place-items:center;font-size:19px;box-shadow:0 0 22px rgba(34,211,238,.4)}
+.brand small{display:block;font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase}
+.nav-links{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px;transition:.22s;white-space:nowrap;cursor:pointer}
+.nav-links a:hover{color:var(--cyan);background:rgba(34,211,238,.1)}
+.nav-links a.active{color:var(--navy);background:var(--cyan)}
+.nav-links a.ext{color:var(--gold);border:1px solid rgba(245,185,66,.35);display:inline-flex;align-items:center;gap:5px}
+.nav-links a.ext:hover{background:rgba(245,185,66,.15);color:var(--gold)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cyan);font-size:20px;padding:6px 12px;border-radius:8px;cursor:pointer}
+header.hero{position:relative;padding:80px 20px 70px;text-align:center;overflow:hidden;background:radial-gradient(circle at 15% 15%,rgba(34,211,238,.16),transparent 45%),radial-gradient(circle at 85% 75%,rgba(245,185,66,.13),transparent 45%),linear-gradient(180deg,#0a1a2f,#0d2340 60%,#0a1a2f)}
+header.hero::after{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:linear-gradient(rgba(34,211,238,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.05) 1px,transparent 1px);background-size:52px 52px}
+.hero-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+.author-badge{display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 10px;border-radius:99px;background:linear-gradient(135deg,rgba(245,185,66,.15),rgba(34,211,238,.1));border:1px solid rgba(245,185,66,.4);margin-bottom:24px;cursor:pointer;transition:.25s}
+.author-badge:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,185,66,.25)}
+.author-badge .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f97316);display:grid;place-items:center;font-weight:900;color:#3a1f00;font-size:14px}
+.author-badge .txt{text-align:left}
+.author-badge .txt small{display:block;font-size:9.5px;color:var(--gold);letter-spacing:2px;font-weight:800;text-transform:uppercase}
+.author-badge .txt strong{font-size:13px;color:#fff;font-weight:800}
+.pill{display:inline-block;padding:6px 18px;border-radius:99px;font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(34,211,238,.4);background:rgba(34,211,238,.09);margin-bottom:22px}
+h1{font-size:clamp(1.9rem,5vw,3.4rem);line-height:1.13;font-weight:900;background:linear-gradient(135deg,#fff 25%,var(--cyan) 65%,var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.hero p.sub{color:var(--muted);font-size:clamp(.95rem,2vw,1.12rem);max-width:780px;margin:0 auto 32px}
+.hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.hb{padding:8px 16px;border-radius:99px;font-size:12px;font-weight:700;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--txt);cursor:pointer;transition:.22s;text-decoration:none}
+.hb:hover{border-color:var(--cyan);background:rgba(34,211,238,.13);color:var(--cyan);transform:translateY(-2px)}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 30px;border-radius:11px;font-weight:800;font-size:14px;text-decoration:none;border:none;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:9px}
+.btn-p{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;box-shadow:0 8px 28px rgba(34,211,238,.35)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(34,211,238,.5)}
+.btn-o{background:transparent;color:var(--cyan);border:1.5px solid rgba(34,211,238,.45)}
+.btn-o:hover{background:rgba(34,211,238,.12);transform:translateY(-3px)}
+.btn-g{background:transparent;color:var(--gold);border:1.5px solid rgba(245,185,66,.5)}
+.btn-g:hover{background:rgba(245,185,66,.15);transform:translateY(-3px)}
+section{padding:74px 20px}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-head{margin-bottom:44px;text-align:center}
+.sec-head .num{font-size:12px;font-weight:900;letter-spacing:3px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:9px}
+.sec-head h2{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:900;margin-bottom:12px;line-height:1.22}
+.sec-head p{color:var(--muted);max-width:740px;margin:0 auto;font-size:.97rem}
+.alt{background:linear-gradient(180deg,#0a1a2f,#0d2340)}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(272px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:linear-gradient(160deg,var(--card),#0f2439);border:1px solid var(--line);border-radius:17px;padding:26px;transition:.3s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.45);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card h3{font-size:1.1rem;margin-bottom:11px;display:flex;align-items:center;gap:9px;font-weight:800}
+.card p{color:var(--muted);font-size:.9rem}
+.card .icon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:20px;margin-bottom:15px;background:rgba(34,211,238,.13);border:1px solid var(--line)}
+.card.intl{border-color:rgba(167,139,250,.35);background:linear-gradient(160deg,#1a2144,#0f2439)}
+.card.intl .icon{background:rgba(167,139,250,.18);border-color:rgba(167,139,250,.4)}
+.card.intl::before{background:linear-gradient(90deg,var(--purple),transparent)}
+.card.intl:hover{border-color:var(--purple)}
+.clickable{cursor:pointer}
+.clickable::after{content:"Klik untuk detail →";display:block;margin-top:15px;font-size:11.5px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.clickable.ext::after{content:"🔍 Buka pencarian internasional →";color:var(--purple)}
+.glink{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:8px;font-size:11.5px;font-weight:800;background:rgba(167,139,250,.13);color:var(--purple);border:1px solid rgba(167,139,250,.35);text-decoration:none;transition:.22s;margin-top:12px;cursor:pointer}
+.glink:hover{background:rgba(167,139,250,.25);transform:translateX(3px)}
+.case-hero{display:grid;grid-template-columns:1fr;gap:20px;border-radius:20px;padding:30px;margin-bottom:32px;background:linear-gradient(135deg,rgba(34,211,238,.09),rgba(245,185,66,.06));border:1px solid var(--line)}
+.case-hero h3{font-size:clamp(1.3rem,3vw,1.85rem);font-weight:900;margin-bottom:8px}
+.case-hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.tag{padding:5px 13px;border-radius:8px;font-size:11.5px;font-weight:800;background:rgba(34,211,238,.14);color:var(--cyan);border:1px solid rgba(34,211,238,.3)}
+.tag.red{background:rgba(239,68,68,.14);color:#fca5a5;border-color:rgba(239,68,68,.35)}
+.tag.gold{background:rgba(245,185,66,.14);color:var(--gold);border-color:rgba(245,185,66,.35)}
+.tag.green{background:rgba(34,197,94,.14);color:#86efac;border-color:rgba(34,197,94,.35)}
+.tag.purple{background:rgba(167,139,250,.14);color:var(--purple);border-color:rgba(167,139,250,.35)}
+.timeline{position:relative;padding-left:34px;margin-top:26px}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),rgba(34,211,238,.08))}
+.tl-item{position:relative;margin-bottom:26px}
+.tl-item::before{content:"";position:absolute;left:-29px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--navy);border:3px solid var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.7)}
+.tl-item.red::before{border-color:var(--red);box-shadow:0 0 12px rgba(239,68,68,.7)}
+.tl-time{font-size:11.5px;font-weight:900;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+.tl-item p{color:var(--muted);font-size:.9rem;margin-top:4px}
+.tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);margin-top:20px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+th{background:rgba(34,211,238,.11);color:var(--cyan);text-align:left;padding:13px 16px;font-weight:800;font-size:11.5px;letter-spacing:1px;text-transform:uppercase}
+td{padding:12px 16px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);vertical-align:top}
+tr:hover td{background:rgba(34,211,238,.045)}
+td strong{color:var(--txt)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.tab{padding:10px 20px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);transition:.24s}
+.tab:hover{color:var(--cyan);border-color:rgba(34,211,238,.4)}
+.tab.active{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;border-color:transparent}
+.tab-panel{display:none;animation:fade .4s}
+.tab-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.acc{border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:11px;background:rgba(255,255,255,.02)}
+.acc-head{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.93rem;transition:.22s;gap:12px}
+.acc-head:hover{background:rgba(34,211,238,.07)}
+.acc-head .ch{color:var(--cyan);font-size:19px;transition:.3s;flex:0 0 auto}
+.acc.open .acc-head .ch{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 20px}
+.acc.open .acc-body{max-height:1600px;padding:0 20px 20px}
+.acc-body p,.acc-body li{color:var(--muted);font-size:.89rem}
+.acc-body ul{padding-left:20px;margin-top:8px}
+.acc-body li{margin-bottom:6px}
+.modal-bg{position:fixed;inset:0;background:rgba(3,10,20,.86);backdrop-filter:blur(7px);z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:26px 16px;overflow-y:auto}
+.modal-bg.show{display:flex;animation:fade .25s}
+.modal{background:linear-gradient(165deg,#132a45,#0d2138);border:1px solid rgba(34,211,238,.35);border-radius:19px;max-width:860px;width:100%;padding:34px;position:relative;margin:auto;box-shadow:0 30px 90px rgba(0,0,0,.75);animation:pop .32s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
+.modal h3{font-size:1.4rem;margin-bottom:6px;padding-right:44px;font-weight:900;line-height:1.3}
+.modal .sub{color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:20px}
+.modal p{color:var(--muted);font-size:.92rem;margin-bottom:13px}
+.modal ul,.modal ol{padding-left:22px;margin-bottom:15px}
+.modal li{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+.modal li strong{color:var(--txt)}
+.modal h4{color:var(--cyan);font-size:.98rem;margin:18px 0 10px;font-weight:800;letter-spacing:.3px}
+.close{position:absolute;top:17px;right:17px;width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.3);color:#fca5a5;font-size:19px;cursor:pointer;transition:.22s;display:grid;place-items:center}
+.close:hover{background:rgba(239,68,68,.3);transform:rotate(90deg)}
+.hl{background:rgba(245,185,66,.13);border-left:3px solid var(--gold);padding:13px 17px;border-radius:0 10px 10px 0;margin:16px 0}
+.hl p{margin:0;color:#fde9bd;font-size:.88rem}
+.hl.red{background:rgba(239,68,68,.11);border-left-color:var(--red)}
+.hl.red p{color:#fecaca}
+.hl.green{background:rgba(34,197,94,.11);border-left-color:var(--green)}
+.hl.green p{color:#bbf7d0}
+.hl.purple{background:rgba(167,139,250,.11);border-left-color:var(--purple)}
+.hl.purple p{color:#ddd6fe}
+.searchbox{display:flex;gap:8px;margin:18px 0 8px;flex-wrap:wrap}
+.searchbox input{flex:1;min-width:200px;padding:12px 16px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);font-size:13.5px;outline:none;transition:.22s;font-family:inherit}
+.searchbox input:focus{border-color:var(--cyan);background:rgba(34,211,238,.08)}
+.searchbox button{padding:12px 20px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--purple),#7c3aed);color:#fff;font-weight:800;font-size:13px;transition:.22s;font-family:inherit}
+.searchbox button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(167,139,250,.4)}
+.stat{text-align:center;padding:24px 16px;border-radius:15px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:.28s}
+.stat:hover{background:rgba(34,211,238,.08);transform:translateY(-5px);border-color:rgba(34,211,238,.4)}
+.stat .val{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;color:var(--cyan);line-height:1.1}
+.stat .lbl{font-size:11.4px;color:var(--muted);margin-top:7px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.lo{border-left:4px solid var(--cyan);background:rgba(34,211,238,.055);border-radius:0 13px 13px 0;padding:17px 21px;margin-bottom:13px;cursor:pointer;transition:.25s;position:relative}
+.lo:hover{transform:translateX(5px);border-left-color:var(--gold);background:rgba(34,211,238,.11);box-shadow:-4px 0 0 rgba(245,185,66,.2)}
+.lo .code{font-size:11px;font-weight:900;color:var(--gold);letter-spacing:1.6px;margin-bottom:6px}
+.lo p{color:var(--txt);font-size:.9rem;margin:0}
+.lo small{color:var(--muted);font-size:.82rem;display:block;margin-top:7px}
+.lo::after{content:"🔍 Klik untuk detail →";display:block;margin-top:10px;font-size:10.6px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));counter-reset:st}
+.step{background:linear-gradient(160deg,rgba(34,211,238,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:15px;padding:24px;position:relative;transition:.28s;cursor:pointer}
+.step:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:var(--shadow)}
+.step::before{counter-increment:st;content:counter(st,decimal-leading-zero);position:absolute;top:-13px;left:20px;font-size:12.5px;font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;padding:4px 12px;border-radius:8px;letter-spacing:.6px}
+.step h4{margin:12px 0 9px;font-size:1rem;font-weight:800}
+.step p{color:var(--muted);font-size:.86rem}
+.step .t{font-size:10.6px;font-weight:800;color:var(--gold);letter-spacing:1.3px;text-transform:uppercase;margin-top:11px;display:block}
+.step::after{content:"🔍 Klik untuk detail →";display:block;margin-top:12px;font-size:10.6px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.chip{padding:8px 15px;border-radius:9px;font-size:12.2px;font-weight:700;cursor:pointer;background:rgba(255,255,255,.045);border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:.24s;display:inline-flex;align-items:center;gap:7px}
+.chip:hover{background:rgba(34,211,238,.14);color:var(--cyan);border-color:rgba(34,211,238,.45);transform:translateY(-2px)}
+.chip.g{background:rgba(167,139,250,.1);color:var(--purple);border-color:rgba(167,139,250,.35)}
+.chip.g:hover{background:rgba(167,139,250,.25);color:#fff}
+.quiz{background:linear-gradient(150deg,rgba(245,185,66,.09),rgba(255,255,255,.02));border:1px solid rgba(245,185,66,.3);border-radius:17px;padding:28px}
+.quiz h4{color:var(--gold);font-size:1.05rem;margin-bottom:14px;font-weight:800}
+.opt{padding:13px 18px;border-radius:11px;border:1px solid var(--line);margin-bottom:9px;cursor:pointer;transition:.22s;font-size:.89rem;background:rgba(255,255,255,.03)}
+.opt:hover{border-color:var(--cyan);background:rgba(34,211,238,.08)}
+.opt.correct{background:rgba(34,197,94,.2);border-color:var(--green);color:#bbf7d0;font-weight:700}
+.opt.wrong{background:rgba(239,68,68,.18);border-color:var(--red);color:#fecaca}
+.fb{margin-top:13px;font-size:.87rem;color:var(--cyan);font-weight:700;min-height:22px}
+footer{background:#07121f;border-top:1px solid var(--line);padding:52px 20px 30px;text-align:center}
+footer p{color:var(--muted);font-size:.85rem;max-width:820px;margin:0 auto 11px}
+footer .disc{font-size:.8rem;color:#7d93a8;font-style:italic;border:1px dashed rgba(34,211,238,.22);border-radius:13px;padding:16px 20px;max-width:820px;margin:22px auto 0}
+footer .credit{margin-top:28px;padding:20px;border-radius:15px;background:linear-gradient(135deg,rgba(245,185,66,.1),rgba(34,211,238,.06));border:1px solid rgba(245,185,66,.3);max-width:520px;margin-left:auto;margin-right:auto}
+footer .credit .av{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--gold),#f97316);display:grid;place-items:center;font-weight:900;color:#3a1f00;font-size:20px;box-shadow:0 0 24px rgba(245,185,66,.4)}
+footer .credit h4{font-size:1.05rem;font-weight:900;color:#fff;margin-bottom:4px}
+footer .credit p{font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0}
+#top{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;border:none;font-size:20px;cursor:pointer;display:none;place-items:center;z-index:900;box-shadow:0 8px 26px rgba(34,211,238,.45);transition:.25s}
+#top.show{display:grid}
+#top:hover{transform:translateY(-4px)}
+@media(max-width:900px){
+  .burger{display:block}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,26,47,.99);border-bottom:1px solid var(--line);padding:14px;display:none;max-height:70vh;overflow-y:auto;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:11px 14px}
+  .modal{padding:26px 20px}
+  section{padding:56px 16px}
+  .timeline{padding-left:28px}
+}
+@media(max-width:520px){
+  .hero{padding:62px 15px 52px}
+  .cta-row .btn{width:100%;justify-content:center}
+  .author-badge{padding:7px 16px 7px 8px}
+  .author-badge .txt strong{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <div class="logo">⚓</div>
+      <div>MARITIME LEARNING HUB<small>by Rafael Sukirno, CE</small></div>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#ringkasan">Ringkasan</a>
+      <a href="#tilongkabila">KM Tilongkabila</a>
+      <a href="#tunu">KMP Tunu Pratama Jaya</a>
+      <a href="#internasional">Kasus Internasional</a>
+      <a href="#hukum">Tinjauan Hukum</a>
+      <a href="#tot">TOT 6.09</a>
+      <a href="#aktivitas">Aktivitas</a>
+      <a href="#diskusi">Diskusi</a>
+      <a href="#sumber">Sumber</a>
+      <a class="ext" href="https://www.google.com/search?q=international+maritime+disaster+cases+lessons+learned" target="_blank" rel="noopener">🔍 Cari Internasional</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="author-badge" onclick="openModal('author')">
+      <div class="av">RS</div>
+      <div class="txt"><small>Disusun oleh</small><strong>Rafael Sukirno, CE</strong></div>
+    </div>
+    <div><span class="pill">Modul Pembelajaran Maritim Interaktif</span></div>
+    <h1>Studi Kasus Keselamatan Pelayaran:<br>Ketika Keputusan di Anjungan Menentukan Segalanya</h1>
+    <p class="sub">
+      Analisis dua kecelakaan kapal Indonesia — <strong>KM Tilongkabila</strong> (tubrukan tebing, Selat Buton, 2025)
+      dan <strong>KMP Tunu Pratama Jaya</strong> (tenggelam, Selat Bali, 2025) — ditinjau dari
+      COLREG/P2TL, SOLAS, ISM Code, STCW, MARPOL, dan hukum pelayaran nasional, disusun
+      dalam kerangka pembelajaran <strong>TOT 6.09</strong>. Dilengkapi pembanding <strong>kasus internasional</strong>.
+    </p>
+    <div class="hero-badges">
+      <a class="hb" href="https://www.google.com/search?q=COLREG+1972+international+regulations+preventing+collisions+at+sea" target="_blank" rel="noopener">📘 COLREG 1972 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=SOLAS+1974+international+convention+safety+of+life+at+sea" target="_blank" rel="noopener">🚢 SOLAS 1974 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=ISM+Code+international+safety+management+IMO" target="_blank" rel="noopener">🛡️ ISM Code ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=STCW+1978+standards+training+certification+watchkeeping" target="_blank" rel="noopener">🎓 STCW 1978 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=MARPOL+73/78+marine+pollution+prevention" target="_blank" rel="noopener">🌊 MARPOL 73/78 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=UU+17+tahun+2008+pelayaran+Indonesia+UU+66+tahun+2024" target="_blank" rel="noopener">⚖️ UU 17/2008 ↗</a>
+    </div>
+    <div class="cta-row">
+      <a href="#tilongkabila" class="btn btn-p">▶ Mulai Studi Kasus</a>
+      <a href="#internasional" class="btn btn-g">🌍 Kasus Internasional</a>
+      <a href="#tot" class="btn btn-o">🎯 Kerangka TOT 6.09</a>
+    </div>
+  </div>
+</header>
+
+<section id="ringkasan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">01 — Ringkasan Eksekutif</span>
+      <h2>Dua Kasus Nasional, Satu Benang Merah: Human Error &amp; Faktor Organisasi</h2>
+      <p>Mahkamah Pelayaran menyimpulkan kedua kecelakaan bersumber pada kesalahan dan kelalaian penerapan standar profesi kepelautan — bukan semata kegagalan teknis alat. Klik setiap kartu untuk detail.</p>
+    </div>
+    <div class="grid g2" style="margin-bottom:36px">
+      <div class="card clickable" onclick="openModal('mTilo')">
+        <div class="icon">🚢</div>
+        <h3>KM Tilongkabila — Menubruk Tebing</h3>
+        <p>Kapal motor penumpang PT Pelni menubruk tebing Tanjung Batusori, Selat Buton, 27 Juli 2025 pukul 22.48 WITA. Kemudi tidak merespons; Nakhoda telah meninggalkan anjungan di alur sempit dengan kecepatan penuh.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag red">Human Error</span>
+          <span class="tag gold">Sanksi 3 Bulan</span>
+          <span class="tag green">Mualim IV Bebas</span>
+        </div>
+      </div>
+      <div class="card clickable" onclick="openModal('mTunu')">
+        <div class="icon">🌊</div>
+        <h3>KMP Tunu Pratama Jaya — Tenggelam</h3>
+        <p>Kapal Ro-Ro tenggelam di Selat Bali, 2 Juli 2025 pukul 23.35 WIB. Berangkat dalam kondisi <em>overdraft</em>, muatan tidak ter-lashing baik, pintu kedap cuaca kamar mesin terbuka.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag red">Human Error</span>
+          <span class="tag red">Faktor Organisasi</span>
+          <span class="tag gold">Sanksi 7 Bulan</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid g4">
+      <div class="stat"><div class="val">2</div><div class="lbl">Kecelakaan Nasional</div></div>
+      <div class="stat"><div class="val">6</div><div class="lbl">Instrumen Hukum</div></div>
+      <div class="stat"><div class="val">3+7</div><div class="lbl">Bulan Sanksi (Total)</div></div>
+      <div class="stat"><div class="val">19</div><div class="lbl">Korban Meninggal (Tunu)</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tilongkabila" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">02 — Studi Kasus A</span>
+      <h2>KM Tilongkabila: Tubrukan Tebing Tanjung Batusori</h2>
+      <p>Putusan Mahkamah Pelayaran Nomor HK.212/1/9/MP/2025 — dibacakan 25 September 2025</p>
+    </div>
+    <div class="case-hero">
+      <div>
+        <h3>⚓ KM Tilongkabila</h3>
+        <p style="color:var(--muted)">Kapal Motor Penumpang · GT 6022 · NT 1806 · Tanda Panggilan YFCD · Milik PT Pelayaran Nasional Indonesia (Persero)</p>
+        <div class="meta">
+          <span class="tag">📅 27 Juli 2025</span>
+          <span class="tag">🕙 22.48 WITA</span>
+          <span class="tag">📍 Selat Buton 05°20,6'S / 122°38,7'T</span>
+          <span class="tag gold">Rute: Baubau → Raha</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-bottom:6px;font-size:1.15rem">🕐 Kronologi Kejadian</h3>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">22.00 WITA</div><p>KM Tilongkabila bertolak dari Pelabuhan Murhum Baubau menuju Pelabuhan Raha. Total <strong>1.306 penumpang</strong>, 77 awak kapal, 33,76 ton muatan umum. Draft depan 4,4 m / belakang 4,6 m. Cuaca cerah, arus ke utara.</p></div>
+          <div class="tl-item"><div class="tl-time">22.13 WITA</div><p>Kapal <em>full away</em> kecepatan 10 knot, haluan 350°, kemudi manual. Di anjungan: Nakhoda, Mualim I, Markonis, Mualim IV (perwira jaga), Juru Mudi jaga, Masinis IV, Kadet Dek.</p></div>
+          <div class="tl-item"><div class="tl-time">22.15 WITA</div><p>Haluan 009°, kecepatan 11 knot. <strong>Nakhoda meninggalkan anjungan</strong>, mendelegasikan navigasi kepada Mualim IV dengan pesan "hati-hati". Mualim I, Masinis IV, lalu Mualim II menyusul turun.</p></div>
+          <div class="tl-item"><div class="tl-time">22.20 WITA</div><p>Mualim IV mengubah haluan ke 035° sesuai passage plan. Kecepatan 12–13 knot, terdorong arus utara.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.35 WITA</div><p>Pada jarak 2,7 NM menuju perubahan haluan 007°, <strong>posisi kapal mulai jatuh kiri</strong> dari passage plan. Kapal mendekat ke daerah perkampungan; lebar alur ±7 cable.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.38 WITA</div><p>Mualim IV memerintahkan kemudi kanan 5 — Juru Mudi menjawab <strong>kemudi tidak berfungsi</strong>. Panoramik indikator kemudi tidak bergerak, tetap di tengah. Mualim IV menelepon Nakhoda yang sedang di kamar mandi.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.41 WITA</div><p>Seharusnya kapal sudah berubah ke haluan 007°, namun tetap 035°. Kapal melintang di depan Tanjung Batusori, alarm GPS berbunyi, waypoint 5 terlewati. Nakhoda mengambil alih komando; kemudi cikar kiri tidak memberi respons.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.48 WITA</div><p><strong>Kapal menubruk tebing Tanjung Batusori</strong> pada kecepatan 7 knot, haluan 035°. Mesin induk mati, kapal bergetar, bergerak mundur, haluan berputar searah jarum jam.</p></div>
+          <div class="tl-item"><div class="tl-time">22.52 WITA</div><p>Masinis IV naik ke anjungan, mesin diubah ke mode olah gerak. Kemudi dinyatakan normal. Kapal kembali ke Baubau, sandar 28 Juli 2025 pukul 00.37 WITA.</p></div>
+        </div>
+        <div class="hl purple" style="margin-top:24px">
+          <p><strong>🌍 Bandingkan dengan kasus internasional:</strong> Insiden kegagalan kemudi dan pengambilan keputusan di alur sempit memiliki paralel dengan <em>Costa Concordia</em> (Italia, 2012), <em>Exxon Valdez</em> (Alaska, 1989), dan <em>El Faro</em> (Atlantik, 2015).</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:14px;font-size:1.15rem">📋 Fakta Kunci &amp; Dampak</h3>
+        <div class="card" style="margin-bottom:16px">
+          <h3 style="font-size:.98rem">🧾 Data Kapal</h3>
+          <div class="tbl-wrap" style="margin-top:12px">
+            <table>
+              <tr><td><strong>Jenis</strong></td><td>Kapal Motor Penumpang</td></tr>
+              <tr><td><strong>Ukuran</strong></td><td>91,80 × 18,00 × 9,40 m</td></tr>
+              <tr><td><strong>GT / NT</strong></td><td>6022 / 1806</td></tr>
+              <tr><td><strong>Mesin</strong></td><td>2 × KRUPP-MAK 6MU435C, 2×2175 HP</td></tr>
+              <tr><td><strong>Pembangunan</strong></td><td>1995, Jerman</td></tr>
+              <tr><td><strong>Docking terakhir</strong></td><td>28 Jan – 19 Feb 2025, Cirebon</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:16px">
+          <h3 style="font-size:.98rem">⚠️ Konsekuensi</h3>
+          <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:10px">
+            <li>Tidak ada korban jiwa maupun luka</li>
+            <li>Tidak terjadi pencemaran lingkungan</li>
+            <li>Deformasi plat <em>bulbous bow</em> ±2 meter</li>
+            <li>Kebocoran tangki air tawar <em>Fore Peak Tank</em> (FPT)</li>
+            <li>Keterlambatan keberangkatan penumpang &amp; muatan</li>
+            <li>Perbaikan di PT PAL Surabaya selama 3 minggu</li>
+          </ul>
+        </div>
+        <div class="hl green"><p><strong>Catatan penting:</strong> Dalam putusan dinyatakan Mualim IV <strong>tidak melakukan kesalahan/kelalaian</strong>. Ia melapor kepada Nakhoda dan melaksanakan instruksi — dinilai telah bertindak sesuai <em>good seamanship</em>.</p></div>
+      </div>
+    </div>
+
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">⚖️ Amar Putusan Mahkamah Pelayaran</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable" onclick="openModal('tiloPenyebab')">
+        <div class="icon" style="background:rgba(239,68,68,.15)">Ⅰ</div>
+        <h3>Penyebab</h3>
+        <p>Kecelakaan disebabkan oleh <strong>kesalahan dan kelalaian faktor manusia (human error)</strong>.</p>
+      </div>
+      <div class="card clickable" onclick="openModal('tiloNakhoda')">
+        <div class="icon" style="background:rgba(245,185,66,.15)">Ⅱ</div>
+        <h3>Terduga I — Nakhoda</h3>
+        <p>Sdr. <strong>Slamet Santoso</strong> (ANT I) terbukti tidak melaksanakan Bridge Resource Management dan kewajiban P2TL/SOLAS/ISM Code.</p>
+        <div style="margin-top:12px"><span class="tag red">Pencabutan sementara sertifikat sebagai Nakhoda kapal niaga — 3 BULAN</span></div>
+      </div>
+      <div class="card clickable" onclick="openModal('tiloMualim')">
+        <div class="icon" style="background:rgba(34,197,94,.15)">Ⅲ</div>
+        <h3>Terduga II — Mualim IV</h3>
+        <p>Sdri. <strong>Hana Afrilia Rachmawati</strong> (ANT III) dinyatakan <strong>tidak memiliki kesalahan atau kelalaian</strong>.</p>
+        <div style="margin-top:12px"><span class="tag green">DIBEBASKAN</span></div>
+      </div>
+    </div>
+    <div class="hl red" style="margin-top:26px">
+      <p><strong>Prinsip hukum:</strong> Putusan Mahkamah Pelayaran bersifat administratif-profesional. Jangan mengubahnya menjadi kesimpulan pidana atau perdata yang tidak dinyatakan dalam dokumen putusan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tunu">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">03 — Studi Kasus B</span>
+      <h2>KMP Tunu Pratama Jaya: Kegagalan Stabilitas Progresif</h2>
+      <p>Keputusan Mahkamah Pelayaran Nomor HK.212/1/1/MP/2026 — dibacakan 14 Januari 2026</p>
+    </div>
+    <div class="case-hero">
+      <div>
+        <h3>🌊 KMP Tunu Pratama Jaya</h3>
+        <p style="color:var(--muted)">Kapal Ro-Ro Ferry · GT 792 · NT 238 · IMO 8749432 · Tanda Panggilan YCSR · Pemilik PT Raputra Jaya</p>
+        <div class="meta">
+          <span class="tag">📅 2 Juli 2025</span>
+          <span class="tag">🕚 23.35 WIB</span>
+          <span class="tag">📍 Selat Bali 08°09'33,11"S / 114°24'52,03"T</span>
+          <span class="tag gold">Rute: Ketapang → Gilimanuk</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-bottom:34px">
+      <div class="stat"><div class="val">53</div><div class="lbl">Penumpang (Manifest)</div></div>
+      <div class="stat"><div class="val">22</div><div class="lbl">Unit Kendaraan</div></div>
+      <div class="stat"><div class="val">12</div><div class="lbl">ABK On Board</div></div>
+      <div class="stat"><div class="val">2–3 m</div><div class="lbl">Tinggi Gelombang</div></div>
+    </div>
+    <h3 style="margin-bottom:6px;font-size:1.15rem">🔬 Rantai Kegagalan (Failure Chain) — Klik Setiap Tahap</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:22px">Mahkamah Pelayaran menyimpulkan kecelakaan sebagai <strong>kegagalan stabilitas yang bersifat progresif</strong> — bukan satu penyebab tunggal. Klik setiap tahap untuk penjelasan teknis lengkap dan sumber referensi.</p>
+    <div class="steps">
+      <div class="step" onclick="openModal('chainOverdraft')"><h4>Overdraft Sejak Bertolak</h4><p>Draft aktual <strong>2,897 m</strong> vs desain <strong>2,4 m</strong>. Beban aktual <strong>534,2 ton</strong> vs kapasitas desain <strong>137,7 ton</strong>. Daya apung cadangan berkurang drastis.</p><span class="t">Kondisi Awal</span></div>
+      <div class="step" onclick="openModal('chainWave')"><h4>Gelombang, Angin, Arus</h4><p>Gelombang 2–3 m dan angin kencang menyebabkan air masuk dan berkumpul di geladak kanan → kapal miring ke kanan.</p><span class="t">Faktor Alam</span></div>
+      <div class="step" onclick="openModal('chainFreeSurface')"><h4>Free Surface Effect</h4><p>Air di geladak menimbulkan efek permukaan bebas; kendaraan yang <strong>tidak ter-lashing baik</strong> bergeser ke sisi kanan.</p><span class="t">Pergeseran Muatan</span></div>
+      <div class="step" onclick="openModal('chainDownflood')"><h4>Air Masuk Kamar Mesin</h4><p><em>Weather tight door</em> akses kamar mesin dalam kondisi <strong>terbuka</strong> (alasan: suhu panas). Air laut masuk terus-menerus.</p><span class="t">Downflooding</span></div>
+      <div class="step" onclick="openModal('chain40pct')"><h4>Kamar Mesin Tergenang &gt;40%</h4><p>Simulasi BKI menunjukkan hampir seluruh kriteria stabilitas tidak terpenuhi pada skenario ini.</p><span class="t">Ambang Kritis</span></div>
+      <div class="step" onclick="openModal('chainCapsize')"><h4>Kehilangan Stabilitas Total</h4><p>Kapal <em>blackout</em>, terbalik ke kanan, dan tenggelam. Korban: 19 meninggal, 16–17 dalam pencarian.</p><span class="t">Konsekuensi</span></div>
+    </div>
+    <div class="grid g2" style="margin-top:44px">
+      <div class="card">
+        <h3>📐 Temuan Kunci Simulasi Stabilitas (PT BKI)</h3>
+        <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:12px">
+          <li><strong>Skenario 1</strong> — kondisi aktual pemuatan penuh: terindikasi <em>overdraft</em> 2,897 m (desain 2,4 m)</li>
+          <li><strong>Skenario 4</strong> — kamar mesin terisi 20% + muatan bergeser: stabilitas menurun tajam</li>
+          <li><strong>Skenario 6</strong> — kamar mesin terisi 40% + muatan bergeser: hampir seluruh kriteria stabilitas <strong>tidak terpenuhi</strong>, kapal terbalik</li>
+          <li>Sudut oleng (roll) pada gelombang 2–3 m mencapai <strong>12–18°</strong></li>
+          <li>Sudut pintu akses kamar mesin terhadap permukaan air pada sarat kapal hanya <strong>7,2°</strong></li>
+          <li>Tinggi ambang <em>weather tight door</em> kamar mesin: <strong>380 mm</strong></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧾 Data Teknis Kapal</h3>
+        <div class="tbl-wrap" style="margin-top:12px">
+          <table>
+            <tr><td><strong>Jenis</strong></td><td>Ro-Ro Ferry (eks LCT, modifikasi 2015)</td></tr>
+            <tr><td><strong>Ukuran</strong></td><td>56,52 × 12,20 × 3,60 m</td></tr>
+            <tr><td><strong>GT / NT</strong></td><td>792 / 238</td></tr>
+            <tr><td><strong>Mesin Utama</strong></td><td>2 × Yanmar 6LAHMO-STE3, 2×650 HP</td></tr>
+            <tr><td><strong>Draft Desain</strong></td><td>2,4 meter</td></tr>
+            <tr><td><strong>Draft Aktual</strong></td><td>2,897 meter (overdraft)</td></tr>
+            <tr><td><strong>Max Wheel Load</strong></td><td>3,3 ton / grup roda</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="hl purple" style="margin-top:34px">
+      <p><strong>🌍 Bandingkan dengan kasus internasional — kegagalan stabilitas &amp; muatan Ro-Ro:</strong> <em>Herald of Free Enterprise</em> (1987), <em>Estonia</em> (1994), <em>Sewol</em> (2014), dan <em>MS Express Samina</em> (2000).</p>
+    </div>
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">⚖️ Amar Putusan &amp; Rekomendasi</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable" onclick="openModal('tunuPenyebab')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅰ</div><h3>Penyebab</h3><p>Rangkaian kesalahan pada <strong>faktor manusia (human error)</strong> <em>dan</em> <strong>faktor organisasi</strong>.</p></div>
+      <div class="card clickable" onclick="openModal('tunuNakhoda')"><div class="icon" style="background:rgba(245,185,66,.15)">Ⅱ</div><h3>Terduga I — Nakhoda</h3><p>Sdr. <strong>Agus Slamet</strong> dinyatakan sebagai korban hilang (tidak ditemukan).</p><div style="margin-top:12px"><span class="tag gold">Tidak dapat dibebani tanggung jawab penuh</span></div></div>
+      <div class="card clickable" onclick="openModal('tunuMualim')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅲ</div><h3>Terduga II — Mualim II</h3><p>Sdr. <strong>Nurdin Yuswanto</strong> (ANT-V) dinilai belum sepenuhnya melaksanakan tugas.</p><div style="margin-top:12px"><span class="tag red">Pencabutan sementara sertifikat — 7 BULAN</span></div></div>
+    </div>
+    <h3 style="margin:44px 0 16px;font-size:1.2rem">🏢 Dugaan Pelanggaran Faktor Organisasi</h3>
+    <div class="grid g3">
+      <div class="card clickable" onclick="openModal('orgRaputra')"><div class="icon">🏭</div><h3>PT Raputra Jaya</h3><p><strong>Pasal 4 PM 30 Tahun 2016</strong> — Kewajiban Pengikatan Kendaraan pada Kapal Angkutan Penyeberangan.</p></div>
+      <div class="card clickable" onclick="openModal('orgASDP')"><div class="icon">🎫</div><h3>PT ASDP Indonesia Ferry</h3><p><strong>Pasal 3 PM 18 Tahun 2021</strong> — Pengawasan Muatan. Tidak tercatatnya berat pada <em>print out</em> tiket Ferizy.</p></div>
+      <div class="card clickable" onclick="openModal('orgBPTD')"><div class="icon">🏛️</div><h3>BPTD Kelas II Jawa Timur</h3><p><strong>Pasal 73 PM 60 Tahun 2019</strong> &amp; <strong>PM 6 Tahun 2023</strong> — Fungsi pengendalian keselamatan penyeberangan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="internasional" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">04 — Pembanding Global</span>
+      <h2>Kasus Internasional &amp; Pelajaran yang Mengubah Regulasi</h2>
+      <p>Klik setiap kartu untuk membuka detail lengkap dengan satu baris link sumber.</p>
+    </div>
+    <div class="card" style="max-width:760px;margin:0 auto 34px">
+      <h3 style="font-size:1rem">🔍 Cari Kasus Internasional Apa Pun</h3>
+      <div class="searchbox">
+        <input type="text" id="intlSearch" placeholder="Contoh: Costa Concordia, El Faro, Sewol, Titanic..." onkeydown="if(event.key==='Enter')doIntlSearch()">
+        <button onclick="doIntlSearch()">Cari di Google</button>
+      </div>
+    </div>
+    <div class="grid g3">
+      <div class="card intl clickable ext" onclick="openModal('intCosta')"><div class="icon">🇮🇹</div><h3>Costa Concordia</h3><p><strong>Italia, 13 Januari 2012.</strong> Kapal pesiar menabrak karang. 32 orang meninggal. Nakhoda dihukum 16 tahun.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intHerald')"><div class="icon">🇧🇪</div><h3>Herald of Free Enterprise</h3><p><strong>Belgia, 6 Maret 1987.</strong> Feri Ro-Ro berlayar dengan pintu haluan terbuka. 193 orang meninggal.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intEstonia')"><div class="icon">🇪🇪</div><h3>MS Estonia</h3><p><strong>Laut Baltik, 28 September 1994.</strong> Feri Ro-Ro tenggelam akibat kegagalan pintu haluan. 852 orang meninggal.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intElFaro')"><div class="icon">🇺🇸</div><h3>SS El Faro</h3><p><strong>Atlantik, 1 Oktober 2015.</strong> Kapal kargo AS terjebak Badai Joaquin. 33 awak hilang.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intSewol')"><div class="icon">🇰🇷</div><h3>Sewol Ferry</h3><p><strong>Korea Selatan, 16 April 2014.</strong> Feri dengan 476 orang terbalik akibat kelebihan muatan. 304 orang meninggal.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intExxon')"><div class="icon">🛢️</div><h3>Exxon Valdez</h3><p><strong>Alaska, 24 Maret 1989.</strong> Tanker menabrak karang. Tumpahan 10,8 juta galon minyak. Memicu OPA 90.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intTitanic')"><div class="icon">🚢</div><h3>RMS Titanic</h3><p><strong>Atlantik Utara, 15 April 1912.</strong> Kapal penumpang menabrak gunung es. 1.517 orang meninggal. Pemicu SOLAS.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intBowMariner')"><div class="icon">⛽</div><h3>Bow Mariner</h3><p><strong>Atlantik, 28 Februari 2004.</strong> Tanker kimia meledak saat membersihkan tangki kargo. 6 awak meninggal.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intMscChitra')"><div class="icon">📦</div><h3>MSC Chitra</h3><p><strong>Mumbai, 7 Agustus 2010.</strong> Kapal kontainer bertabrakan dengan kapal curah. Kontainer jatuh, tumpahan minyak.</p></div>
+    </div>
+    <div class="hl purple" style="margin-top:34px">
+      <p><strong>Pelajaran lintas kasus:</strong> Dari Titanic (1912) sampai Costa Concordia (2012), pola berulang muncul — <em>overconfidence</em>, deviasi prosedur, komunikasi anjungan yang lemah, dan pengawasan yang tidak efektif.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hukum">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">05 — Tinjauan Hukum &amp; Regulasi</span>
+      <h2>Enam Pilar Instrumen Hukum Maritim</h2>
+      <p>Klik setiap kartu untuk melihat penjelasan rinci dan satu baris link sumber.</p>
+    </div>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-t="p1">🚦 COLREG / P2TL</div>
+      <div class="tab" data-t="p2">🚢 SOLAS</div>
+      <div class="tab" data-t="p3">🛡️ ISM Code</div>
+      <div class="tab" data-t="p4">🎓 STCW</div>
+      <div class="tab" data-t="p5">🌊 MARPOL</div>
+      <div class="tab" data-t="p6">⚖️ Hukum Indonesia</div>
+    </div>
+    <div class="tab-panel active" id="p1">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('rule5')"><div class="icon">👁️</div><h3>Rule 5 — Proper Look-out</h3><p>Setiap kapal harus senantiasa melakukan pengamatan yang layak.</p></div>
+        <div class="card clickable" onclick="openModal('rule6')"><div class="icon">⚡</div><h3>Rule 6 — Safe Speed</h3><p>Setiap kapal harus bergerak dengan kecepatan aman.</p></div>
+      </div>
+      <div class="hl" style="margin-top:24px"><p><strong>Relevansi:</strong> Pada KM Tilongkabila, kapal berlayar <em>full away</em> 12–13 knot di alur sempit selebar ±7 cable — tidak memenuhi unsur kecepatan aman.</p></div>
+    </div>
+    <div class="tab-panel" id="p2">
+      <div class="grid g3">
+        <div class="card clickable" onclick="openModal('solas5')"><div class="icon">🧭</div><h3>SOLAS Bab V — Keselamatan Navigasi</h3><p>Ketentuan operasional navigasi bagi kapal.</p></div>
+        <div class="card clickable" onclick="openModal('solas24')"><div class="icon">🎛️</div><h3>Regulasi 24</h3><p>Penggunaan sistem kendali arah dan/atau jalur.</p></div>
+        <div class="card clickable" onclick="openModal('solas26')"><div class="icon">🕹️</div><h3>Regulasi 26</h3><p>Sistem kemudi, pengujian dan pelatihan.</p></div>
+        <div class="card clickable" onclick="openModal('solas34')"><div class="icon">⚠️</div><h3>Regulasi 34</h3><p>Keselamatan navigasi dan menghindari situasi berbahaya.</p></div>
+        <div class="card clickable" onclick="openModal('solas9')"><div class="icon">📗</div><h3>SOLAS Bab IX</h3><p>Manajemen keselamatan pengoperasian kapal.</p></div>
+        <div class="card clickable" onclick="openModal('passage')"><div class="icon">🗺️</div><h3>Passage Plan</h3><p>Perencanaan pelayaran, area sempit, titik panggil Nakhoda.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p3">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('ism7')"><div class="icon">🛡️</div><h3>ISM Code Elemen 7</h3><p>Pengendalian operasi kapal.</p></div>
+        <div class="card clickable" onclick="openModal('sms')"><div class="icon">📘</div><h3>SMS / SMK Perusahaan</h3><p>Sistem Manajemen Keselamatan.</p></div>
+        <div class="card clickable" onclick="openModal('dpA')"><div class="icon">👤</div><h3>Designated Person Ashore (DPA)</h3><p>Penghubung kapal–manajemen.</p></div>
+        <div class="card clickable" onclick="openModal('audit')"><div class="icon">🔍</div><h3>Audit &amp; Tindakan Korektif</h3><p>Apakah audit menghasilkan tindakan korektif nyata?</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p4">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('stcw1')"><div class="icon">🎓</div><h3>STCW 1978 &amp; Amandemen</h3><p>Standar internasional untuk pelatihan, sertifikasi, dan tugas jaga pelaut.</p></div>
+        <div class="card clickable" onclick="openModal('stcw2')"><div class="icon">🧠</div><h3>Sertifikat ≠ Kompetensi Nyata</h3><p>Sertifikat menunjukkan kualifikasi. Keselamatan tetap menuntut penerapan kompetensi.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p5">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('marpol1')"><div class="icon">🌊</div><h3>MARPOL 73/78</h3><p>Konvensi internasional utama untuk pencegahan pencemaran lingkungan laut oleh kapal.</p></div>
+        <div class="card clickable" onclick="openModal('marpol2')"><div class="icon">🚫</div><h3>Batas Kesimpulan</h3><p>Insiden menubruk tebing <strong>tidak otomatis</strong> membuktikan pelanggaran MARPOL.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p6">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('uu17')"><div class="icon">⚖️</div><h3>UU No. 17 Tahun 2008 tentang Pelayaran</h3><p>Sebagaimana diubah dengan <strong>UU No. 66 Tahun 2024</strong>.</p></div>
+        <div class="card clickable" onclick="openModal('pm25')"><div class="icon">📡</div><h3>PM 25 Tahun 2011</h3><p>Pasal 42 ayat (2) — Sarana Bantu Navigasi Pelayaran.</p></div>
+        <div class="card clickable" onclick="openModal('kuhd')"><div class="icon">📜</div><h3>Pasal 384 KUHD</h3><p>Kewajiban anak buah kapal kepada Nakhoda.</p></div>
+        <div class="card clickable" onclick="openModal('pembeda')"><div class="icon">🔀</div><h3>Membedakan Jenis Proses Hukum</h3><p>Profesi/kompetensi ≠ pidana ≠ perdata ≠ investigasi keselamatan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tot" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">06 — Metodologi Pembelajaran</span>
+      <h2>Kerangka TOT 6.09: Enam Tahap, Sembilan Elemen</h2>
+      <p>Pendekatan <em>Training of Trainers</em> yang diadaptasi untuk pembelajaran maritim berbasis kasus nyata.</p>
+    </div>
+    <div class="hl" style="margin-bottom:32px">
+      <p><strong>📌 Klik setiap kartu di bawah</strong> untuk membuka penjelasan rinci tentang elemen pembelajaran tersebut, plus satu baris link sumber.</p>
+    </div>
+    <h3 style="margin-bottom:22px;font-size:1.2rem">🔹 Enam Tahap Pengalaman Belajar</h3>
+    <div class="steps">
+      <div class="step" onclick="openModal('totExp')"><h4>Mengalami (Experience)</h4><p>Peserta membaca/menonton rekonstruksi kasus nyata.</p><span class="t">⏱ 20 menit · Video / Narasi Kasus</span></div>
+      <div class="step" onclick="openModal('totShare')"><h4>Mengungkap (Share)</h4><p>Peserta mendiskusikan apa yang mereka amati tanpa intervensi fasilitator.</p><span class="t">⏱ 20 menit · Diskusi Kelompok Kecil</span></div>
+      <div class="step" onclick="openModal('totProcess')"><h4>Memproses (Process)</h4><p>Fasilitator memandu analisis dengan instrumen hukum.</p><span class="t">⏱ 40 menit · Analisis Terbimbing</span></div>
+      <div class="step" onclick="openModal('totGeneralize')"><h4>Menggeneralisasi (Generalize)</h4><p>Menarik prinsip umum: BRM, kecepatan aman, titik panggil Nakhoda.</p><span class="t">⏱ 20 menit · Sintesis Prinsip</span></div>
+      <div class="step" onclick="openModal('totApply')"><h4>Menerapkan (Apply)</h4><p>Simulasi anjungan, penyusunan <em>passage plan</em>, drill kemudi darurat.</p><span class="t">⏱ 60 menit · Simulator / Role Play</span></div>
+      <div class="step" onclick="openModal('totEvaluate')"><h4>Mengevaluasi (Evaluate)</h4><p>Asesmen berbasis kinerja: observasi jaga, komunikasi, eskalasi.</p><span class="t">⏱ 30 menit · Asesmen Formatif</span></div>
+    </div>
+    <h3 style="margin:52px 0 22px;font-size:1.2rem">🔸 Sembilan Elemen Efektivitas Pembelajaran</h3>
+    <div class="grid g3">
+      <div class="card clickable" onclick="openModal('el1')"><div class="icon">🎯</div><h3 style="font-size:.98rem">1. Relevansi</h3><p>Materi langsung terkait tugas nyata perwira jaga.</p></div>
+      <div class="card clickable" onclick="openModal('el2')"><div class="icon">📖</div><h3 style="font-size:.98rem">2. Konteks Nyata</h3><p>Studi kasus otentik dari putusan Mahkamah Pelayaran.</p></div>
+      <div class="card clickable" onclick="openModal('el3')"><div class="icon">🙋</div><h3 style="font-size:.98rem">3. Partisipasi Aktif</h3><p>Peserta menganalisis, berdebat, dan memutuskan.</p></div>
+      <div class="card clickable" onclick="openModal('el4')"><div class="icon">🔁</div><h3 style="font-size:.98rem">4. Umpan Balik</h3><p>Fasilitator dan rekan memberi koreksi langsung.</p></div>
+      <div class="card clickable" onclick="openModal('el5')"><div class="icon">🔂</div><h3 style="font-size:.98rem">5. Pengulangan Terdistribusi</h3><p>Konsep kunci diulang di beberapa sesi berbeda.</p></div>
+      <div class="card clickable" onclick="openModal('el6')"><div class="icon">🎬</div><h3 style="font-size:.98rem">6. Multi-Sensori</h3><p>Kombinasi visual, audio, kinestetik.</p></div>
+      <div class="card clickable" onclick="openModal('el7')"><div class="icon">🤝</div><h3 style="font-size:.98rem">7. Kolaborasi</h3><p>Kerja tim anjungan disimulasikan.</p></div>
+      <div class="card clickable" onclick="openModal('el8')"><div class="icon">🪞</div><h3 style="font-size:.98rem">8. Refleksi</h3><p>Peserta menuliskan pembelajaran pribadi.</p></div>
+      <div class="card clickable" onclick="openModal('el9')"><div class="icon">📊</div><h3 style="font-size:.98rem">9. Asesmen &amp; Transfer</h3><p>Penilaian berbasis kinerja dan rencana penerapan.</p></div>
+    </div>
+    <h3 style="margin:52px 0 6px;font-size:1.2rem">🎯 Learning Outcomes (Capaian Pembelajaran)</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:22px">Menggunakan taksonomi Bloom — dari memahami hingga mencipta. <strong>Klik setiap LO</strong> untuk detail, indikator, rubrik, dan link sumber.</p>
+    <div class="lo" onclick="openModal('lo1')"><div class="code">LO-1 · C2 (Memahami)</div><p>Menjelaskan kronologi dan penyebab kecelakaan KM Tilongkabila dan KMP Tunu Pratama Jaya berdasarkan fakta dalam putusan.</p><small>Asesmen: kuis pilihan ganda + penyusunan garis waktu</small></div>
+    <div class="lo" onclick="openModal('lo2')"><div class="code">LO-2 · C3 (Menerapkan)</div><p>Menerapkan Rule 5 dan Rule 6 COLREG/P2TL serta ketentuan SOLAS Bab V dalam pengambilan keputusan navigasi di perairan sempit.</p><small>Asesmen: studi kasus kecepatan aman &amp; pengamatan</small></div>
+    <div class="lo" onclick="openModal('lo3')"><div class="code">LO-3 · C4 (Menganalisis)</div><p>Menganalisis keterkaitan antara pelaksanaan Bridge Resource Management, penerapan ISM Code, dan terjadinya kegagalan keselamatan.</p><small>Asesmen: analisis akar masalah (root cause analysis)</small></div>
+    <div class="lo" onclick="openModal('lo4')"><div class="code">LO-4 · C5 (Mengevaluasi)</div><p>Mengevaluasi efektivitas prosedur kapal (SMS/SMK) terhadap kebutuhan operasional nyata.</p><small>Asesmen: audit SMS simulasi dengan temuan &amp; rekomendasi</small></div>
+    <div class="lo" onclick="openModal('lo5')"><div class="code">LO-5 · C6 (Mencipta)</div><p>Menyusun passage plan yang aman, checklist MARPOL pascakejadian, dan skenario drill kemudi darurat.</p><small>Asesmen: produk portofolio + presentasi</small></div>
+    <div class="lo" onclick="openModal('lo6')"><div class="code">LO-6 · Afektif (A3–A4)</div><p>Menunjukkan sikap berani menyampaikan keraguan (speak up), disiplin prosedur, dan komitmen budaya keselamatan.</p><small>Asesmen: observasi simulasi anjungan + jurnal refleksi</small></div>
+    <h3 style="margin:52px 0 22px;font-size:1.2rem">🧰 Training Aids &amp; Media</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px">Klik setiap kartu untuk penjelasan fungsi alat, cara penggunaan dalam sesi TOT, dan link sumber.</p>
+    <div class="grid g4">
+      <div class="card clickable" onclick="openModal('aid1')"><div class="icon">🖥️</div><h3 style="font-size:.93rem">Simulator Anjungan</h3><p>Latihan olah gerak, kegagalan kemudi, dan komunikasi tim anjungan.</p></div>
+      <div class="card clickable" onclick="openModal('aid2')"><div class="icon">🗺️</div><h3 style="font-size:.93rem">Peta &amp; ECDIS</h3><p>Penandaan area sempit, waypoint, dan titik panggil Nakhoda.</p></div>
+      <div class="card clickable" onclick="openModal('aid3')"><div class="icon">📊</div><h3 style="font-size:.93rem">Stability Booklet</h3><p>Latihan membaca kurva stabilitas, menghitung GM, dan mengenali overdraft.</p></div>
+      <div class="card clickable" onclick="openModal('aid4')"><div class="icon">🎥</div><h3 style="font-size:.93rem">Video Rekonstruksi</h3><p>Rekonstruksi kronologi kasus dan animasi rantai kegagalan stabilitas.</p></div>
+      <div class="card clickable" onclick="openModal('aid5')"><div class="icon">📋</div><h3 style="font-size:.93rem">Checklist &amp; Form</h3><p>Departure checklist, lashing checklist, dan form audit SMS.</p></div>
+      <div class="card clickable" onclick="openModal('aid6')"><div class="icon">🧯</div><h3 style="font-size:.93rem">Alat Keselamatan Nyata</h3><p>Life jacket, liferaft, APAR, dan peragaan penggunaan langsung.</p></div>
+      <div class="card clickable" onclick="openModal('aid7')"><div class="icon">📱</div><h3 style="font-size:.93rem">Aplikasi Interaktif</h3><p>Kuis digital, polling, dan diskusi daring untuk memperkuat retensi.</p></div>
+      <div class="card clickable" onclick="openModal('aid8')"><div class="icon">📁</div><h3 style="font-size:.93rem">Salinan Putusan</h3><p>Dokumen otentik sebagai sumber primer analisis hukum.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="aktivitas">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">07 — Rencana Pembelajaran Taruna</span>
+      <h2>Enam Aktivitas Terstruktur</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card clickable" onclick="openModal('akt1')"><div class="icon">🕐</div><h3>Aktivitas 1 — Kronologi</h3><p>Susun garis waktu dan pisahkan fakta dokumen dari interpretasi.</p></div>
+      <div class="card clickable" onclick="openModal('akt2')"><div class="icon">👥</div><h3>Aktivitas 2 — Bridge Team</h3><p>Simulasi pembagian tugas, monitoring posisi, komunikasi <em>closed-loop</em>.</p></div>
+      <div class="card clickable" onclick="openModal('akt3')"><div class="icon">⚡</div><h3>Aktivitas 3 — Keputusan Kecepatan</h3><p>Analisis arus, kedalaman, jarak tebing, kemampuan berhenti/berbelok.</p></div>
+      <div class="card clickable" onclick="openModal('akt4')"><div class="icon">🔍</div><h3>Aktivitas 4 — Audit SMS</h3><p>Temukan prosedur yang seharusnya ada dan bukti pelaksanaannya.</p></div>
+      <div class="card clickable" onclick="openModal('akt5')"><div class="icon">🌊</div><h3>Aktivitas 5 — Lingkungan</h3><p>Buat daftar pemeriksaan MARPOL pascakejadian tanpa asumsi.</p></div>
+      <div class="card clickable" onclick="openModal('akt6')"><div class="icon">🌍</div><h3>Aktivitas 6 — Studi Komparatif</h3><p>Bandingkan satu kasus nasional dengan satu kasus internasional.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="diskusi" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">08 — Refleksi &amp; Kuis</span>
+      <h2>Uji Pemahaman Anda</h2>
+    </div>
+    <div class="grid g2" style="margin-bottom:36px">
+      <div class="quiz" data-answer="b">
+        <h4>❓ Pertanyaan 1</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Pada KM Tilongkabila, mengapa Mualim IV dinyatakan <strong>tidak</strong> melakukan kesalahan/kelalaian?</p>
+        <div class="opt" data-k="a">A. Karena ia tidak berada di anjungan saat kejadian</div>
+        <div class="opt" data-k="b">B. Karena ia melapor kepada Nakhoda, melaksanakan instruksi, dan bertindak sesuai good seamanship</div>
+        <div class="opt" data-k="c">C. Karena ia memiliki sertifikat ANT III yang masih berlaku</div>
+        <div class="opt" data-k="d">D. Karena cuaca saat kejadian buruk</div>
+        <div class="fb"></div>
+      </div>
+      <div class="quiz" data-answer="c">
+        <h4>❓ Pertanyaan 2</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa penyebab utama tenggelamnya KMP Tunu Pratama Jaya menurut Mahkamah Pelayaran?</p>
+        <div class="opt" data-k="a">A. Semata-mata cuaca ekstrem</div>
+        <div class="opt" data-k="b">B. Kegagalan mesin induk</div>
+        <div class="opt" data-k="c">C. Kegagalan stabilitas progresif yang diawali overdraft, diperparah pergeseran muatan dan masuknya air ke kamar mesin</div>
+        <div class="opt" data-k="d">D. Kebocoran lambung akibat tubrukan dengan karang</div>
+        <div class="fb"></div>
+      </div>
+      <div class="quiz" data-answer="a">
+        <h4>❓ Pertanyaan 3</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Rule 5 COLREG mengatur tentang…</p>
+        <div class="opt" data-k="a">A. Pengamatan yang layak (proper look-out)</div>
+        <div class="opt" data-k="b">B. Kecepatan aman</div>
+        <div class="opt" data-k="c">C. Lampu navigasi</div>
+        <div class="opt" data-k="d">D. Prosedur darurat</div>
+        <div class="fb"></div>
+      </div>
+      <div class="quiz" data-answer="d">
+        <h4>❓ Pertanyaan 4</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Manakah pernyataan yang <strong>paling tepat</strong> mengenai MARPOL dalam kasus KM Tilongkabila?</p>
+        <div class="opt" data-k="a">A. MARPOL pasti dilanggar karena kapal menubruk tebing</div>
+        <div class="opt" data-k="b">B. MARPOL tidak relevan sama sekali</div>
+        <div class="opt" data-k="c">C. Pelanggaran MARPOL otomatis terjadi jika ada kebocoran tangki air tawar</div>
+        <div class="opt" data-k="d">D. MARPOL relevan sebagai aspek pemeriksaan risiko lingkungan, tetapi pelanggaran hanya dapat dinyatakan jika didukung fakta dan dasar hukum</div>
+        <div class="fb"></div>
+      </div>
+    </div>
+    <div class="card" style="background:linear-gradient(150deg,rgba(34,211,238,.09),rgba(255,255,255,.02));border-color:rgba(34,211,238,.3)">
+      <h3>💬 Pertanyaan Diskusi Terbuka</h3>
+      <p style="margin-bottom:16px"><strong>Jika Anda perwira jaga di alur sempit, indikator apa yang membuat Anda mengurangi kecepatan atau segera memanggil Nakhoda?</strong></p>
+      <div class="acc"><div class="acc-head" onclick="toggleAcc(this)"><span>Indikator lingkungan &amp; posisi</span><span class="ch">＋</span></div><div class="acc-body"><ul><li>Posisi kapal mulai menyimpang dari garis haluan</li><li>Jarak ke bahaya mengecil di bawah margin aman</li><li>Lebar alur menyempit dan lalu lintas ramai</li><li>Arus kuat melintang atau pasang naik</li></ul></div></div>
+      <div class="acc"><div class="acc-head" onclick="toggleAcc(this)"><span>Indikator teknis &amp; alat</span><span class="ch">＋</span></div><div class="acc-body"><ul><li>Respons kemudi lambat atau tidak sinkron</li><li>Alarm GPS/ECDIS berbunyi</li><li>Kecepatan aktual lebih tinggi dari perintah</li><li>Jarak henti kapal lebih besar dari jarak ke bahaya</li></ul></div></div>
+      <div class="acc"><div class="acc-head" onclick="toggleAcc(this)"><span>Indikator manusia &amp; tim</span><span class="ch">＋</span></div><div class="acc-body"><ul><li>Merasa ragu terhadap situasi</li><li>Juru mudi menyampaikan keluhan</li><li>Komunikasi dengan kamar mesin tidak ada respons</li><li>Kelelahan atau jam jaga terlalu panjang</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sumber">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">09 — Sumber &amp; Catatan</span>
+      <h2>Rujukan dan Dasar Penyusunan</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="icon">📄</div>
+        <h3>Sumber Primer</h3>
+        <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:12px">
+          <li>Keputusan Mahkamah Pelayaran No. <strong>HK.212/1/9/MP/2025</strong> — KM Tilongkabila (dibacakan 25 September 2025)</li>
+          <li>Keputusan Mahkamah Pelayaran No. <strong>HK.212/1/1/MP/2026</strong> — KMP Tunu Pratama Jaya (dibacakan 14 Januari 2026)</li>
+          <li>Materi "Studi Kasus KM Tilongkabila" oleh Rafael Sukirno, CE</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3>Referensi Umum &amp; Internasional</h3>
+        <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:12px">
+          <li>IMO — COLREG 1972, SOLAS 1974, STCW 1978, MARPOL 73/78</li>
+          <li>ISM Code (International Safety Management Code)</li>
+          <li>UU No. 17 Tahun 2008 tentang Pelayaran, sebagaimana diubah dengan UU No. 66 Tahun 2024</li>
+          <li>KUHD Pasal 384</li>
+          <li>PM Perhubungan No. 25/2011, PM 30/2016, PM 60/2019, PM 18/2021, PM 6/2023</li>
+          <li>Putusan &amp; investigasi internasional: Costa Concordia, Herald of Free Enterprise, MS Estonia, El Faro, Sewol, Exxon Valdez, Titanic</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:24px;border-color:rgba(245,185,66,.35);background:linear-gradient(150deg,rgba(245,185,66,.08),rgba(255,255,255,.02))">
+      <h3>⚠️ Catatan Penggunaan</h3>
+      <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:12px">
+        <li>Materi ini adalah <strong>bahan pembelajaran</strong>, bukan pendapat hukum final.</li>
+        <li>MARPOL dan ketentuan hukum nasional dibahas sebagai <strong>kerangka tinjauan</strong>.</li>
+        <li>Gunakan bunyi putusan sebagai dasar; jangan mengubahnya menjadi kesimpulan pidana atau perdata.</li>
+        <li>Untuk penggunaan resmi, cocokkan versi peraturan pada JDIH pemerintah.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand" style="justify-content:center;margin-bottom:18px">
+    <div class="logo">⚓</div>
+    <div style="text-align:left">MARITIME LEARNING HUB<small>by Rafael Sukirno, CE</small></div>
+  </div>
+  <p><strong>Studi Kasus Keselamatan Pelayaran</strong> — KM Tilongkabila &amp; KMP Tunu Pratama Jaya</p>
+  <p>Disusun untuk diskusi pendidikan kemaritiman. Kerangka pembelajaran TOT 6.09, tinjauan COLREG/P2TL, SOLAS, ISM Code, STCW, MARPOL, dan hukum pelayaran Indonesia.</p>
+  <div class="credit">
+    <div class="av">RS</div>
+    <h4>Rafael Sukirno, CE</h4>
+    <p>Penyusun &amp; Pengembang Modul</p>
+  </div>
+  <div class="disc">
+    Modul ini merupakan bahan ajar. Seluruh kesimpulan hukum mengacu pada dokumen putusan Mahkamah Pelayaran yang tersedia.
+    Tidak ada bagian dari modul ini yang dimaksudkan sebagai nasihat hukum. Untuk keperluan resmi, rujuk selalu dokumen otentik dan peraturan yang berlaku.
+  </div>
+  <p style="margin-top:24px;font-size:.78rem;color:#5d7186">© 2026 Maritime Learning Hub · Dibuat untuk tujuan edukasi</p>
+</footer>
+
+<button id="top" aria-label="Kembali ke atas">↑</button>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modalBox">
+    <button class="close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ================= SINGLE-LAYER LINK BAR ================= */
+/* Satu baris link saja per modal — tidak bertumpuk */
+function linkBar(query){
+  const q = encodeURIComponent(query);
+  return `<div class="chips" style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(34,211,238,.25);justify-content:flex-start">
+    <a class="chip" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">🔍 Google</a>
+    <a class="chip" href="https://en.wikipedia.org/w/index.php?search=${q}" target="_blank" rel="noopener">📚 Wikipedia</a>
+    <a class="chip" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">▶️ YouTube</a>
+    <a class="chip" href="https://id.pinterest.com/search/pins/?q=${q}" target="_blank" rel="noopener">📌 Pinterest</a>
+    <a class="chip" href="https://www.imo.org" target="_blank" rel="noopener">⚓ IMO</a>
+    <a class="chip" href="https://iacs.org.uk/" target="_blank" rel="noopener">🏛️ IACS</a>
+    <a class="chip" href="https://jdih.dephub.go.id/" target="_blank" rel="noopener">🇮🇩 JDIH</a>
+  </div>`;
+}
+
+function doIntlSearch(){
+  const q = document.getElementById('intlSearch').value.trim();
+  if(!q){ alert('Masukkan kata kunci kasus, misalnya: Costa Concordia'); return; }
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(q + ' maritime disaster investigation report'), '_blank', 'noopener');
+}
+function quickSearch(q){ window.open('https://www.google.com/search?q=' + encodeURIComponent(q + ' maritime investigation'), '_blank', 'noopener'); }
+
+/* ================= MODAL CONTENT MAP — DETAIL & PANJANG ================= */
+const MODALS = {
+
+  /* ===== AUTHOR ===== */
+  author:{title:"Rafael Sukirno, CE",sub:"Penyusun &amp; Pengembang Modul Pembelajaran",body:`
+    <p><strong>Rafael Sukirno, CE</strong> adalah penyusun dan pengembang modul <em>Maritime Learning Hub</em> ini. Modul dirancang sebagai bahan pembelajaran hukum dan keselamatan pelayaran berbasis studi kasus nyata — dengan pendekatan yang menggabungkan analisis putusan Mahkamah Pelayaran Indonesia, penerapan instrumen internasional (COLREG, SOLAS, ISM Code, STCW, MARPOL), serta pembandingan dengan kasus-kasus internasional yang telah mengubah lanskap regulasi maritim global.</p>
+    <h4>Tujuan Penyusunan</h4>
+    <p>Modul ini disusun untuk membantu taruna, perwira kapal, instruktur pelatihan maritim, dan pemangku kepentingan industri pelayaran dalam memahami bagaimana keputusan-keputusan kecil di anjungan dapat berujung pada konsekuensi besar. Dua kasus dipilih sebagai studi utama: <strong>KM Tilongkabila</strong> (tubrukan tebing, Selat Buton, 2025) dan <strong>KMP Tunu Pratama Jaya</strong> (tenggelam, Selat Bali, 2025). Keduanya merepresentasikan pola kegagalan yang berbeda namun berbagi benang merah: <em>human error</em> yang diperparah oleh <em>faktor organisasi</em>.</p>
+    <h4>Metodologi</h4>
+    <p>Pendekatan pedagogis yang digunakan adalah <strong>TOT 6.09</strong> — enam tahap pengalaman belajar (Mengalami, Mengungkap, Memproses, Menggeneralisasi, Menerapkan, Mengevaluasi) yang dipadukan dengan sembilan elemen efektivitas pembelajaran (Relevansi, Konteks Nyata, Partisipasi Aktif, Umpan Balik, Pengulangan Terdistribusi, Multi-Sensori, Kolaborasi, Refleksi, Asesmen &amp; Transfer).</p>
+    <h4>Bidang Kajian</h4>
+    <ul>
+      <li>Analisis putusan Mahkamah Pelayaran Indonesia</li>
+      <li>Penerapan COLREG/P2TL, SOLAS, ISM Code, STCW, dan MARPOL</li>
+      <li>Kerangka pembelajaran TOT 6.09 untuk pendidikan kemaritiman</li>
+      <li>Pembandingan dengan kasus internasional: Costa Concordia, Herald of Free Enterprise, MS Estonia, El Faro, Sewol, Exxon Valdez, Titanic, Bow Mariner, MSC Chitra</li>
+      <li>Hukum pelayaran nasional: UU 17/2008, UU 66/2024, KUHD Pasal 384, dan berbagai PM Perhubungan</li>
+    </ul>
+    <div class="hl"><p>Modul ini adalah <strong>bahan pembelajaran</strong>, bukan pendapat hukum final. Untuk penggunaan resmi, selalu rujuk pada dokumen otentik dan peraturan yang berlaku.</p></div>
+    ${linkBar('Rafael Sukirno maritime learning Indonesia')}
+  `},
+
+  /* ===== RINGKASAN KASUS ===== */
+  mTilo:{title:"KM Tilongkabila — Ringkasan Kasus",sub:"Tubrukan Tebing Tanjung Batusori · 27 Juli 2025",body:`
+    <p><strong>KM Tilongkabila</strong> adalah kapal motor penumpang berbendera Indonesia milik PT Pelayaran Nasional Indonesia (Persero), dengan tanda panggilan YFCD, GT 6022, dan NT 1806. Kapal ini digerakkan oleh 2 unit mesin diesel KRUPP-MAK dengan daya 2 × 1600 KW / 2175 HP pada 600 rpm.</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Pada 27 Juli 2025 sekira pukul 22.00 WITA, kapal bertolak dari Pelabuhan Murhum Baubau menuju Pelabuhan Raha dengan membawa <strong>1.306 penumpang</strong>, 77 awak kapal termasuk Nakhoda, dan 33,76 ton muatan umum. Draft depan 4,4 meter dan draft belakang 4,6 meter. Cuaca cerah, arus ke utara.</p>
+    <p>Sekira pukul 22.15 WITA, kapal <em>full away</em> dengan haluan 009°, kecepatan 11 knot. Nakhoda meninggalkan anjungan dan mendelegasikan navigasi kepada Mualim IV sebagai perwira jaga — sebuah keputusan yang kemudian menjadi titik kritis. Kapal berlayar di alur sempit Selat Buton dengan lebar alur hanya sekitar 7 cable (±1,3 km).</p>
+    <p>Pukul 22.20 WITA, Mualim IV mengubah haluan ke 035° sesuai passage plan. Kecepatan meningkat menjadi 12–13 knot karena terdorong arus utara. Kemudian, pada pukul 22.35 WITA, posisi kapal mulai jatuh kiri dari garis haluan. Ketika Mualim IV memerintahkan kemudi kanan 5, Juru Mudi melaporkan bahwa kemudi tidak berfungsi — panoramik indikator kemudi tetap di tengah.</p>
+    <p>Meskipun Nakhoda segera dipanggil dan mengambil alih komando, kapal tetap tidak dapat dikendalikan. Pada pukul 22.48 WITA, kapal menubruk Tebing Tanjung Batusori dengan kecepatan 7 knot pada haluan 035°.</p>
+    <h4>Hasil Putusan</h4>
+    <p>Mahkamah Pelayaran dalam putusan No. HK.212/1/9/MP/2025 menyimpulkan kecelakaan <strong>disebabkan oleh kesalahan dan kelalaian faktor manusia (human error)</strong>. Nakhoda Slamet Santoso dikenai sanksi pencabutan sementara sertifikat sebagai Nakhoda kapal niaga selama <strong>3 bulan</strong>. Sementara Mualim IV Hana Afrilia Rachmawati <strong>dibebaskan</strong> karena dinilai telah bertindak sesuai good seamanship.</p>
+    <h4>Konsekuensi Insiden</h4>
+    <ul>
+      <li>Tidak ada korban jiwa maupun luka</li>
+      <li>Tidak terjadi pencemaran lingkungan</li>
+      <li>Deformasi plat bulbous bow ±2 meter</li>
+      <li>Kebocoran tangki air tawar Fore Peak Tank (FPT)</li>
+      <li>Perbaikan di PT PAL Surabaya selama 3 minggu</li>
+    </ul>
+    <div class="hl purple"><p><strong>🌍 Bandingkan internasional:</strong> Costa Concordia (2012), Exxon Valdez (1989), El Faro (2015) — ketiganya memiliki pola kegagalan BRM dan keputusan pengambilan risiko di bawah tekanan waktu.</p></div>
+    ${linkBar('KM Tilongkabila Mahkamah Pelayaran 2025 human error bridge resource management')}
+  `},
+
+  mTunu:{title:"KMP Tunu Pratama Jaya — Ringkasan Kasus",sub:"Tenggelam di Selat Bali · 2 Juli 2025",body:`
+    <p><strong>KMP Tunu Pratama Jaya</strong> adalah kapal Ro-Ro Ferry hasil modifikasi dari Landing Craft Tank (LCT), berbendera Indonesia, GT 792, NT 238, IMO 8749432, dengan tanda panggilan YCSR. Kapal ini dimiliki oleh PT Raputra Jaya.</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Pada 2 Juli 2025 sekira pukul 22.55 WIB, kapal bertolak dari Dermaga LCM Pelabuhan Ketapang menuju Pelabuhan Gilimanuk dengan membawa 53 penumpang (menurut manifest), 22 unit kendaraan, dan 12 awak kapal on board. Draft depan 1,8 m, tengah 2,2 m, dan belakang 2,4 m.</p>
+    <p>Sekitar 30 menit setelah bertolak, kapal mulai miring ke kanan. Kondisi cuaca saat itu menunjukkan gelombang 2–3 meter dengan angin kencang dari selatan dan arus kuat. Kemiringan tersebut kemudian mengakibatkan air laut masuk ke kamar mesin melalui <em>weather tight door</em> yang terbuka, dan kendaraan di atas geladak yang tidak ter-lashing baik bergeser ke sisi kanan.</p>
+    <p>Pada pukul 23.35 WIB, kapal kehilangan stabilitas total, <em>blackout</em>, terbalik ke kanan, dan tenggelam di Perairan Selat Bali pada koordinat 08°09'33,11"S / 114°24'52,03"T.</p>
+    <h4>Hasil Putusan</h4>
+    <p>Mahkamah Pelayaran dalam putusan No. HK.212/1/1/MP/2026 menyimpulkan kecelakaan <strong>disebabkan oleh rangkaian kesalahan pada faktor manusia (human error) dan faktor organisasi</strong>. Mualim II Nurdin Yuswanto dikenai sanksi pencabutan sementara sertifikat sebagai Perwira Dinas Jaga selama <strong>7 bulan</strong>. Sementara Nakhoda Agus Slamet dinyatakan sebagai korban hilang (BASARNAS), sehingga tidak dapat dimintai keterangan.</p>
+    <h4>Korban &amp; Dampak</h4>
+    <ul>
+      <li>19 orang meninggal dunia</li>
+      <li>16–17 orang dalam pencarian (data bervariasi menurut sumber dalam berkas)</li>
+      <li>Kapal beserta muatan tenggelam</li>
+    </ul>
+    <div class="hl purple"><p><strong>🌍 Bandingkan internasional:</strong> Herald of Free Enterprise (1987), MS Estonia (1994), Sewol (2014) — ketiganya menunjukkan pola kegagalan stabilitas progresif pada kapal Ro-Ro.</p></div>
+    ${linkBar('KMP Tunu Pratama Jaya tenggelam Selat Bali 2025 stability failure RoRo')}
+  `},
+
+  /* ===== RANTAI KEGAGALAN — DETAIL ===== */
+  chainOverdraft:{title:"Tahap 1 — Overdraft Sejak Bertolak",sub:"Kondisi Awal · Draft Melebihi Desain",body:`
+    <p><strong>Overdraft</strong> atau kelebihan sarat adalah kondisi ketika sarat (draft) kapal aktual melebihi sarat desain maksimum yang disetujui dalam Sertifikat Garis Muat. Ini mengurangi <em>freeboard</em> (lambung timbul) dan <em>reserve buoyancy</em> (daya apung cadangan).</p>
+    <h4>Data Aktual KMP Tunu Pratama Jaya</h4>
+    <ul>
+      <li>Draft aktual saat berangkat: <strong>2,897 meter</strong></li>
+      <li>Draft desain yang disetujui BKI: <strong>2,4 meter</strong></li>
+      <li>Beban aktual: <strong>534,2 ton</strong></li>
+      <li>Kapasitas desain: <strong>137,7 ton</strong> (60 penumpang + 23 kendaraan beserta isinya)</li>
+      <li>Kelebihan draft: <strong>±0,5 meter</strong></li>
+      <li>Kelebihan beban: <strong>±396,5 ton</strong></li>
+    </ul>
+    <h4>Konsekuensi Teknis</h4>
+    <p>Pada kondisi overdraft, penambahan muatan umumnya diikuti oleh kenaikan <em>KG</em> (pusat berat) yang lebih besar daripada kenaikan <em>KB</em> (pusat apung). Ini menyebabkan nilai <strong>GM (metacentric height)</strong> mengecil dan cadangan stabilitas berkurang signifikan. Khusus untuk kapal Ro-Ro, kendaraan bermuatan tinggi memindahkan titik berat ke atas, memperparah situasi.</p>
+    <p>Selain itu, overdraft mengurangi freeboard sehingga air lebih mudah masuk ke geladak kendaraan saat gelombang. Sudut <em>downflooding</em> juga menjadi lebih kecil, mengurangi rentang sudut stabilitas kapal.</p>
+    <div class="hl red"><p><strong>Kesimpulan:</strong> Kapal dapat tetap tegak di air tenang, namun memiliki kemampuan sangat terbatas untuk menahan gangguan dinamis. Dalam kondisi ini, kapal berada pada titik kritis yang rentan terhadap kegagalan mendadak.</p></div>
+    <h4>Dasar Regulasi</h4>
+    <p>International Convention on Load Lines (LL 1966/88) menetapkan batas lambung timbul minimum. Overdraft adalah pelanggaran terhadap sertifikat garis muat dan menunjukkan lemahnya pengawasan terhadap muatan.</p>
+    ${linkBar('ship overdraft freeboard reserve buoyancy Load Lines Convention stability')}
+  `},
+
+  chainWave:{title:"Tahap 2 — Gelombang, Angin, dan Arus",sub:"Faktor Alam yang Memicu Kemiringan",body:`
+    <p>Kondisi cuaca di Selat Bali saat kejadian tercatat memiliki gelombang setinggi <strong>2–3 meter</strong>, angin kencang dari selatan, dan arus kuat. Faktor-faktor alam ini menjadi pemicu awal kemiringan kapal.</p>
+    <h4>Dampak pada Kapal Ro-Ro yang Overdraft</h4>
+    <p>Pada kapal Ro-Ro yang berlayar dalam kondisi overdraft, gelombang memiliki efek berlipat:</p>
+    <ul>
+      <li><strong>Freeboard rendah</strong> — gelombang mudah masuk ke geladak kendaraan</li>
+      <li><strong>Sudut oleng (roll)</strong> dapat mencapai 12–18° pada gelombang 2–3 m</li>
+      <li><strong>Angin samping</strong> menambah momen heeling (kemiringan)</li>
+      <li><strong>Arus laut</strong> mempengaruhi olah gerak kapal dan memperbesar tegangan struktur</li>
+    </ul>
+    <h4>Water on Deck (WOD)</h4>
+    <p>Ketika air laut masuk dan berkumpul di geladak kendaraan, terjadi fenomena yang disebut <em>Water on Deck</em> (WOD). Air di geladak ini menciptakan <em>free surface effect</em> yang sangat merugikan stabilitas kapal. Beberapa penelitian menunjukkan bahwa WOD dapat menjadi pemicu utama kegagalan stabilitas pada kapal Ro-Ro.</p>
+    <div class="hl"><p><strong>Konteks:</strong> Selat Bali memiliki karakteristik arus kuat dan gelombang yang dapat berubah cepat — sangat menuntut perencanaan rute dan kecepatan yang tepat.</p></div>
+    <h4>Dasar Regulasi</h4>
+    <p>SOLAS Bab V Reg 34 mengatur kewajiban untuk menghindari situasi berbahaya, termasuk mempertimbangkan kondisi cuaca dalam keputusan navigasi. ISM Code Elemen 7 mewajibkan adanya prosedur operasi yang memadai untuk menghadapi kondisi cuaca buruk.</p>
+    ${linkBar('ship rolling waves stability heel angle water on deck SOLAS Chapter V')}
+  `},
+
+  chainFreeSurface:{title:"Tahap 3 — Free Surface Effect &amp; Pergeseran Muatan",sub:"Cargo Shift · Cascade Failure",body:`
+    <p><strong>Free Surface Effect (FSE)</strong> adalah fenomena berkurangnya stabilitas kapal akibat permukaan cairan yang bebas bergerak di dalam tangki atau geladak yang tidak terisi penuh. Ketika kapal miring, cairan tersebut berpindah ke sisi yang lebih rendah, memperbesar sudut kemiringan.</p>
+    <h4>Rumus Dampak FSE</h4>
+    <div class="hl"><p><strong>ΔGM = − (i × ρ_cairan) / (Δ × ρ_laut)</strong></p><p>di mana <em>i</em> adalah momen inersia permukaan bebas, <em>Δ</em> adalah displacement kapal, dan <em>ρ</em> adalah massa jenis.</p></div>
+    <h4>Pada KMP Tunu Pratama Jaya</h4>
+    <ul>
+      <li>Air laut yang masuk ke geladak kanan menciptakan FSE besar</li>
+      <li>Kendaraan yang <strong>tidak ter-lashing baik</strong> bergeser ke sisi kanan</li>
+      <li>Pergeseran muatan menambah momen heeling</li>
+      <li>Kombinasi FSE + cargo shift menciptakan kegagalan stabilitas progresif</li>
+    </ul>
+    <h4>Temuan Investigasi</h4>
+    <p>Investigasi menunjukkan bahwa lashing hanya dilakukan pada beberapa kendaraan (baris depan dan belakang), tidak menyeluruh. BKI merekomendasikan lashing pada roda kendaraan, namun pada praktiknya lashing hanya dilakukan dari geladak ke bak kendaraan tanpa mengikat roda. Waktu yang tersedia untuk lashing juga tidak memadai — hanya sekitar 15 menit, sedangkan kebutuhan aktual sekitar 35 menit untuk 21 kendaraan roda 4 atau lebih.</p>
+    <div class="hl red"><p><strong>Pelajaran:</strong> Cargo shift adalah salah satu penyebab utama kegagalan stabilitas pada kapal Ro-Ro. Pengikatan yang tidak sempurna dapat berujung pada bencana.</p></div>
+    <h4>Dasar Regulasi</h4>
+    <p>IMO CSS Code (Code of Safe Practice for Cargo Stowage and Securing) dan Cargo Securing Manual mewajibkan prosedur pengikatan yang memadai. SOLAS Bab VI dan VII mengatur penanganan muatan.</p>
+    ${linkBar('free surface effect cargo shift RoRo ferry stability failure cargo securing manual')}
+  `},
+
+  chainDownflood:{title:"Tahap 4 — Air Masuk Kamar Mesin",sub:"Downflooding melalui Weather Tight Door",body:`
+    <p><strong>Downflooding</strong> adalah masuknya air laut ke dalam kapal melalui bukaan (opening) yang seharusnya tertutup — seperti pintu, ventilasi, atau hatch. Downflooding adalah salah satu penyebab paling umum kegagalan stabilitas pada kapal.</p>
+    <h4>Fakta Kasus</h4>
+    <ul>
+      <li><em>Weather tight door</em> (pintu akses ke kamar mesin) dalam kondisi <strong>terbuka</strong> saat kapal berlayar</li>
+      <li>Alasan kru: suhu kamar mesin sangat panas</li>
+      <li>Air laut masuk terus-menerus saat kapal miring ke kanan</li>
+      <li>Tinggi ambang pintu: <strong>380 mm</strong> dari geladak kendaraan</li>
+      <li>Sudut kritis pintu terhadap permukaan air pada sarat kapal: hanya <strong>7,2°</strong></li>
+    </ul>
+    <h4>Analisis Teknis</h4>
+    <p>Karena sudut kritis pintu terhadap permukaan air hanya 7,2°, kemiringan kapal yang melebihi sudut tersebut dapat menyebabkan air masuk meski pintu hanya sedikit terbuka. Ketika kapal mencapai sudut oleng 12–18° akibat gelombang, air laut masuk dengan mudah.</p>
+    <p>Ini menciptakan loop umpan balik positif: air masuk → kapal makin miring → air masuk lebih banyak → kapal makin miring. Dalam waktu kurang dari 30 menit, kamar mesin terisi lebih dari 40% volume, dan kapal kehilangan stabilitas.</p>
+    <div class="hl red"><p><strong>Kritis:</strong> Weather tight door yang terbuka di kamar mesin adalah pelanggaran prosedur dasar keselamatan. Pintu ini harus selalu tertutup saat kapal berlayar.</p></div>
+    <h4>Dasar Regulasi</h4>
+    <p>SOLAS Bab II-1 mengatur konstruksi dan stabilitas kapal, termasuk persyaratan weather tight door. ISM Code Elemen 7 mewajibkan prosedur operasi kapal yang memadai. SMK perusahaan juga harus mengatur pengendalian pintu-pintu kedap.</p>
+    ${linkBar('downflooding weather tight door SOLAS ship stability flooding')}
+  `},
+
+  chain40pct:{title:"Tahap 5 — Kamar Mesin Tergenang &gt;40%",sub:"Ambang Kritis Stabilitas",body:`
+    <p>Analisis stabilitas yang dilakukan oleh PT Biro Klasifikasi Indonesia (BKI) menghasilkan <strong>6 skenario simulasi</strong> yang menunjukkan bagaimana kapal kehilangan stabilitas secara bertahap.</p>
+    <h4>Skenario Simulasi BKI</h4>
+    <ul>
+      <li><strong>Skenario 1:</strong> Kondisi intact tanpa pergeseran muatan — terindikasi overdraft 2,897 m</li>
+      <li><strong>Skenario 2:</strong> Kondisi intact + air di atas dek (Water on Deck) — stabilitas menurun</li>
+      <li><strong>Skenario 3:</strong> Kamar mesin terisi 10% volume — mulai kritis</li>
+      <li><strong>Skenario 4:</strong> Kamar mesin terisi 20% + muatan bergeser — stabilitas menurun tajam</li>
+      <li><strong>Skenario 5:</strong> Kamar mesin terisi 30% + muatan bergeser — sangat kritis</li>
+      <li><strong>Skenario 6:</strong> Kamar mesin terisi 40% + muatan bergeser — <strong>kriteria stabilitas tidak terpenuhi</strong>, kapal terbalik</li>
+    </ul>
+    <h4>Kriteria Stabilitas IMO</h4>
+    <p>Kriteria stabilitas intact menurut <strong>IMO Intact Stability Code 2008 (IS Code 2008)</strong> meliputi:</p>
+    <ul>
+      <li>Luas area di bawah kurva GZ ≥ 0,055 m·rad sampai 30°</li>
+      <li>Luas area ≥ 0,09 m·rad sampai 40°</li>
+      <li>Luas area ≥ 0,03 m·rad antara 30° dan 40°</li>
+      <li>Sudut GZ maksimum pada ≥ 25° (sebaiknya 30°)</li>
+      <li>Tinggi GM awal ≥ 0,15 meter</li>
+    </ul>
+    <p>Pada Skenario 6, hampir seluruh kriteria tersebut tidak terpenuhi. Ini berarti kapal benar-benar kehilangan kemampuan untuk kembali ke posisi tegak — sebuah kondisi yang berujung pada capsize.</p>
+    <div class="hl red"><p><strong>Titik kritis:</strong> Pada 40% volume kamar mesin, cadangan stabilitas telah habis. Tidak ada tindakan yang dapat menyelamatkan kapal pada tahap ini.</p></div>
+    ${linkBar('IMO Intact Stability Code 2008 criteria flooding engine room ship stability BKI')}
+  `},
+
+  chainCapsize:{title:"Tahap 6 — Kehilangan Stabilitas Total",sub:"Konsekuensi · Kapal Terbalik &amp; Tenggelam",body:`
+    <p>Rangkaian kegagalan yang dimulai dari overdraft, diperparah oleh pergeseran muatan dan masuknya air ke kamar mesin, berujung pada <strong>kehilangan stabilitas total</strong>.</p>
+    <h4>Rangkaian Akhir</h4>
+    <ul>
+      <li>Kapal miring ke kanan melebihi sudut kritis</li>
+      <li>Air laut menggenangi kamar mesin lebih dari 40% volume</li>
+      <li><em>Blackout</em> — sistem kelistrikan mati</li>
+      <li>Kapal kehilangan kemampuan untuk kembali ke posisi tegak</li>
+      <li>Kapal terbalik ke kanan</li>
+      <li>Kapal tenggelam pada koordinat 08°09'33,11"S / 114°24'52,03"T</li>
+    </ul>
+    <h4>Korban</h4>
+    <p>Menurut data yang dihimpun:</p>
+    <ul>
+      <li>19 orang meninggal dunia</li>
+      <li>16–17 orang dalam pencarian (data bervariasi menurut sumber dalam berkas)</li>
+      <li>30 orang selamat</li>
+    </ul>
+    <h4>Analisis Kegagalan Progresif</h4>
+    <p>Kegagalan stabilitas progresif adalah <em>cascade failure</em> — setiap tahap memperburuk tahap berikutnya. Pencegahan harus dilakukan pada tahap paling awal (overdraft), karena setelah kapal melewati ambang kritis, tidak ada tindakan yang dapat menyelamatkan kapal.</p>
+    <p>Kasus-kasus internasional yang memiliki pola serupa:</p>
+    <ul>
+      <li><em>Herald of Free Enterprise</em> (1987) — pintu haluan terbuka, air masuk ke geladak kendaraan</li>
+      <li><em>MS Estonia</em> (1994) — kegagalan bow visor, air masuk</li>
+      <li><em>Sewol</em> (2014) — kelebihan muatan, perubahan haluan mendadak</li>
+      <li><em>MS Express Samina</em> (2000) — kandas dan terbelah</li>
+    </ul>
+    <div class="hl red"><p><strong>Pelajaran:</strong> Stabilitas kapal tidak dapat dikompromikan. Setiap kilogram kelebihan muatan, setiap pintu yang tidak ditutup, dan setiap lashing yang tidak sempurna berkontribusi pada kegagalan.</p></div>
+    ${linkBar('Herald of Free Enterprise Estonia Sewol progressive stability failure capsize')}
+  `},
+
+  /* ===== AMAR PUTUSAN TILONGKABILA ===== */
+  tiloPenyebab:{title:"Amar — Penyebab KM Tilongkabila",sub:"Human Error · Kesalahan Penerapan Standar Profesi",body:`
+    <p>Mahkamah Pelayaran dalam Diktum amar putusan menyatakan bahwa kecelakaan kapal tubrukan KM Tilongkabila (Menubruk Tebing) Tanjung Batusori di Perairan Selat Buton tanggal 27 Juli 2025 <strong>disebabkan oleh kesalahan dan kelalaian faktor manusia (human error)</strong>.</p>
+    <h4>Faktor-Faktor yang Dinilai</h4>
+    <ul>
+      <li>Nakhoda meninggalkan anjungan saat kapal berlayar di alur sempit dengan kecepatan penuh</li>
+      <li>Kecepatan <em>full away</em> 12–13 knot tidak memenuhi unsur <em>safe speed</em> di alur selebar ±7 cable</li>
+      <li>Bridge Resource Management (BRM) tidak dilaksanakan sebagaimana mestinya</li>
+      <li>Tindakan darurat tidak sesuai SOP — <em>emergency steering</em> tidak digunakan saat kemudi gagal</li>
+      <li>Mualim IV bertugas jaga sendiri tanpa didampingi navigator senior</li>
+      <li><em>Master night order</em> tidak menggambarkan kondisi perairan saat itu</li>
+    </ul>
+    <h4>Dasar Hukum yang Dirujuk</h4>
+    <ul>
+      <li>P2TL (COLREG 1972) Rule 5 tentang pengamatan &amp; Rule 6 tentang kecepatan aman</li>
+      <li>SOLAS Bab V Reg 24, 26, 34 tentang keselamatan navigasi</li>
+      <li>SOLAS Bab IX (ISM Code) — dijabarkan dalam SMK-7 Huruf C</li>
+      <li>Pasal 42 ayat (2) PM Perhubungan No. 25 Tahun 2011</li>
+    </ul>
+    <div class="hl red"><p><strong>Catatan:</strong> Mahkamah Pelayaran menyimpulkan berdasarkan standar profesi kepelautan. Ini bukan putusan pidana, melainkan putusan administratif-profesional.</p></div>
+    ${linkBar('Mahkamah Pelayaran human error maritime accident COLREG Rule 5 Rule 6')}
+  `},
+
+  tiloNakhoda:{title:"Terduga I — Nakhoda KM Tilongkabila",sub:"Sanksi Administratif-Profesional · 3 Bulan",body:`
+    <p><strong>Nama:</strong> Slamet Santoso</p>
+    <p><strong>Sertifikat:</strong> Sertifikat Pelaut Ahli Nautika Tingkat I (ANT I) No. 6200034058N10317, diterbitkan di Jakarta, 8 Agustus 2017 oleh Kementerian Perhubungan.</p>
+    <h4>Temuan Mahkamah</h4>
+    <p>Terduga I Nakhoda terbukti secara sah dan meyakinkan tidak melaksanakan Bridge Resource Management, tidak menjalankan amanah sesuai kewajiban dalam:</p>
+    <ul>
+      <li><strong>P2TL aturan 5</strong> — tentang pengamatan</li>
+      <li><strong>P2TL aturan 6</strong> — tentang kecepatan aman</li>
+      <li><strong>SOLAS Bab V Reg 24</strong> — penggunaan sistem kendali arah/jalur</li>
+      <li><strong>SOLAS Bab V Reg 26</strong> — sistem kemudi, pengujian, dan pelatihan</li>
+      <li><strong>SOLAS Bab V Reg 34</strong> — keselamatan navigasi dan menghindari situasi berbahaya</li>
+      <li><strong>SOLAS Bab IX (ISM Code)</strong> — dijabarkan dalam SMK PT Pelni judul Pengoperasian Kapal kode SMK-7 Huruf C tentang Berlayar di Perairan Sempit, Sungai, Terusan dan Perairan Dangkal angka 3 dan 5</li>
+      <li><strong>Pasal 42 ayat (2) PM Perhubungan No. 25 Tahun 2011</strong> tentang Sarana Bantu Navigasi-Pelayaran</li>
+    </ul>
+    <h4>Amar Putusan</h4>
+    <div class="hl red"><p>Mencabut sementara Sertifikat Keahlian Pelaut Terduga I Nakhoda Slamet Santoso untuk bertugas sebagai <strong>Nakhoda kapal-kapal niaga selama jangka waktu 3 (tiga) bulan</strong>.</p></div>
+    <h4>Hal-Hal yang Meringankan</h4>
+    <ul>
+      <li>Berlaku sopan dan berterus terang mengakui kesalahan dalam persidangan</li>
+      <li>Merupakan tulang punggung keluarga</li>
+      <li>Belum pernah dihukum karena kesalahan dalam menjalankan profesinya</li>
+    </ul>
+    <h4>Hal-Hal yang Memberatkan</h4>
+    <p>Tidak ada.</p>
+    ${linkBar('STCW master competency SOLAS Chapter V Regulation 24 26 34 Bridge Resource Management')}
+  `},
+
+  tiloMualim:{title:"Terduga II — Mualim IV KM Tilongkabila",sub:"Dinyatakan Tidak Melakukan Kesalahan",body:`
+    <p><strong>Nama:</strong> Hana Afrilia Rachmawati</p>
+    <p><strong>Sertifikat:</strong> Sertifikat Pelaut Ahli Nautika Tingkat III (ANT III) No. 6211935618N30522, diterbitkan di Jakarta, 19 April 2022.</p>
+    <h4>Alasan Pembebasan</h4>
+    <p>Mahkamah Pelayaran mempertimbangkan bahwa Mualim IV:</p>
+    <ul>
+      <li>Mengetahui kapal jatuh kiri dari garis haluan → langsung melakukan pergerakan kemudi kanan 5</li>
+      <li>Melaporkan kepada Nakhoda melalui telepon ketika kemudi tidak merespons</li>
+      <li>Melaksanakan instruksi Nakhoda dengan seksama, termasuk menghubungi <em>engine control room</em></li>
+      <li>Bertindak sesuai kebiasaan pelaut yang baik (<em>good seamanship</em>)</li>
+      <li>Tidak dapat melakukan dua pekerjaan bersamaan (mengemudikan kapal dan mengambil alih komando)</li>
+    </ul>
+    <h4>Amar Putusan</h4>
+    <div class="hl green"><p>Menyatakan <strong>tidak adanya kesalahan atau kelalaian</strong> dalam penerapan standar profesi kepelautan yang dilakukan oleh Terduga II Mualim IV KM Tilongkabila, Saudari Hana Afrilia Rachmawati. <strong>DIBEBASKAN</strong>.</p></div>
+    <h4>Dasar Pertimbangan</h4>
+    <p>Pasal 384 KUHD menyatakan: "Selama anak buah kapal berada dalam dinas di kapal, ia wajib melaksanakan perintah nakhoda dengan seksama." Mualim IV telah melaksanakan kewajiban ini. Selain itu, tanggung jawab utama di atas kapal berada pada Nakhoda, dan terdapat faktor-faktor di luar kendali Mualim IV (kegagalan kemudi, ketiadaan navigator senior di anjungan).</p>
+    ${linkBar('Pasal 384 KUHD good seamanship watchkeeping officer STCW competency')}
+  `},
+
+  /* ===== AMAR PUTUSAN TUNU ===== */
+  tunuPenyebab:{title:"Amar — Penyebab KMP Tunu Pratama Jaya",sub:"Human Error &amp; Faktor Organisasi",body:`
+    <p>Mahkamah Pelayaran dalam Diktum amar putusan menyatakan bahwa kecelakaan kapal tenggelamnya KMP Tunu Pratama Jaya pada tanggal 2 Juli 2025 pukul 23.35 WIB di Perairan Selat Bali <strong>disebabkan oleh rangkaian kesalahan pada faktor manusia (human error) dan faktor organisasi</strong>.</p>
+    <h4>Faktor Manusia</h4>
+    <ul>
+      <li>Penyusunan muatan yang tidak sesuai dengan stability booklet</li>
+      <li>Pengawasan pe-lashing-an yang tidak menyeluruh</li>
+      <li>Pengendalian weather tight door yang tidak memadai — pintu kamar mesin dibiarkan terbuka</li>
+      <li>Tidak ada pemeriksaan draft sebelum keberangkatan</li>
+    </ul>
+    <h4>Faktor Organisasi</h4>
+    <ul>
+      <li><strong>PT Raputra Jaya:</strong> belum memiliki SOP khusus pemuatan dan pe-lashing-an kendaraan</li>
+      <li><strong>PT ASDP Indonesia Ferry:</strong> tidak menimbang semua kendaraan, berat tidak tercatat pada print out tiket Ferizy</li>
+      <li><strong>BPTD Kelas II Jawa Timur:</strong> jadwal operasional tidak memadai, waktu lashing tidak mencukupi</li>
+    </ul>
+    <h4>Dasar Hukum yang Dirujuk</h4>
+    <ul>
+      <li>ISM Code Elemen 7 — Pengendalian operasi kapal</li>
+      <li>Pasal 384 KUHD — kewajiban ABK kepada Nakhoda</li>
+      <li>Pasal 4 PM 30 Tahun 2016 — kewajiban pengikatan kendaraan</li>
+      <li>Pasal 3 PM 18 Tahun 2021 — pengawasan muatan</li>
+      <li>Pasal 73 PM 60 Tahun 2019 &amp; PM 6 Tahun 2023 — pengendalian keselamatan penyeberangan</li>
+    </ul>
+    ${linkBar('KMP Tunu Pratama Jaya Mahkamah Pelayaran human error organizational factor ISM Code')}
+  `},
+
+  tunuNakhoda:{title:"Terduga I — Nakhoda KMP Tunu Pratama Jaya",sub:"Korban Hilang · Tidak Dapat Dimintai Keterangan",body:`
+    <p><strong>Nama:</strong> Agus Slamet</p>
+    <p><strong>Sertifikat:</strong> Sertifikat Ahli Nautika Tingkat III (ANT III) Manajemen, Nomor 6202078972M30518, diterbitkan di Jakarta, 16 November 2018.</p>
+    <h4>Status dalam Persidangan</h4>
+    <p>Nakhoda dinyatakan sebagai salah satu korban hilang dalam kecelakaan kapal oleh pihak yang berwenang (BASARNAS), sehingga tidak dapat dimintai keterangan dalam persidangan.</p>
+    <h4>Pertimbangan Mahkamah</h4>
+    <div class="hl"><p>"Beban yang seharusnya menjadi tanggung jawab Terduga I Nakhoda tidak dapat sepenuhnya dibebankan kepada Terduga II."</p></div>
+    <p>Ini berarti Mahkamah mengakui bahwa tanggung jawab utama di atas kapal berada pada Nakhoda, namun karena Nakhoda tidak dapat hadir, penilaian terhadap Terduga II dilakukan secara proporsional.</p>
+    <h4>Implikasi Hukum</h4>
+    <ul>
+      <li>Ketidakhadiran Nakhoda membuat beberapa aspek tanggung jawab tidak dapat digali secara langsung</li>
+      <li>Putusan terhadap Terduga II tidak boleh digeneralisasi sebagai "seluruh kesalahan dibebankan pada perwira jaga"</li>
+      <li>Terdapat faktor organisasi yang berada di luar kendali kedua terduga</li>
+    </ul>
+    <h4>Dasar Hukum</h4>
+    <p>Pasal 1 angka 39 UU No. 66 Tahun 2024 tentang Perubahan Ketiga UU 17/2008 tentang Pelayaran mengatur tanggung jawab Nakhoda sebagai pemimpin dan penanggung jawab di atas kapal.</p>
+    ${linkBar('BASARNAS master responsibility SOLAS ship safety authority legal')}
+  `},
+
+  tunuMualim:{title:"Terduga II — Mualim II KMP Tunu Pratama Jaya",sub:"Sanksi Administratif-Profesional · 7 Bulan",body:`
+    <p><strong>Nama:</strong> Nurdin Yuswanto</p>
+    <p><strong>Sertifikat:</strong> Sertifikat Ahli Nautika Tingkat V (ANT-V) Manajemen, Nomor 6200506593M50517, diterbitkan di Surabaya, 4 Agustus 2017.</p>
+    <h4>Temuan Mahkamah</h4>
+    <p>Terduga II Mualim II terbukti secara sah dan meyakinkan <strong>belum sepenuhnya menjalankan tugas dan tanggung jawabnya</strong> sesuai kecakapan pelaut yang baik (good seamanship), khususnya dalam:</p>
+    <ul>
+      <li>Penyusunan muatan yang mengakibatkan kapal dalam kondisi overdraft</li>
+      <li>Pengawasan pe-lashing-an muatan yang tidak menyeluruh</li>
+      <li>Pengendalian weather tight door kamar mesin yang seharusnya tertutup</li>
+    </ul>
+    <h4>Dasar Hukum yang Dilanggar</h4>
+    <ul>
+      <li><strong>ISM Code Elemen 7</strong> — Pengendalian operasi kapal</li>
+      <li><strong>Pasal 384 KUHD</strong> — Kewajiban melaksanakan perintah nakhoda dengan seksama</li>
+      <li><strong>Kecakapan pelaut yang baik (good seamanship)</strong></li>
+    </ul>
+    <h4>Amar Putusan</h4>
+    <div class="hl red"><p>Mencabut sementara Sertifikat Keahlian Pelaut Terduga II Mualim II Nurdin Yuswanto untuk bertugas sebagai <strong>Perwira Dinas Jaga selama jangka waktu 7 (tujuh) bulan</strong>.</p></div>
+    <h4>Hal-Hal yang Meringankan</h4>
+    <ul>
+      <li>Berlaku sopan dan tidak berbelit-belit dalam memberikan keterangan</li>
+      <li>Belum pernah dihukum karena kesalahan dalam menjalankan profesinya</li>
+      <li>Merupakan tulang punggung dalam keluarga dan tidak memiliki keahlian lain selain sebagai pelaut</li>
+      <li>Bukan penanggung jawab utama di atas kapal</li>
+    </ul>
+    <h4>Hal-Hal yang Memberatkan</h4>
+    <p>Tidak ada.</p>
+    <h4>Pertimbangan Proporsionalitas</h4>
+    <p>Mahkamah mempertimbangkan bahwa kesalahan dan kelalaian tidak dapat dibebankan sepenuhnya kepada Terduga II, mengingat:</p>
+    <ul>
+      <li>Waktu lashing yang disediakan oleh BPTD hanya 15 menit, tidak mencukupi</li>
+      <li>Terduga II tidak dapat melakukan 2 pekerjaan bersamaan (pemuatan dan standby olah gerak)</li>
+      <li>Weather tight door dibuka oleh awak kapal bagian mesin dengan alasan suhu panas</li>
+      <li>Terdapat rangkaian kesalahan dan kelalaian dari pihak lain</li>
+    </ul>
+    ${linkBar('ISM Code element 7 shipboard operations STCW watchkeeping Pasal 384 KUHD')}
+  `},
+
+  /* ===== PELANGGARAN ORGANISASI ===== */
+  orgRaputra:{title:"PT Raputra Jaya — Dugaan Pelanggaran",sub:"Pasal 4 PM 30 Tahun 2016",body:`
+    <p><strong>Pihak:</strong> PT Raputra Jaya — pemilik KMP Tunu Pratama Jaya</p>
+    <p><strong>Dasar Hukum:</strong> Pasal 4 Peraturan Menteri Perhubungan Nomor <strong>PM 30 Tahun 2016</strong> tentang Kewajiban Pengikatan Kendaraan pada Kapal Angkutan Penyeberangan.</p>
+    <h4>Dugaan Pelanggaran</h4>
+    <ul>
+      <li>Belum menetapkan dan menerapkan SOP khusus pemuatan kendaraan</li>
+      <li>Belum menetapkan dan menerapkan SOP pe-lashing-an kendaraan</li>
+      <li>Belum melakukan pengawasan dan pengendalian ketat terhadap penumpang dan kendaraan</li>
+      <li>Tidak memastikan kesesuaian muatan dengan manifes, bobot angkut, dan perubahan signifikan kapasitas kapal pasca konversi dari LCT menjadi Ro-Ro</li>
+    </ul>
+    <h4>Catatan Mahkamah</h4>
+    <div class="hl red"><p>Dalam pertimbangan Mahkamah: <em>"Kesalahan dan kelalaian tersebut bukan merupakan penyebab langsung terjadinya kecelakaan kapal."</em> Namun tetap dicatat sebagai temuan karena berpotensi memperburuk kondisi.</p></div>
+    <h4>Rekomendasi Mahkamah</h4>
+    <p>Kepada PT Raputra Jaya agar:</p>
+    <ul>
+      <li>Menetapkan dan menerapkan SOP khusus pemuatan dan pe-lashing-an kendaraan</li>
+      <li>Menjamin keselamatan muatan dan stabilitas kapal</li>
+      <li>Melakukan pengawasan dan pengendalian ketat terhadap penumpang dan kendaraan</li>
+      <li>Memastikan kesesuaian dengan manifes, bobot angkut, dan perubahan signifikan kapasitas kapal</li>
+    </ul>
+    <h4>Analisis Teknis</h4>
+    <p>Ketiadaan SOP pemuatan dan lashing menyebabkan proses berjalan berdasarkan kebiasaan dan improvisasi. Tidak ada standar baku mengenai berapa lama lashing harus dilakukan, berapa titik lashing per kendaraan, atau bagaimana memverifikasi kekuatan lashing. Ini menciptakan celah keselamatan yang serius.</p>
+    ${linkBar('PM 30 Tahun 2016 pengikatan kendaraan kapal penyeberangan cargo securing lashing RoRo')}
+  `},
+
+  orgASDP:{title:"PT ASDP Indonesia Ferry — Dugaan Pelanggaran",sub:"Pasal 3 PM 18 Tahun 2021",body:`
+    <p><strong>Pihak:</strong> PT Angkutan Sungai Danau dan Penyeberangan (ASDP) Indonesia Ferry (Persero) Cabang Ketapang Banyuwangi</p>
+    <p><strong>Dasar Hukum:</strong> Pasal 3 Peraturan Menteri Perhubungan Nomor <strong>PM 18 Tahun 2021</strong> tentang Pengawasan Muatan Angkutan Barang dan Penyelenggaraan Penimbangan Kendaraan Bermotor di Jalan.</p>
+    <h4>Dugaan Pelanggaran</h4>
+    <ul>
+      <li>Tidak melaksanakan penimbangan seluruh kendaraan beserta muatannya</li>
+      <li>Tidak mencatat berat aktual pada tiket Ferizy (menunjukkan angka 0)</li>
+      <li>Tidak menerapkan penimbangan untuk seluruh golongan kendaraan</li>
+      <li>Belum memberlakukan tiket riil satu orang satu tiket</li>
+      <li>Pencatatan penumpang tidak akurat pada manifes</li>
+    </ul>
+    <h4>Konsekuensi</h4>
+    <div class="hl red"><p>Pemuatan kendaraan ke atas kapal dilakukan berdasarkan <em>jumlah unit</em>, bukan <em>berat muatan</em>. Ini mengakibatkan kelebihan muatan (overdraft) yang menjadi pemicu utama kecelakaan.</p></div>
+    <h4>Temuan Tambahan</h4>
+    <ul>
+      <li>SOP yang dilaksanakan ASDP hanya sampai di dermaga</li>
+      <li>Kendaraan penumpang golongan V ke bawah tidak ditimbang</li>
+      <li>Tarif angkut kendaraan dihitung per golongan, bukan berdasarkan berat</li>
+      <li>Kendaraan yang dibawa ke kapal selalu dimaksimalkan pemuatannya</li>
+      <li>Boarding pass KMP Tunu Pratama Jaya mencatat berat kurang lebih 200 ton, namun aktual 534,2 ton</li>
+    </ul>
+    <h4>Rekomendasi Mahkamah</h4>
+    <p>Kepada PT ASDP Indonesia Ferry agar:</p>
+    <ul>
+      <li>Melaksanakan dan mengawasi penimbangan seluruh kendaraan beserta muatannya</li>
+      <li>Mencatat berat aktual pada tiket Ferizy</li>
+      <li>Memperbaiki sistem Ferizy</li>
+      <li>Menerapkan penimbangan untuk seluruh golongan kendaraan</li>
+      <li>Memberlakukan tiket riil satu orang satu tiket dan pencatatan penumpang yang akurat pada manifes</li>
+    </ul>
+    ${linkBar('PM 18 Tahun 2021 pengawasan muatan angkutan barang jembatan timbang Ferizy ASDP')}
+  `},
+
+  orgBPTD:{title:"BPTD Kelas II Jawa Timur — Dugaan Pelanggaran",sub:"Pasal 73 PM 60 Tahun 2019 &amp; PM 6 Tahun 2023",body:`
+    <p><strong>Pihak:</strong> Satuan Pelayanan BPTD Kelas II Jawa Timur Wilayah Banyuwangi</p>
+    <p><strong>Dasar Hukum:</strong></p>
+    <ul>
+      <li>Pasal 73 Peraturan Menteri Perhubungan Nomor <strong>PM 60 Tahun 2019</strong> tentang Penyelenggaraan Angkutan Barang dengan Kendaraan Bermotor di Jalan</li>
+      <li>Pasal 3 Peraturan Menteri Perhubungan Nomor <strong>PM 6 Tahun 2023</strong> tentang Organisasi dan Tata Kerja Balai Pengelola Transportasi Darat</li>
+    </ul>
+    <h4>Dugaan Pelanggaran</h4>
+    <ul>
+      <li>Belum sepenuhnya menyelenggarakan fungsi pelaksanaan pengendalian keselamatan dan keamanan pelayaran sungai, danau, dan penyeberangan</li>
+      <li>Tidak memperhatikan jumlah berat kendaraan beserta muatannya yang dimuat ke atas kapal</li>
+      <li>Tidak menyusun dan menerapkan rencana jadwal kapal yang memadai</li>
+      <li>Tidak memberikan rentang waktu yang cukup bagi awak kapal untuk melakukan pemuatan dan pe-lashing-an</li>
+    </ul>
+    <h4>Konsekuensi</h4>
+    <div class="hl red"><p>Jadwal yang terlalu ketat — hanya 15 menit untuk memuat dan lashing — mengakibatkan lashing tidak menyeluruh. Muatan bergeser saat gelombang, mempercepat kegagalan stabilitas.</p></div>
+    <h4>Data Jadwal Operasional</h4>
+    <ul>
+      <li>KMP Tunu Pratama Jaya melaksanakan 8 kali round trip (16 voyage) per hari</li>
+      <li>Waktu pelayanan di dermaga: 45 menit (15 menit sandar &amp; bongkar, 15 menit muat, 15 menit SPB)</li>
+      <li>Sanksi keterlambatan: diskualifikasi dari jadwal trip berikutnya</li>
+      <li>Jumlah armada Ketapang-Gilimanuk: 50 kapal, 28 dioperasikan setiap hari</li>
+    </ul>
+    <h4>Rekomendasi Mahkamah</h4>
+    <p>Kepada BPTD Kelas II Jawa Timur agar:</p>
+    <ul>
+      <li>Melaksanakan fungsi pengendalian keselamatan dan keamanan pelayaran penyeberangan</li>
+      <li>Menyusun dan menerapkan rencana jadwal kapal yang memadai</li>
+      <li>Memperhitungkan waktu pemuatan, lashing, dan pengurusan SPB secara realistis</li>
+      <li>Melakukan evaluasi menyeluruh terhadap kapal-kapal ex-LCT yang dioperasikan sebagai KMP</li>
+    </ul>
+    ${linkBar('PM 60 Tahun 2019 angkutan barang PM 6 Tahun 2023 BPTD jadwal kapal penyeberangan')}
+  `},
+
+  /* ===== KASUS INTERNASIONAL — DETAIL ===== */
+  intCosta:{title:"Costa Concordia — Italia 2012",sub:"Deviasi Rute &amp; Kegagalan BRM",body:`
+    <p><strong>Tanggal:</strong> 13 Januari 2012 · <strong>Lokasi:</strong> Perairan Pulau Giglio, Italia · <strong>Korban:</strong> 32 meninggal</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Kapal pesiar Costa Concordia dengan 4.229 orang di atas kapal menyimpang dari rute yang direncanakan untuk melakukan <em>sail-by salute</em> — mendekati daratan agar dapat dilihat penduduk Pulau Giglio. Nakhoda Francesco Schettino mengambil keputusan ini tanpa prosedur risiko yang memadai.</p>
+    <p>Kapal menabrak karang di dekat Pulau Giglio, mengambil air, kehilangan propulsi, lalu terbalik sebagian di perairan dangkal. Evakuasi berlangsung kacau — 32 orang meninggal, termasuk beberapa awak.</p>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Deviasi dari passage plan tanpa prosedur risiko yang memadai</li>
+      <li>BRM tidak berjalan — awak anjungan tidak berani mengoreksi Nakhoda</li>
+      <li>Prosedur evakuasi kacau akibat keputusan yang terlambat</li>
+      <li>Overconfidence Nakhoda: menganggap dirinya paling tahu kondisi lokal</li>
+    </ul>
+    <div class="hl"><p><strong>Kaitan dengan KM Tilongkabila:</strong> Pola yang sama — keputusan seorang diri di anjungan, minim komunikasi tim, dan pengambilan keputusan yang mengabaikan margin keselamatan.</p></div>
+    <h4>Dampak Regulasi</h4>
+    <p>Investigasi Costa Concordia mendorong IMO untuk memperkuat regulasi tentang:</p>
+    <ul>
+      <li>Passage planning yang lebih ketat</li>
+      <li>Bridge Resource Management yang lebih aktif</li>
+      <li>Prosedur evakuasi yang lebih terstruktur</li>
+      <li>Pengawasan terhadap keputusan Nakhoda</li>
+    </ul>
+    ${linkBar('Costa Concordia 2012 investigation report BRM failure sail by salute')}
+  `},
+
+  intHerald:{title:"Herald of Free Enterprise — Belgia 1987",sub:"Asal-Mula ISM Code",body:`
+    <p><strong>Tanggal:</strong> 6 Maret 1987 · <strong>Lokasi:</strong> Pelabuhan Zeebrugge, Belgia · <strong>Korban:</strong> 193 meninggal</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Feri Ro-Ro Herald of Free Enterprise berlayar dari Zeebrugge dengan pintu haluan (<em>bow doors</em>) masih terbuka. Air laut masuk ke geladak kendaraan, kapal kehilangan stabilitas, terbalik dalam waktu kurang dari 90 detik.</p>
+    <p>Investigasi mengungkap bahwa:</p>
+    <ul>
+      <li>Awak yang bertugas menutup pintu sedang tidur</li>
+      <li>Tidak ada sistem verifikasi bahwa pintu benar-benar tertutup</li>
+      <li>Nakhoda tidak mengetahui kondisi pintu saat kapal bertolak</li>
+      <li>Perusahaan tidak memiliki sistem manajemen keselamatan yang memadai</li>
+    </ul>
+    <h4>Dampak Regulasi — Lahirnya ISM Code</h4>
+    <div class="hl red"><p>Investigasi Lord Justice Sheen menjadi salah satu pemicu lahirnya <strong>ISM Code (International Safety Management Code)</strong>. Kode ini diadopsi IMO pada tahun 1993 dan berlaku wajib secara internasional pada tahun 1998.</p></div>
+    <p>ISM Code mewajibkan setiap perusahaan pelayaran untuk:</p>
+    <ul>
+      <li>Menetapkan kebijakan keselamatan</li>
+      <li>Menunjuk Designated Person Ashore (DPA)</li>
+      <li>Menyusun prosedur operasi kapal</li>
+      <li>Melakukan audit internal dan tindakan korektif</li>
+      <li>Menyiapkan prosedur keadaan darurat</li>
+    </ul>
+    <div class="hl"><p><strong>Kaitan dengan KMP Tunu Pratama Jaya:</strong> Pintu kedap cuaca kamar mesin dalam kondisi terbuka — persis pola kegagalan yang mendasari lahirnya ISM Code.</p></div>
+    ${linkBar('Herald of Free Enterprise 1987 investigation ISM Code origin bow doors')}
+  `},
+
+  intEstonia:{title:"MS Estonia — Laut Baltik 1994",sub:"Kegagalan Bow Visor &amp; Stabilitas Ro-Ro",body:`
+    <p><strong>Tanggal:</strong> 28 September 1994 · <strong>Lokasi:</strong> Laut Baltik · <strong>Korban:</strong> 852 meninggal (hanya 137 selamat)</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Feri Ro-Ro MS Estonia tenggelam dalam badai saat melintasi Laut Baltik. Investigasi resmi menyimpulkan kegagalan <em>bow visor</em> (tutup haluan) yang menyebabkan air masuk ke geladak kendaraan. Kapal kehilangan stabilitas dan terbalik dengan cepat.</p>
+    <p>Sekitar 852 orang meninggal — salah satu tragedi maritim terburuk abad ke-20 di Eropa.</p>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Kegagalan satu komponen dapat memicu kegagalan berantai</li>
+      <li>Stabilitas Ro-Ro sangat sensitif terhadap air di geladak kendaraan</li>
+      <li>Prosedur darurat dan pelatihan kru sangat menentukan tingkat survival</li>
+      <li>Komunikasi distress dan koordinasi SAR perlu diperbaiki</li>
+    </ul>
+    <div class="hl"><p><strong>Kaitan dengan KMP Tunu Pratama Jaya:</strong> Keduanya menunjukkan bahwa pada kapal Ro-Ro, masuknya air ke geladak kendaraan dapat mempercepat kegagalan stabilitas secara progresif.</p></div>
+    <h4>Dampak Regulasi</h4>
+    <p>Tragedi MS Estonia mendorong penguatan regulasi Ro-Ro, termasuk:</p>
+    <ul>
+      <li>Persyaratan baru untuk desain bow visor</li>
+      <li>Kewajiban monitoring air di geladak kendaraan</li>
+      <li>Peningkatan prosedur evakuasi Ro-Ro</li>
+      <li>Kerja sama SAR antar-negara Baltik</li>
+    </ul>
+    ${linkBar('MS Estonia 1994 investigation bow visor ferry disaster Baltic')}
+  `},
+
+  intElFaro:{title:"SS El Faro — Atlantik 2015",sub:"Keputusan Rute &amp; Kelelahan Kru",body:`
+    <p><strong>Tanggal:</strong> 1 Oktober 2015 · <strong>Lokasi:</strong> Dekat Bahama · <strong>Korban:</strong> 33 awak hilang</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Kapal kargo Amerika Serikat El Faro terjebak Badai Joaquin kategori 4 saat pelayaran dari Jacksonville menuju San Juan, Puerto Rico. Kapal kehilangan propulsi, terbalik, dan tenggelam di kedalaman lebih dari 4.500 meter.</p>
+    <p>Investigasi NTSB (National Transportation Safety Board) menyimpulkan bahwa Nakhoda:</p>
+    <ul>
+      <li>Tidak mempertimbangkan alternatif rute yang lebih aman</li>
+      <li>Mengabaikan informasi cuaca terbaru yang menunjukkan badai menguat</li>
+      <li>Tidak mengambil tindakan tepat saat kapal mulai mengalami kondisi darurat</li>
+    </ul>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Keputusan rute cuaca harus mempertimbangkan alternatif aman</li>
+      <li>Kru anjungan perlu berani menyampaikan keraguan (speak up)</li>
+      <li>Perencanaan kontinjensi jika mesin mati harus disiapkan sebelum berangkat</li>
+      <li>Kelelahan kru (<em>fatigue</em>) dapat mempengaruhi pengambilan keputusan</li>
+    </ul>
+    <div class="hl"><p><strong>Kaitan:</strong> Investigasi NTSB menyoroti pentingnya budaya keselamatan anjungan, tidak jauh berbeda dengan apa yang ditekankan dalam ISM Code dan STCW.</p></div>
+    <h4>Dampak Regulasi</h4>
+    <p>Insiden El Faro mendorong US Coast Guard dan IMO untuk memperkuat:</p>
+    <ul>
+      <li>Kewajiban perencanaan cuaca yang lebih rinci</li>
+      <li>Pelatihan BRM untuk kapal kargo</li>
+      <li>Manajemen kelelahan kru</li>
+      <li>Prosedur darurat jika kehilangan propulsi</li>
+    </ul>
+    ${linkBar('SS El Faro 2015 NTSB investigation hurricane Joaquin maritime')}
+  `},
+
+  intSewol:{title:"Sewol Ferry — Korea Selatan 2014",sub:"Kelebihan Muatan &amp; Perubahan Haluan",body:`
+    <p><strong>Tanggal:</strong> 16 April 2014 · <strong>Lokasi:</strong> Perairan Korea Selatan · <strong>Korban:</strong> 304 meninggal</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Feri Sewol membawa 476 orang — sebagian besar pelajar sekolah menengah dalam perjalanan wisata — ketika terbalik dan tenggelam di perairan Korea Selatan. Investigasi menemukan:</p>
+    <ul>
+      <li>Kelebihan muatan yang signifikan (lebih dari 2.000 ton di atas batas aman)</li>
+      <li>Modifikasi ilegal yang mengubah kestabilan kapal</li>
+      <li>Perubahan haluan mendadak yang menyebabkan pergeseran muatan</li>
+      <li>Respons evakuasi yang kacau dan terlambat</li>
+      <li>Instruksi Nakhoda kepada penumpang untuk tetap di tempat, memperburuk jumlah korban</li>
+    </ul>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Overloading dan modifikasi tanpa persetujuan merusak stabilitas</li>
+      <li>Respons evakuasi yang lambat memperburuk jumlah korban</li>
+      <li>Pengawasan regulasi dari otoritas sangat menentukan</li>
+      <li>Komunikasi antara Nakhoda, kru, dan penumpang sangat kritis</li>
+    </ul>
+    <div class="hl"><p><strong>Kaitan dengan KMP Tunu Pratama Jaya:</strong> Keduanya menyoroti pentingnya verifikasi berat muatan, perhitungan stabilitas, dan pengawasan pihak berwenang.</p></div>
+    <h4>Dampak Regulasi di Korea Selatan</h4>
+    <p>Setelah Sewol, Korea Selatan melakukan reformasi besar dalam pengawasan maritim, termasuk:</p>
+    <ul>
+      <li>Pembentukan Kementerian Keselamatan Publik</li>
+      <li>Penguatan pengawasan muatan kapal</li>
+      <li>Pelatihan evakuasi yang lebih ketat</li>
+      <li>Reformasi sistem SAR nasional</li>
+    </ul>
+    ${linkBar('Sewol ferry 2014 investigation overloading stability Korea maritime reform')}
+  `},
+
+  intExxon:{title:"Exxon Valdez — Alaska 1989",sub:"Kelahiran OPA 90 &amp; Penguatan MARPOL",body:`
+    <p><strong>Tanggal:</strong> 24 Maret 1989 · <strong>Lokasi:</strong> Prince William Sound, Alaska · <strong>Dampak:</strong> Tumpahan ±10,8 juta galon minyak mentah</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Tanker Exxon Valdez menabrak karang Bligh Reef di Prince William Sound, Alaska. Akibatnya, sekitar 10,8 juta galon minyak mentah tumpah ke laut — salah satu bencana lingkungan terbesar dalam sejarah Amerika Serikat.</p>
+    <p>Investigasi mengungkap bahwa:</p>
+    <ul>
+      <li>Nakhoda sedang mabuk saat kejadian</li>
+      <li>Kru mengalami kelelahan kronis akibat jam kerja yang panjang</li>
+      <li>Sistem pemantauan lalu lintas di Prince William Sound tidak memadai</li>
+      <li>Kemampuan respons tumpahan sangat terbatas</li>
+    </ul>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Manajemen kelelahan kru (<em>fatigue management</em>) sangat penting</li>
+      <li>Perlunya sistem pemantauan lalu lintas dan pemanduan di area sensitif</li>
+      <li>Respons tumpahan harus direncanakan dan dilatih, bukan improvisasi</li>
+      <li>Kebijakan alkohol dan obat-obatan di kapal harus ditegakkan</li>
+    </ul>
+    <h4>Dampak Regulasi — OPA 90</h4>
+    <div class="hl red"><p>Amerika Serikat memberlakukan <strong>Oil Pollution Act 1990 (OPA 90)</strong>, yang mewajibkan tanker <em>double hull</em> dan memperkuat MARPOL. OPA 90 juga membentuk sistem tanggung jawab yang lebih ketat untuk pencemaran minyak.</p></div>
+    ${linkBar('Exxon Valdez 1989 oil spill Oil Pollution Act 1990 OPA 90 double hull')}
+  `},
+
+  intTitanic:{title:"RMS Titanic — Atlantik 1912",sub:"Asal-Mula SOLAS",body:`
+    <p><strong>Tanggal:</strong> 15 April 1912 · <strong>Lokasi:</strong> Atlantik Utara · <strong>Korban:</strong> 1.517 meninggal</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>RMS Titanic menabrak gunung es pada pelayaran perdananya dari Southampton ke New York. Kapal tenggelam dalam waktu sekitar 2 jam 40 menit. Sekitar 1.517 orang meninggal — salah satu tragedi maritim terbesar dalam sejarah.</p>
+    <p>Investigasi mengungkap:</p>
+    <ul>
+      <li>Jumlah sekoci tidak memadai untuk seluruh penumpang dan kru (hanya 20 sekoci untuk 2.224 orang)</li>
+      <li>Prosedur evakuasi tidak terkoordinasi</li>
+      <li>Tidak ada patroli es yang memadai</li>
+      <li>Kecepatan kapal tidak dikurangi meskipun ada peringatan gunung es</li>
+      <li>Komunikasi radio marabahaya tidak standar</li>
+    </ul>
+    <h4>Dampak Regulasi — Lahirnya SOLAS</h4>
+    <div class="hl red"><p>Tragedi Titanic memicu lahirnya <strong>SOLAS (Safety of Life at Sea)</strong> pada tahun 1914 — konvensi keselamatan pelayaran pertama yang mengikat secara internasional. SOLAS kemudian diperbarui berkali-kali (SOLAS 1929, 1948, 1960, 1974, dan amandemen-amandemen selanjutnya).</p></div>
+    <p>SOLAS mengatur:</p>
+    <ul>
+      <li>Konstruksi kapal (tahan air, sekat kedap)</li>
+      <li>Peralatan keselamatan (sekoci, life jacket, liferaft)</li>
+      <li>Prosedur darurat dan drill</li>
+      <li>Sistem komunikasi marabahaya</li>
+      <li>Pelatihan awak kapal</li>
+    </ul>
+    ${linkBar('RMS Titanic 1912 disaster SOLAS 1914 origin safety of life at sea')}
+  `},
+
+  intBowMariner:{title:"Bow Mariner — Atlantik 2004",sub:"Hot Work &amp; Tank Cleaning",body:`
+    <p><strong>Tanggal:</strong> 28 Februari 2004 · <strong>Lokasi:</strong> Lepas pantai Virginia, AS · <strong>Korban:</strong> 6 meninggal, 18 selamat</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Tanker kimia Bow Mariner meledak saat kru melakukan pembersihan tangki kargo (<em>tank cleaning</em>) dalam perjalanan menuju pelabuhan berikutnya. Ledakan terjadi karena akumulasi gas mudah terbakar yang terpicu oleh pekerjaan panas (<em>hot work</em>) atau percikan listrik.</p>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Operasi berisiko tinggi memerlukan izin kerja (<em>permit to work</em>) yang ketat</li>
+      <li>Verifikasi atmosfer tangki sebelum pekerjaan panas</li>
+      <li>Pelatihan kru untuk operasi pembersihan tangki</li>
+      <li>Prosedur tanggap darurat jika terjadi ledakan atau kebakaran</li>
+      <li>Kepatuhan terhadap ISGOTT (International Safety Guide for Oil Tankers and Terminals)</li>
+    </ul>
+    <h4>Dampak Regulasi</h4>
+    <p>Insiden Bow Mariner mendorong penguatan prosedur:</p>
+    <ul>
+      <li>Wajib verifikasi atmosfer tangki sebelum hot work</li>
+      <li>Kewajiban alat deteksi gas portabel</li>
+      <li>Pelatihan khusus untuk tank cleaning</li>
+      <li>Prosedur permit to work yang lebih ketat</li>
+    </ul>
+    ${linkBar('Bow Mariner 2004 investigation hot work tank cleaning tanker explosion')}
+  `},
+
+  intMscChitra:{title:"MSC Chitra — Mumbai 2010",sub:"Tabrakan di Pelabuhan Padat",body:`
+    <p><strong>Tanggal:</strong> 7 Agustus 2010 · <strong>Lokasi:</strong> Lepas pantai Mumbai, India · <strong>Dampak:</strong> Kontainer jatuh, tumpahan minyak</p>
+    <h4>Jalannya Peristiwa</h4>
+    <p>Kapal kontainer MSC Chitra bertabrakan dengan kapal curah MV Khalijia-III di luar pelabuhan Mumbai. Akibatnya, ratusan kontainer jatuh ke laut dan terjadi tumpahan minyak. Pelabuhan Mumbai ditutup selama beberapa hari, menimbulkan kerugian ekonomi signifikan.</p>
+    <h4>Pelajaran Utama</h4>
+    <ul>
+      <li>Komunikasi VHF yang efektif sangat penting di perairan padat</li>
+      <li>Pemantauan lalu lintas pelabuhan harus memadai</li>
+      <li>Respons cepat terhadap risiko pencemaran</li>
+      <li>Koordinasi antara kapal, otoritas pelabuhan, dan VTS (Vessel Traffic Service)</li>
+    </ul>
+    <h4>Konteks Perairan Mumbai</h4>
+    <p>Perairan Mumbai adalah salah satu jalur pelayaran tersibuk di dunia, dengan lalu lintas kapal kontainer, tanker, kapal curah, dan kapal penumpang yang padat. Tabrakan antar-kapal di perairan ini menjadi perhatian serius bagi otoritas pelabuhan.</p>
+    ${linkBar('MSC Chitra 2010 Mumbai collision investigation port traffic VHF')}
+  `},
+
+  /* ===== REGULASI — DETAIL ===== */
+  rule5:{title:"COLREG 1972 — Rule 5: Proper Look-out",sub:"P2TL · Aturan Pengamatan",body:`
+    <p><strong>Bunyi aturan lengkap:</strong> "Setiap kapal harus senantiasa melakukan pengamatan yang layak, baik dengan penglihatan dan pendengaran maupun dengan semua sarana yang tersedia yang sesuai dengan keadaan dan suasana yang ada, sehingga dapat membuat penilaian sepenuhnya terhadap situasi dan bahaya tubrukan."</p>
+    <h4>Implikasi Operasional</h4>
+    <ul>
+      <li>Pengamatan bukan hanya "melihat ke depan" — meliputi radar, AIS, ECDIS, dan pendengaran</li>
+      <li>Harus dilakukan terus-menerus, bukan sesaat</li>
+      <li>Harus memadai terhadap kondisi: malam, kabut, lalu lintas padat, alur sempit</li>
+      <li>Harus melibatkan seluruh tim anjungan (bridge team)</li>
+      <li>Harus didokumentasikan dalam buku harian atau logbook</li>
+    </ul>
+    <h4>Relevansi KM Tilongkabila</h4>
+    <p>Nakhoda meninggalkan anjungan di alur sempit pada malam hari; Mualim IV bertugas sendiri tanpa navigator senior. Kapasitas pengamatan efektif dinilai tidak memadai. Selain itu, master night order yang ditinggalkan tidak menggambarkan kondisi perairan saat itu (alur sempit, malam hari).</p>
+    <div class="hl red"><p><strong>Catatan penting:</strong> Rule 5 adalah aturan P2TL/COLREG, bukan pasal SOLAS. Keduanya adalah instrumen internasional yang berbeda meskipun sama-sama dikeluarkan IMO.</p></div>
+    <h4>Penerapan dalam Pembelajaran</h4>
+    <p>Dalam konteks pelatihan, peserta diajarkan untuk mengidentifikasi kapan pengamatan dianggap memadai dan kapan tidak. Faktor seperti kelelahan, cuaca, dan kompleksitas lalu lintas harus dipertimbangkan dalam menentukan tingkat pengamatan yang diperlukan.</p>
+    ${linkBar('COLREG 1972 Rule 5 proper look-out watchkeeping maritime safety')}
+  `},
+
+  rule6:{title:"COLREG 1972 — Rule 6: Safe Speed",sub:"P2TL · Aturan Kecepatan Aman",body:`
+    <p><strong>Bunyi aturan lengkap:</strong> "Setiap kapal harus senantiasa bergerak dengan kecepatan aman sehingga dapat mengambil tindakan yang tepat dan berhasil untuk menghindari tubrukan dan dapat dihentikan dalam jarak yang sesuai dengan keadaan dan suasana yang ada."</p>
+    <h4>Faktor yang Harus Dipertimbangkan</h4>
+    <p>Dalam menentukan kecepatan aman, menurut Rule 6, harus dipertimbangkan:</p>
+    <ul>
+      <li>Jarak penglihatan dan kondisi cuaca</li>
+      <li>Kepadatan lalu lintas</li>
+      <li>Kemampuan olah gerak kapal (manuverabilitas)</li>
+      <li>Jarak henti kapal pada kecepatan tersebut</li>
+      <li>Kondisi perairan: kedalaman, lebar alur, arus, jarak bebas ke bahaya</li>
+      <li>Kemampuan radar dan alat bantu navigasi</li>
+      <li>Kondisi kapal: draft, stabilitas, trim</li>
+    </ul>
+    <h4>Relevansi KM Tilongkabila</h4>
+    <p>Kapal berlayar dengan kecepatan 12–13 knot di alur selebar ±7 cable. PT Pelni dalam keterangannya menyatakan bahwa kecepatan tersebut <strong>bukan kecepatan aman</strong>. Kecepatan aman adalah kecepatan di mana kapal masih bisa dikendalikan saat keadaan darurat.</p>
+    <div class="hl"><p><strong>Definisi praktis:</strong> Kecepatan aman = kecepatan di mana kapal masih dapat berhenti atau berbelok dalam jarak yang tersedia sebelum mencapai bahaya.</p></div>
+    <h4>Perhitungan Sederhana</h4>
+    <p>Jarak henti kapal (stopping distance) dapat diperkirakan dengan rumus:</p>
+    <div class="hl"><p><strong>Stopping Distance = (V² × Displacement) / (2 × Towing Force)</strong></p><p>Pada kecepatan 11 knot, kapal KM Tilongkabila memerlukan jarak 3–4 NM untuk berhenti. Jarak ke tebing saat alarm GPS berbunyi hanya 1,7 NM — tidak cukup.</p></div>
+    ${linkBar('COLREG 1972 Rule 6 safe speed stopping distance maritime navigation')}
+  `},
+
+  solas5:{title:"SOLAS Bab V — Keselamatan Navigasi",sub:"Safety of Navigation",body:`
+    <p>SOLAS Bab V membahas keselamatan navigasi dan memuat ketentuan operasional yang relevan bagi kapal pada umumnya. Bab ini mencakup berbagai aspek navigasi, dari perencanaan pelayaran hingga peralatan navigasi.</p>
+    <h4>Cakupan SOLAS Bab V</h4>
+    <ul>
+      <li>Kewajiban perencanaan pelayaran (passage planning)</li>
+      <li>Penggunaan sistem kendali arah/jalur (Reg 24)</li>
+      <li>Sistem kemudi dan pengujiannya (Reg 26)</li>
+      <li>Keselamatan navigasi dan menghindari bahaya (Reg 34)</li>
+      <li>Peralatan navigasi dan komunikasi</li>
+      <li>Penyediaan informasi navigasi</li>
+      <li>Pelaporan posisi kapal</li>
+      <li>Layanan lalu lintas kapal (VTS)</li>
+    </ul>
+    <h4>Fokus Pembelajaran dari Putusan</h4>
+    <p>Dalam kedua kasus (KM Tilongkabila dan KMP Tunu Pratama Jaya), Mahkamah Pelayaran merujuk pada SOLAS Bab V, khususnya:</p>
+    <ul>
+      <li>Reg 24 tentang penggunaan sistem kendali arah/jalur</li>
+      <li>Reg 26 tentang sistem kemudi, pengujian, dan pelatihan</li>
+      <li>Reg 34 tentang keselamatan navigasi dan menghindari situasi berbahaya</li>
+    </ul>
+    <h4>Latihan untuk Taruna</h4>
+    <ul>
+      <li>Buat passage plan yang komprehensif</li>
+      <li>Tandai area sempit dan berbahaya di peta</li>
+      <li>Tentukan titik panggil Nakhoda (call point)</li>
+      <li>Tetapkan batas kecepatan per segmen</li>
+      <li>Lakukan monitoring posisi dan cross-check secara berkala</li>
+      <li>Dokumentasikan semua keputusan dalam buku harian</li>
+    </ul>
+    <div class="hl"><p><strong>Pelajaran kunci:</strong> Jangan hanya menghafal nomor regulasi — hubungkan <em>kewajiban → prosedur kapal → tindakan nyata → bukti pelaksanaan</em>.</p></div>
+    ${linkBar('SOLAS Chapter V safety of navigation IMO regulation')}
+  `},
+
+  solas24:{title:"SOLAS Bab V — Regulasi 24",sub:"Penggunaan Sistem Kendali Arah dan/atau Jalur",body:`
+    <p>Regulasi ini mengatur penggunaan sistem kendali arah/jalur (steering gear control systems) dan menekankan pentingnya pengujian.</p>
+    <h4>Bunyi Regulasi 24 Angka 4</h4>
+    <div class="hl"><p>"Kemudi manual harus diuji setelah penggunaan sistem kontrol arah dan/atau jalur dalam waktu lama, dan sebelum memasuki area di mana navigasi menuntut perhatian khusus."</p></div>
+    <h4>Relevansi KM Tilongkabila</h4>
+    <p>Kapal memasuki alur sempit Selat Buton — area yang menuntut perhatian khusus. Pengujian kemudi sebelum bertolak dilakukan (kanan 10-20-30, kiri 10-20-30, tengah), namun kegagalan respons kemudi tetap terjadi saat berlayar. Putusan menilai Nakhoda tidak melaksanakan ketentuan ini secara memadai.</p>
+    <h4>Analisis Teknis</h4>
+    <ul>
+      <li>Pengujian kemudi bukan hanya formalitas — hasilnya harus diverifikasi</li>
+      <li>Jika ditemukan gerakan kemudi lambat, harus segera ditindaklanjuti</li>
+      <li>Temuan pengujian harus didokumentasikan dalam buku harian</li>
+      <li>Kru harus familiar dengan prosedur pengujian</li>
+    </ul>
+    <h4>Pelajaran untuk Taruna</h4>
+    <p>Sebelum memasuki area yang menuntut perhatian khusus (alur sempit, pelabuhan, selat), lakukan:</p>
+    <ul>
+      <li>Pengujian kemudi manual</li>
+      <li>Pengujian sistem kemudi darurat</li>
+      <li>Pengujian komunikasi dengan kamar mesin</li>
+      <li>Pengecekan indikator kemudi</li>
+      <li>Verifikasi bahwa semua sistem berfungsi normal</li>
+    </ul>
+    ${linkBar('SOLAS Regulation 24 steering gear control system testing')}
+  `},
+
+  solas26:{title:"SOLAS Bab V — Regulasi 26",sub:"Sistem Kemudi, Pengujian dan Pelatihan",body:`
+    <p>Regulasi ini mengatur sistem kemudi utama dan auxiliaries, termasuk kewajiban pengujian dan pelatihan.</p>
+    <h4>Elemen Kunci</h4>
+    <ul>
+      <li>Kapal harus memiliki sistem kemudi utama dan sistem kemudi darurat</li>
+      <li>Pengujian sistem kemudi harus dilakukan sebelum kapal berlayar</li>
+      <li>Latihan kemudi darurat (emergency steering drill) harus dilaksanakan secara berkala</li>
+      <li>Awak kapal harus familiar dengan prosedur kegagalan kemudi</li>
+      <li>Instruksi operasi kemudi darurat harus tersedia di ruang kemudi dan ruang mesin</li>
+    </ul>
+    <h4>Temuan KM Tilongkabila</h4>
+    <div class="hl red"><p>Drill kemudi darurat terakhir dilakukan sekitar 3 bulan sebelum kejadian dan ditemukan pergerakan kemudi <em>lambat</em>. Nakhoda mengaku tidak menggunakan emergency steering saat kemudi gagal. Mahkamah menilai Nakhoda tidak pernah melakukan emergency steering drill secara memadai.</p></div>
+    <h4>Analisis Penyebab</h4>
+    <ul>
+      <li>Drill kemudi darurat tidak dilakukan secara rutin</li>
+      <li>Temuan drill (kemudi lambat) tidak ditindaklanjuti</li>
+      <li>Kru tidak familiar dengan prosedur darurat</li>
+      <li>Keputusan untuk menggunakan emergency steering tidak diambil</li>
+    </ul>
+    <h4>Pelajaran untuk Taruna</h4>
+    <ul>
+      <li>Drill bukan formalitas — hasilnya harus dievaluasi dan ditindaklanjuti</li>
+      <li>Kru harus terlatih untuk mengenali tanda-tanda kegagalan kemudi</li>
+      <li>Prosedur darurat harus dipraktikkan secara berkala</li>
+      <li>Semua drill harus didokumentasikan dengan benar</li>
+    </ul>
+    ${linkBar('SOLAS Regulation 26 steering gear drill emergency training')}
+  `},
+
+  solas34:{title:"SOLAS Bab V — Regulasi 34",sub:"Keselamatan Navigasi &amp; Menghindari Bahaya",body:`
+    <p>Regulasi ini menekankan kewajiban untuk mengambil tindakan pencegahan yang aman dan menghindari situasi berbahaya.</p>
+    <h4>Elemen Kunci</h4>
+    <ul>
+      <li>Nakhoda dan perwira jaga harus bertindak proaktif, bukan reaktif</li>
+      <li>Risiko harus diidentifikasi sebelum menjadi bahaya</li>
+      <li>Keputusan harus mempertimbangkan margin keselamatan</li>
+      <li>Kecepatan harus disesuaikan dengan kondisi</li>
+      <li>Tindakan pencegahan harus diambil lebih awal</li>
+    </ul>
+    <h4>Relevansi KM Tilongkabila</h4>
+    <p>Ketika kemudi tidak merespons, tindakan yang seharusnya diambil — <em>emergency stop</em>, mundur, atau aktivasi kemudi darurat — tidak dilakukan secara tepat. Kapal terus melaju ke tebing dengan kecepatan 7 knot.</p>
+    <h4>Relevansi KMP Tunu Pratama Jaya</h4>
+    <p>Kapal berlayar dalam kondisi overdraft dan tidak mempertimbangkan risiko pergeseran muatan. Ketika cuaca memburuk, keputusan untuk mengurangi kecepatan atau mengubah haluan tidak diambil secara tepat.</p>
+    <div class="hl red"><p><strong>Pelajaran:</strong> Kecepatan berlebih menghilangkan margin waktu untuk bereaksi. Semakin tinggi kecepatan, semakin kecil ruang untuk mengoreksi kesalahan.</p></div>
+    ${linkBar('SOLAS Regulation 34 safe navigation avoiding danger precautionary')}
+  `},
+
+  solas9:{title:"SOLAS Bab IX — Manajemen Keselamatan",sub:"Kerangka ISM Code",body:`
+    <p>SOLAS Bab IX adalah kerangka tempat ISM Code berada. Bab ini mewajibkan perusahaan pelayaran memiliki Sistem Manajemen Keselamatan (SMS).</p>
+    <h4>Tujuan SOLAS Bab IX</h4>
+    <ul>
+      <li>Mengelola keselamatan operasi kapal</li>
+      <li>Mencegah pencemaran lingkungan</li>
+      <li>Menciptakan budaya keselamatan di perusahaan dan kapal</li>
+      <li>Menyediakan prosedur untuk operasi kapal yang aman</li>
+      <li>Membangun sistem untuk mengidentifikasi dan mengelola risiko</li>
+    </ul>
+    <h4>Elemen Penting ISM Code</h4>
+    <ul>
+      <li>Kebijakan keselamatan dan perlindungan lingkungan</li>
+      <li>Tanggung jawab dan wewenang yang jelas</li>
+      <li>Penunjukan Designated Person Ashore (DPA)</li>
+      <li>Prosedur operasional kapal</li>
+      <li>Kesiapan keadaan darurat</li>
+      <li>Pelaporan dan analisis ketidaksesuaian</li>
+      <li>Pemeliharaan kapal dan peralatan</li>
+      <li>Dokumentasi dan audit</li>
+    </ul>
+    <div class="hl purple"><p><strong>Sejarah:</strong> SOLAS Bab IX dan ISM Code lahir sebagai respons atas tragedi <em>Herald of Free Enterprise</em> (1987) dan <em>Scandinavian Star</em> (1990).</p></div>
+    <div class="hl"><p><strong>Prinsip utama:</strong> SMS tidak cukup berupa dokumen. Prosedur harus dipahami, diterapkan, diawasi, dievaluasi, dan diperbaiki.</p></div>
+    ${linkBar('SOLAS Chapter IX ISM Code safety management system maritime')}
+  `},
+
+  passage:{title:"Passage Plan &amp; Perairan Sempit",sub:"SMK-7 Huruf C",body:`
+    <p>Perencanaan pelayaran (passage plan) adalah fondasi navigasi yang aman. Dalam perairan sempit, passage plan harus memuat elemen tambahan yang tidak diperlukan di perairan lepas.</p>
+    <h4>Elemen Passage Plan untuk Perairan Sempit</h4>
+    <ul>
+      <li>Penandaan area sempit, dangkal, dan berbahaya</li>
+      <li>Penetapan batas kecepatan aman per segmen</li>
+      <li>Penetapan titik panggil Nakhoda (call point)</li>
+      <li>Penetapan radius putar dan jarak aman</li>
+      <li>Rencana komunikasi dan pembagian tugas anjungan</li>
+      <li>Rencana kontinjensi jika kemudi/mesin gagal</li>
+      <li>Identifikasi lokasi jangkar darurat</li>
+    </ul>
+    <h4>Kutipan SMK PT Pelni (dikutip dalam putusan)</h4>
+    <div class="hl">
+      <p><strong>Angka 3:</strong> "Pada perairan sempit dan dangkal laju kapal harus segera dikurangi terlebih jika kapal sukar dikemudikan atau jika kapal keluar dari poros perairan, atau melewati kapal yang sedang duduk terkepil bila perlu mesin dihentikan sampai pada keadaan memungkinkan. Echosounder harus dipergunakan dan hasilnya dicatat dalam journal/Buku Harian."</p>
+      <p><strong>Angka 5:</strong> "Tindakan berjaga-jaga di perairan sempit, sungai, terusan dan perairan dangkal, harus seoptimal mungkin dengan pengamatan/pengawasan dan atau menambah personil jaga pengamat/Panjarwala, tentukan posisi kapal dengan cermat ikuti (hitung) belokan-belokan yang dilewati sesuai dipeta, hindarkan berpapasan dengan kapal lain di belokan, siapkan jangkar untuk sewaktu-waktu dilego dan utamakan kapal yang berlayar mengikuti arus."</p>
+    </div>
+    <h4>Temuan KM Tilongkabila</h4>
+    <p>Passage plan dibuat oleh Mualim II, namun Nakhoda meninggalkan anjungan di area sempit dan tidak menambah personil pengamat. Master night order dinilai tidak menggambarkan kondisi perairan saat itu.</p>
+    ${linkBar('passage planning narrow channel IMO SMK perairan sempit navigation')}
+  `},
+
+  ism7:{title:"ISM Code Elemen 7",sub:"Shipboard Operations · Pengendalian Operasi",body:`
+    <p>Elemen 7 ISM Code mengatur bahwa perusahaan harus menetapkan prosedur, rencana, dan instruksi — termasuk daftar tugas — untuk operasi kapal yang berkaitan dengan keselamatan kapal dan perlindungan lingkungan.</p>
+    <h4>Cakupan Elemen 7</h4>
+    <ul>
+      <li>Operasi kapal yang berdampak pada keselamatan</li>
+      <li>Penanganan muatan dan stabilitas</li>
+      <li>Pengawasan operasional oleh personel yang kompeten</li>
+      <li>Komunikasi antar departemen (dek dan mesin)</li>
+      <li>Pengendalian pihak ketiga</li>
+      <li>Prosedur untuk operasi khusus (perairan sempit, cuaca buruk, dsb.)</li>
+    </ul>
+    <h4>Pada KMP Tunu Pratama Jaya</h4>
+    <div class="hl red"><p>Mahkamah menyatakan Mualim II dinilai <strong>belum memenuhi ketentuan ISM Code Elemen 7</strong> — terkait penyusunan muatan yang mengakibatkan overdraft, pengawasan lashing yang tidak menyeluruh, dan pengendalian weather tight door.</p></div>
+    <h4>Analisis</h4>
+    <p>ISM Code Elemen 7 mewajibkan perusahaan menetapkan prosedur yang jelas. Namun pada praktiknya:</p>
+    <ul>
+      <li>Stowage plan tidak tersedia di atas kapal</li>
+      <li>Prosedur lashing tidak terdokumentasi dengan baik</li>
+      <li>Pengawasan muatan tidak memadai</li>
+      <li>Weather tight door tidak dikendalikan sesuai prosedur</li>
+    </ul>
+    <div class="hl"><p><strong>Pelajaran:</strong> Prosedur hanya bernilai jika dilaksanakan dan diawasi. Pengawasan bukan tanggung jawab satu orang saja — diperlukan sistem.</p></div>
+    ${linkBar('ISM Code element 7 shipboard operations procedures cargo handling')}
+  `},
+
+  sms:{title:"SMS / SMK — Sistem Manajemen Keselamatan",sub:"Dokumen yang Hidup, Bukan Arsip",body:`
+    <p>Sistem Manajemen Keselamatan (SMS) atau Sistem Manajemen Keselamatan dan Kesehatan Kerja (SMK) adalah dokumen induk yang mengatur bagaimana keselamatan dikelola di kapal dan di perusahaan.</p>
+    <h4>SMS yang Baik Memiliki Ciri</h4>
+    <ul>
+      <li><strong>Dokumentasi</strong> — prosedur tertulis yang jelas dan mudah dipahami</li>
+      <li><strong>Implementasi</strong> — prosedur benar-benar dijalankan di lapangan</li>
+      <li><strong>Pengawasan</strong> — ada mekanisme kontrol dan verifikasi</li>
+      <li><strong>Evaluasi</strong> — ada audit dan analisis berkala</li>
+      <li><strong>Perbaikan</strong> — tindakan korektif ditindaklanjuti hingga tuntas</li>
+      <li><strong>Komitmen manajemen</strong> — pimpinan terlibat aktif</li>
+      <li><strong>Partisipasi kru</strong> — semua awak kapal memahami dan menerapkan</li>
+    </ul>
+    <h4>Temuan pada Kedua Kasus</h4>
+    <ul>
+      <li><strong>KM Tilongkabila:</strong> SMK PT Pelni sudah mengatur prosedur perairan sempit (SMK-7 Huruf C angka 3 &amp; 5) — namun tidak dilaksanakan</li>
+      <li><strong>KMP Tunu Pratama Jaya:</strong> ISM Code perusahaan ada, tetapi praktik di lapangan tidak sesuai (stowage plan tidak ada, lashing tidak menyeluruh, weather tight door terbuka)</li>
+    </ul>
+    <div class="hl red"><p><strong>Kesimpulan:</strong> SMS hanya efektif jika diimplementasikan. Dokumen tanpa implementasi adalah ilusi keselamatan.</p></div>
+    <h4>Rekomendasi Pendidikan</h4>
+    <p>Lakukan simulasi anjungan dan diskusi keputusan, bukan sekadar meminta taruna menghafal isi ISM Code.</p>
+    ${linkBar('Safety Management System SMS ISM Code implementation maritime')}
+  `},
+
+  dpA:{title:"Designated Person Ashore (DPA)",sub:"Penghubung Kapal–Manajemen",body:`
+    <p>DPA adalah personel di darat yang ditunjuk perusahaan untuk memastikan penerapan SMS berjalan. DPA adalah penghubung antara kapal dan manajemen tertinggi perusahaan.</p>
+    <h4>Tugas Utama DPA</h4>
+    <ul>
+      <li>Memantau aspek keselamatan kapal yang ditangani</li>
+      <li>Memastikan penerapan dan pelaksanaan SMK</li>
+      <li>Berkomunikasi dengan kapal terkait penerapan prosedur</li>
+      <li>Menerbitkan nota dinas pengingat (drill, evaluasi insiden)</li>
+      <li>Menerima laporan drill dan dokumentasinya</li>
+      <li>Melaporkan kekurangan kepada manajemen</li>
+      <li>Memastikan tindakan korektif dilaksanakan</li>
+    </ul>
+    <h4>Kualifikasi DPA</h4>
+    <ul>
+      <li>Memiliki pengetahuan tentang ISM Code</li>
+      <li>Memahami operasi kapal</li>
+      <li>Memiliki akses langsung ke manajemen tertinggi</li>
+      <li>Memiliki sertifikat DPA yang relevan</li>
+    </ul>
+    <h4>Rekomendasi Mahkamah (KM Tilongkabila)</h4>
+    <div class="hl"><p>Memperbaiki sistem manajemen mutu dengan petunjuk yang lebih jelas mengenai daerah alur perairan sempit dan dangkal, menunjuk pejabat dengan kompetensi Nautika yang memadai untuk mengisi jabatan Vice President (VP) Nautika, dan memperbarui kontrak kerja DPA agar memiliki dasar yang jelas.</p></div>
+    <h4>Pelajaran</h4>
+    <p>DPA bukan jabatan administratif semata. DPA harus aktif berkomunikasi dengan kapal, memahami kebutuhan operasional, dan memastikan sistem keselamatan berjalan efektif.</p>
+    ${linkBar('Designated Person Ashore DPA ISM Code maritime safety role')}
+  `},
+
+  audit:{title:"Audit &amp; Tindakan Korektif",sub:"Menutup Siklus Perbaikan",body:`
+    <p>Audit internal dan eksternal adalah mekanisme untuk memastikan SMS berjalan. Namun audit yang tidak menghasilkan tindakan korektif hanyalah formalitas.</p>
+    <h4>Siklus Audit yang Efektif</h4>
+    <ol>
+      <li><strong>Perencanaan audit</strong> — jadwal, ruang lingkup, kriteria</li>
+      <li><strong>Pelaksanaan audit</strong> — wawancara, observasi, pemeriksaan dokumen</li>
+      <li><strong>Pelaporan temuan</strong> — klasifikasi (mayor/minor/observasi)</li>
+      <li><strong>Tindakan korektif</strong> — perbaikan dalam tenggat waktu</li>
+      <li><strong>Verifikasi</strong> — pemeriksaan ulang untuk memastikan perbaikan efektif</li>
+      <li><strong>Pembelajaran</strong> — integrasi pembelajaran ke dalam sistem</li>
+    </ol>
+    <h4>Pertanyaan Evaluasi</h4>
+    <ul>
+      <li>Apakah temuan audit diklasifikasikan dengan benar?</li>
+      <li>Apakah ada tenggat waktu penyelesaian yang jelas?</li>
+      <li>Apakah verifikasi ulang dilakukan setelah perbaikan?</li>
+      <li>Apakah temuan yang sama berulang di audit berikutnya?</li>
+      <li>Apakah temuan audit digunakan sebagai pembelajaran?</li>
+    </ul>
+    <h4>Data dari Persidangan</h4>
+    <div class="hl"><p>Internal audit terakhir KM Tilongkabila dilakukan 1–2 Mei 2025. Namun drill kemudi darurat tetap tidak dilakukan secara memadai hingga kejadian. Ini menunjukkan bahwa audit belum efektif dalam mendorong perbaikan nyata.</p></div>
+    <h4>Pelajaran</h4>
+    <p>Budaya keselamatan menuntut keberanian melaporkan ketidaksesuaian dan komitmen menindaklanjutinya — bukan sekadar menghasilkan dokumen audit yang rapi.</p>
+    ${linkBar('ISM Code internal audit corrective action verification maritime')}
+  `},
+
+  stcw1:{title:"STCW 1978 &amp; Amandemen",sub:"Standar Pelatihan, Sertifikasi &amp; Tugas Jaga",body:`
+    <p>STCW (Standards of Training, Certification and Watchkeeping for Seafarers) 1978 beserta amandemennya adalah konvensi internasional yang menetapkan standar pelatihan, sertifikasi, dan tugas jaga pelaut.</p>
+    <h4>Cakupan STCW</h4>
+    <ul>
+      <li>Standar kompetensi minimum untuk perwira dan awak kapal</li>
+      <li>Persyaratan sertifikasi keahlian pelaut</li>
+      <li>Ketentuan tugas jaga (watchkeeping)</li>
+      <li>Pelatihan keselamatan dasar</li>
+      <li>Manajemen sumber daya anjungan (BRM)</li>
+      <li>Pelatihan keadaan darurat</li>
+      <li>Persyaratan medis dan kebugaran</li>
+    </ul>
+    <h4>Relevansi Kasus</h4>
+    <ul>
+      <li>Kompetensi navigasi (KM Tilongkabila — Nakhoda gagal menerapkan BRM)</li>
+      <li>Pelaksanaan tugas jaga (KM Tilongkabila — Mualim IV bertugas sendiri)</li>
+      <li>Kerja tim dan komunikasi (kedua kasus)</li>
+      <li>Kemampuan bertindak saat situasi berubah (KMP Tunu Pratama Jaya — penanganan stabilitas)</li>
+    </ul>
+    <div class="hl"><p><strong>Pelajaran:</strong> Sertifikat menunjukkan kualifikasi. Keselamatan tetap menuntut <strong>penerapan kompetensi secara benar pada kondisi nyata</strong>.</p></div>
+    ${linkBar('STCW 1978 standards training certification watchkeeping seafarers IMO')}
+  `},
+
+  stcw2:{title:"Sertifikat ≠ Kompetensi Nyata",sub:"Dari Kualifikasi ke Penerapan",body:`
+    <p>Memiliki sertifikat keahlian pelaut adalah syarat formal untuk menjalankan profesi di kapal. Namun sertifikat hanya menunjukkan bahwa seseorang telah memenuhi standar kualifikasi minimum — bukan jaminan bahwa ia akan menerapkan kompetensinya dengan benar dalam kondisi nyata.</p>
+    <h4>Contoh dari Kedua Kasus</h4>
+    <ul>
+      <li><strong>KM Tilongkabila:</strong> Nakhoda memiliki ANT I dengan pengukuhan berlaku sampai 2027. Mualim IV memiliki ANT III. Namun kendala utama bukan pada validitas sertifikat, melainkan pada <em>penerapan</em> kompetensi — khususnya manajemen sumber daya anjungan (BRM) dan penanganan keadaan darurat.</li>
+      <li><strong>KMP Tunu Pratama Jaya:</strong> Mualim II memiliki ANT-V. Namun dinilai belum sepenuhnya melaksanakan tugas sesuai kecakapan pelaut yang baik.</li>
+    </ul>
+    <h4>Faktor yang Mempengaruhi Penerapan Kompetensi</h4>
+    <ul>
+      <li>Kelelahan dan jam kerja yang panjang</li>
+      <li>Tekanan waktu (jadwal yang ketat)</li>
+      <li>Budaya organisasi (apakah speak up didukung?)</li>
+      <li>Sumber daya yang tersedia (peralatan, personel)</li>
+      <li>Kualitas pelatihan dan drill</li>
+      <li>Pengalaman dan jam terbang</li>
+    </ul>
+    <div class="hl red"><p><strong>Peringatan generalisasi:</strong> Putusan terhadap individu tidak boleh digeneralisasi sebagai bukti bahwa seluruh sistem sertifikasi gagal.</p></div>
+    ${linkBar('STCW competency application maritime human factors fatigue')}
+  `},
+
+  marpol1:{title:"MARPOL 73/78",sub:"Pencegahan Pencemaran Lingkungan Laut",body:`
+    <p>MARPOL (International Convention for the Prevention of Pollution from Ships) 73/78 adalah konvensi internasional utama untuk pencegahan pencemaran lingkungan laut oleh kapal. Konvensi ini mencakup berbagai jenis pencemaran, dari minyak hingga emisi udara.</p>
+    <h4>Annex MARPOL</h4>
+    <ul>
+      <li><strong>Annex I</strong> — Pencegahan pencemaran oleh minyak</li>
+      <li><strong>Annex II</strong> — Pencegahan pencemaran oleh bahan cair berbahaya</li>
+      <li><strong>Annex III</strong> — Pencegahan pencemaran oleh zat berbahaya dalam bentuk kemasan</li>
+      <li><strong>Annex IV</strong> — Pencegahan pencemaran oleh air limbah kapal</li>
+      <li><strong>Annex V</strong> — Pencegahan pencemaran oleh sampah kapal</li>
+      <li><strong>Annex VI</strong> — Pencegahan pencemaran udara oleh kapal</li>
+    </ul>
+    <h4>Kewajiban Kapal</h4>
+    <ul>
+      <li>Memiliki Sertifikat Nasional Pencegahan Pencemaran dari Kapal</li>
+      <li>Memiliki SOPEP (Shipboard Oil Pollution Emergency Plan)</li>
+      <li>Melakukan pencatatan dalam Oil Record Book</li>
+      <li>Melakukan prosedur pembuangan yang sesuai</li>
+      <li>Melaporkan setiap insiden pencemaran</li>
+    </ul>
+    <h4>Relevansi Kasus</h4>
+    <p>Pada KM Tilongkabila, insiden menubruk tebing <strong>tidak otomatis</strong> membuktikan pelanggaran MARPOL. Dalam putusan dinyatakan tidak terjadi pencemaran lingkungan. Terdapat kebocoran tangki air tawar Fore Peak Tank — bukan tangki bahan bakar atau minyak.</p>
+    <div class="hl"><p><strong>Pelajaran:</strong> MARPOL merupakan aspek pemeriksaan risiko lingkungan yang relevan, tetapi pelanggaran hanya dapat dinyatakan jika didukung fakta dan dasar hukum.</p></div>
+    ${linkBar('MARPOL 73/78 annex oil pollution prevention IMO marine environment')}
+  `},
+
+  marpol2:{title:"MARPOL — Batas Kesimpulan",sub:"Hati-Hati Menarik Kesimpulan Hukum",body:`
+    <p>Dalam setiap insiden maritim, mudah untuk menarik kesimpulan bahwa telah terjadi pelanggaran MARPOL. Namun, kesimpulan seperti itu harus didasarkan pada fakta dan dasar hukum yang kuat.</p>
+    <h4>Mengapa Harus Hati-Hati?</h4>
+    <ul>
+      <li>Insiden tubrukan tidak otomatis berarti pelanggaran MARPOL</li>
+      <li>Pelanggaran MARPOL memerlukan bukti adanya pelepasan zat berbahaya</li>
+      <li>Jenis zat yang terlepas menentukan Annex MARPOL yang berlaku</li>
+      <li>Dasar hukum dan prosedur pelaporan harus dipenuhi</li>
+    </ul>
+    <h4>Langkah Pemeriksaan Pascakejadian</h4>
+    <ol>
+      <li>Periksa integritas tangki dan pipa — identifikasi potensi kebocoran</li>
+      <li>Identifikasi potensi pencemaran — jenis dan volume zat</li>
+      <li>Aktifkan prosedur tanggap darurat (SOPEP) jika ada indikasi pelepasan minyak</li>
+      <li>Laporkan sesuai ketentuan yang berlaku</li>
+      <li>Simpan bukti — foto, sampel, catatan waktu, dan dokumentasi</li>
+      <li>Lakukan investigasi untuk menentukan penyebab dan pencegahan</li>
+    </ol>
+    <h4>Fakta KM Tilongkabila</h4>
+    <ul>
+      <li>Tidak terjadi pencemaran lingkungan (menurut putusan)</li>
+      <li>Kebocoran hanya pada tangki air tawar Fore Peak Tank</li>
+      <li>Tidak ada tumpahan bahan bakar atau minyak</li>
+      <li>Prosedur SOPEP tidak perlu diaktifkan</li>
+    </ul>
+    <div class="hl"><p><strong>Kesimpulan yang tepat:</strong> MARPOL relevan sebagai kerangka pemeriksaan, tetapi pelanggaran hanya dapat dinyatakan jika didukung fakta dan dasar hukum.</p></div>
+    ${linkBar('MARPOL violation determination oil spill evidence investigation')}
+  `},
+
+  uu17:{title:"UU No. 17 Tahun 2008 tentang Pelayaran",sub:"Sebagaimana diubah dengan UU No. 66 Tahun 2024",body:`
+    <p>UU No. 17 Tahun 2008 tentang Pelayaran adalah kerangka utama nasional untuk keselamatan dan keamanan pelayaran, kelaiklautan kapal, serta tanggung jawab para pihak. UU ini telah diubah beberapa kali, terakhir dengan UU No. 66 Tahun 2024.</p>
+    <h4>Pasal-Pasal Relevan</h4>
+    <ul>
+      <li><strong>Pasal 135</strong> — kewajiban kapal diawaki oleh awak kapal yang memenuhi persyaratan kualifikasi dan kompetensi</li>
+      <li><strong>Pasal 154, 155</strong> — pengukuran kapal dan penerbitan Surat Ukur</li>
+      <li><strong>Pasal 158, 163</strong> — pendaftaran kapal dan Surat Tanda Kebangsaan Kapal</li>
+      <li><strong>Pasal 124, 126</strong> — persyaratan keselamatan kapal dan sertifikat keselamatan</li>
+      <li><strong>Pasal 249, 251, 253</strong> — dasar kewenangan Mahkamah Pelayaran dalam pemeriksaan kecelakaan kapal</li>
+    </ul>
+    <h4>Kewenangan Mahkamah Pelayaran</h4>
+    <p>Mahkamah Pelayaran memiliki kewenangan untuk:</p>
+    <ul>
+      <li>Melakukan pemeriksaan lanjutan kecelakaan kapal</li>
+      <li>Menentukan ada atau tidaknya kesalahan/kelalaian dalam penerapan standar profesi kepelautan</li>
+      <li>Menjatuhkan sanksi administratif kepada terduga yang terbukti bersalah atau lalai</li>
+    </ul>
+    <h4>Peringatan Penting</h4>
+    <div class="hl red"><p>Dugaan pelanggaran Pasal 193 ayat (1) UU Pelayaran pada KM Tilongkabila terkait tata cara berlalu lintas, alur pelayaran, sistem rute, daerah pelayaran lalu lintas kapal, dan Sarana Bantu Navigasi Pelayaran <strong>diproses di luar Mahkamah Pelayaran</strong> dan tidak boleh disimpulkan sebagai putusan pidana tanpa proses pengadilan yang sah.</p></div>
+    <h4>Untuk Penggunaan Resmi</h4>
+    <p>Cocokkan versi peraturan, perubahan, dan status berlakunya pada JDIH pemerintah.</p>
+    ${linkBar('UU 17 tahun 2008 pelayaran Indonesia UU 66 tahun 2024 perubahan')}
+  `},
+
+  pm25:{title:"PM Perhubungan No. 25 Tahun 2011",sub:"Pasal 42 ayat (2) — Sarana Bantu Navigasi",body:`
+    <p>PM Perhubungan No. 25 Tahun 2011 mengatur tentang Sarana Bantu Navigasi-Pelayaran (SBNP). Pasal 42 ayat (2) menjadi salah satu rujukan dalam putusan KM Tilongkabila.</p>
+    <h4>Bunyi Pasal 42 ayat (2)</h4>
+    <div class="hl"><p>"Kapal yang memasuki alur pelayaran sempit, sungai dan danau pada waktu mendekati Sarana Bantu Navigasi Pelayaran apung wajib memperhatikan radius lingkaran putar dengan menjaga jarak aman sesuai kecakapan pelaut yang baik."</p></div>
+    <h4>Implikasi Operasional</h4>
+    <ul>
+      <li>Saat mendekati SBNP apung, kapal harus memperhitungkan radius putar</li>
+      <li>Jarak aman harus dijaga sesuai <em>good seamanship</em></li>
+      <li>Kecepatan harus disesuaikan dengan kemampuan olah gerak</li>
+      <li>Pengamatan harus dilakukan secara intensif</li>
+    </ul>
+    <h4>Relevansi KM Tilongkabila</h4>
+    <p>Kapal berlayar dengan kecepatan penuh di alur sempit dan mendekati area SBNP. Putusan menyatakan Nakhoda tidak menjalankan amanah pasal ini.</p>
+    <h4>Pelajaran untuk Taruna</h4>
+    <ul>
+      <li>Pahami karakteristik SBNP di perairan yang akan dilalui</li>
+      <li>Hitung radius putar kapal pada berbagai kecepatan</li>
+      <li>Jaga jarak aman terhadap SBNP apung</li>
+      <li>Sesuaikan kecepatan dengan kondisi perairan</li>
+    </ul>
+    ${linkBar('PM 25 tahun 2011 sarana bantu navigasi pelayaran SBNP Indonesia')}
+  `},
+
+  kuhd:{title:"Pasal 384 KUHD",sub:"Kewajiban Anak Buah Kapal kepada Nakhoda",body:`
+    <p>Kitab Undang-Undang Hukum Dagang (KUHD) Pasal 384 mengatur kewajiban anak buah kapal (ABK) kepada Nakhoda.</p>
+    <h4>Bunyi Pasal 384 KUHD</h4>
+    <div class="hl"><p>"Selama anak buah kapal berada dalam dinas di kapal, ia wajib melaksanakan perintah nakhoda dengan seksama."</p></div>
+    <h4>Makna Hukum</h4>
+    <ul>
+      <li>Kewajiban melaksanakan perintah Nakhoda bersifat mutlak selama dalam dinas</li>
+      <li>"Dengan seksama" berarti dengan penuh perhatian dan tanggung jawab</li>
+      <li>Pelaksanaan perintah harus sesuai dengan kecakapan pelaut yang baik</li>
+      <li>ABK tidak boleh mengabaikan atau melalaikan perintah</li>
+    </ul>
+    <h4>Penerapan dalam Kedua Kasus</h4>
+    <ul>
+      <li><strong>KM Tilongkabila:</strong> Mualim IV dinyatakan <strong>tidak</strong> melanggar pasal ini — ia melaksanakan perintah Nakhoda dan bertindak sesuai kecakapan pelaut yang baik.</li>
+      <li><strong>KMP Tunu Pratama Jaya:</strong> Mualim II dinyatakan <strong>belum sepenuhnya</strong> menjalankan tugas dan tanggung jawabnya sesuai kecakapan pelaut yang baik, sehingga dinilai belum memenuhi kewajibannya sebagaimana amanah Pasal 384 KUHD.</li>
+    </ul>
+    <h4>Catatan Penting</h4>
+    <p>Pasal 384 KUHD menekankan kewajiban melaksanakan perintah, namun Mahkamah juga mempertimbangkan bahwa tanggung jawab utama di atas kapal berada pada Nakhoda, dan terdapat faktor organisasi yang tidak dapat dibebankan sepenuhnya kepada perwira jaga.</p>
+    ${linkBar('Pasal 384 KUHD pelayaran kewajiban anak buah kapal nakhoda')}
+  `},
+
+  pembeda:{title:"Membedakan Jenis Proses Hukum",sub:"Empat Jalur Berbeda dalam Satu Peristiwa",body:`
+    <p>Penilaian hukum atas kecelakaan kapal harus membedakan empat jalur yang berbeda. Masing-masing jalur memiliki tujuan, prosedur, dan konsekuensi yang berbeda.</p>
+    <h4>1. Putusan Mahkamah Pelayaran</h4>
+    <ul>
+      <li>Menilai kesalahan/kelalaian penerapan standar profesi kepelautan</li>
+      <li>Sanksi bersifat administratif-profesional: pencabutan sementara atau tetap sertifikat keahlian</li>
+      <li>Bukan putusan pidana</li>
+      <li>Dibacakan dalam sidang terbuka</li>
+    </ul>
+    <h4>2. Proses Pidana</h4>
+    <ul>
+      <li>Berjalan di pengadilan umum</li>
+      <li>Menuntut pembuktian unsur pidana (misalnya kelalaian yang menyebabkan orang meninggal)</li>
+      <li>Tidak otomatis mengikuti putusan Mahkamah Pelayaran</li>
+      <li>Memerlukan proses penyidikan, penuntutan, dan persidangan</li>
+    </ul>
+    <h4>3. Gugatan Perdata / Komersial</h4>
+    <ul>
+      <li>Menyangkut ganti rugi</li>
+      <li>Klaim asuransi</li>
+      <li>Wanprestasi kontrak pengangkutan</li>
+      <li>Tanggung jawab pihak ketiga</li>
+    </ul>
+    <h4>4. Investigasi Keselamatan</h4>
+    <ul>
+      <li>Bertujuan menemukan penyebab dan mencegah terulangnya kecelakaan</li>
+      <li>Bukan mencari kesalahan</li>
+      <li>Contoh: investigasi internal perusahaan, investigasi KNKT (Komite Nasional Keselamatan Transportasi), NTSB (AS), MAIB (Inggris)</li>
+      <li>Hasilnya berupa rekomendasi, bukan sanksi</li>
+    </ul>
+    <div class="hl red"><p><strong>Prinsip:</strong> Jangan menyatakan suatu pasal UU dilanggar kecuali keputusan atau bukti hukum yang relevan mendukungnya.</p></div>
+    ${linkBar('Mahkamah Pelayaran KNKT NTSB MAIB maritime investigation process legal')}
+  `},
+
+  /* ===== TOT 6.09 ===== */
+  totExp:{title:"Tahap 1 — Mengalami (Experience)",sub:"Concrete Experience · Fondasi Pembelajaran",body:`
+    <p><strong>Definisi:</strong> Tahap di mana peserta terlibat langsung dalam pengalaman nyata atau simulasi yang menghadirkan konteks dan emosi. Dalam modul ini, peserta membaca/menonton rekonstruksi kasus KM Tilongkabila dan KMP Tunu Pratama Jaya.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Pembelajaran orang dewasa (andragogi) paling efektif ketika dimulai dari pengalaman konkret, bukan teori abstrak. Emosi dan konteks nyata memperkuat retensi memori. Ketika peserta melihat foto lokasi kejadian, mendengar rekaman, atau membaca kutipan putusan, mereka terhubung secara emosional dengan materi.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Sajikan video rekonstruksi atau narasi kronologis</li>
+      <li>Bagikan salinan putusan sebagai sumber primer</li>
+      <li>Gunakan foto lokasi kejadian, ECDIS, atau animasi stabilitas</li>
+      <li>Biarkan peserta merasakan dampak emosional kasus nyata</li>
+      <li>Ajak peserta membayangkan diri mereka berada di situasi tersebut</li>
+    </ul>
+    <div class="hl"><p><strong>Alat bantu:</strong> video rekonstruksi, salinan putusan, peta lokasi, foto kerusakan, animasi stabilitas.</p></div>
+    ${linkBar('experiential learning theory Kolb adult education maritime training')}
+  `},
+
+  totShare:{title:"Tahap 2 — Mengungkap (Share)",sub:"Reflective Observation · Diskusi Awal",body:`
+    <p><strong>Definisi:</strong> Peserta berbagi pengamatan dan reaksi mereka terhadap kasus tanpa intervensi fasilitator terlebih dahulu. Tujuannya menggali perspektif awal peserta.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Mendorong peserta menjadi aktif — bukan penerima pasif. Fasilitator bisa mengukur tingkat pemahaman awal dan mengidentifikasi miskonsepsi. Diskusi kelompok kecil menciptakan ruang aman bagi peserta untuk mengemukakan pendapat.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Bentuk kelompok kecil (3–5 orang)</li>
+      <li>Ajukan pertanyaan pembuka: "Apa yang salah? Di titik mana keputusan seharusnya berbeda?"</li>
+      <li>Catat poin-poin kunci di papan tulis</li>
+      <li>Hindari mengoreksi dulu — biarkan peserta mengeluarkan argumen</li>
+      <li>Beri waktu yang cukup untuk diskusi mendalam</li>
+    </ul>
+    <h4>Pertanyaan Pemandu</h4>
+    <ul>
+      <li>Menurut Anda, siapa yang paling bertanggung jawab atas kecelakaan ini?</li>
+      <li>Apa yang akan Anda lakukan berbeda jika berada di posisi tersebut?</li>
+      <li>Regulasi apa yang Anda ketahui yang berkaitan dengan kasus ini?</li>
+      <li>Apa yang paling mengejutkan bagi Anda dari kasus ini?</li>
+    </ul>
+    ${linkBar('reflective observation adult learning facilitation small group discussion')}
+  `},
+
+  totProcess:{title:"Tahap 3 — Memproses (Process)",sub:"Abstract Conceptualization · Analisis Terbimbing",body:`
+    <p><strong>Definisi:</strong> Fasilitator memandu peserta menghubungkan pengalaman dengan konsep, teori, dan regulasi. Di sinilah instrumen hukum seperti COLREG, SOLAS, ISM Code, STCW, dan MARPOL diperkenalkan secara aplikatif.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Tanpa bimbingan, peserta mungkin menarik kesimpulan yang salah. Fasilitator berperan sebagai jembatan antara pengalaman dan pengetahuan formal. Proses ini juga membantu peserta melihat pola-pola yang mungkin tidak terlihat secara langsung.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Pandu analisis dengan kerangka regulasi (Rule 5 &amp; 6, SOLAS Bab V, ISM Code)</li>
+      <li>Gunakan pembanding kasus internasional sebagai cermin</li>
+      <li>Ajak peserta bertanya: "Regulasi mana yang dilanggar? Buktinya apa?"</li>
+      <li>Kaitkan dengan SMK/SMS perusahaan pelayaran</li>
+      <li>Gunakan diagram sebab-akibat untuk visualisasi</li>
+    </ul>
+    <div class="hl"><p><strong>Kutipan kunci:</strong> Jangan hanya menghafal nomor regulasi — hubungkan <em>kewajiban → prosedur → tindakan → bukti</em>.</p></div>
+    <h4>Pertanyaan Analitis</h4>
+    <ul>
+      <li>Apa penyebab langsung dan penyebab mendasar?</li>
+      <li>Bagaimana rantai kegagalan terbentuk?</li>
+      <li>Regulasi apa yang seharusnya mencegah hal ini?</li>
+      <li>Apa peran faktor manusia dan faktor organisasi?</li>
+    </ul>
+    ${linkBar('IMO model course COLREG SOLAS STCW case method teaching maritime law')}
+  `},
+
+  totGeneralize:{title:"Tahap 4 — Menggeneralisasi (Generalize)",sub:"Konsep Umum &amp; Prinsip Universal",body:`
+    <p><strong>Definisi:</strong> Peserta menarik prinsip umum dari kasus spesifik. Misalnya: BRM berlaku universal, kecepatan aman bergantung konteks, budaya <em>speak up</em> menyelamatkan nyawa.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Prinsip yang digeneralisasi memungkinkan transfer pengetahuan ke situasi baru — kunci keberhasilan pelatihan jangka panjang. Tanpa generalisasi, pembelajaran hanya terbatas pada kasus tertentu.</p>
+    <h4>Prinsip Utama yang Harus Muncul</h4>
+    <ul>
+      <li><strong>BRM</strong> — tim anjungan harus aktif, komunikasi dua arah</li>
+      <li><strong>Kecepatan aman</strong> — selalu relatif terhadap kondisi</li>
+      <li><strong>Call point</strong> — kapan Nakhoda harus dipanggil</li>
+      <li><strong>Budaya speak up</strong> — keberanian melapor keraguan</li>
+      <li><strong>Readiness</strong> — kesiapan darurat yang terlatih</li>
+      <li><strong>Verifikasi</strong> — jangan berasumsi, verifikasi dengan bukti</li>
+      <li><strong>Sistem berpikir</strong> — kegagalan biasanya bersifat sistemik, bukan individual</li>
+    </ul>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Ajak peserta merumuskan prinsip dalam kalimat mereka sendiri</li>
+      <li>Bandingkan prinsip dari kasus nasional dengan kasus internasional</li>
+      <li>Diskusikan bagaimana prinsip-prinsip ini dapat diterapkan di kapal peserta</li>
+      <li>Buat daftar "learning points" bersama</li>
+    </ul>
+    ${linkBar('Bridge Resource Management principles safety culture speak up maritime')}
+  `},
+
+  totApply:{title:"Tahap 5 — Menerapkan (Apply)",sub:"Active Experimentation · Simulasi &amp; Praktik",body:`
+    <p><strong>Definisi:</strong> Peserta mempraktikkan konsep dalam skenario yang menyerupai situasi nyata — menggunakan simulator, role play, atau studi kasus baru.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Hanya dengan menerapkan, pengetahuan berubah menjadi keterampilan yang bertahan. Ini juga titik di mana peserta menguji hipotesis dan mengalami konsekuensi dari keputusan mereka dalam lingkungan yang aman.</p>
+    <h4>Aktivitas Penerapan</h4>
+    <ul>
+      <li>Simulator anjungan: latihan BRM dan kegagalan kemudi</li>
+      <li>Penyusunan passage plan untuk alur sempit</li>
+      <li>Latihan drill kemudi darurat (emergency steering drill)</li>
+      <li>Audit SMS simulasi</li>
+      <li>Penyusunan checklist MARPOL pascakejadian</li>
+      <li>Role play komunikasi closed-loop</li>
+    </ul>
+    <div class="hl"><p><strong>Kunci:</strong> Skenario harus cukup menantang namun aman untuk gagal. Kesalahan di simulator lebih baik daripada di kapal sebenarnya.</p></div>
+    <h4>Pertanyaan Reflektif</h4>
+    <ul>
+      <li>Apa yang berhasil?</li>
+      <li>Apa yang perlu diperbaiki?</li>
+      <li>Apakah Anda berani menyampaikan keraguan?</li>
+      <li>Apakah Anda mencatat keputusan dengan benar?</li>
+    </ul>
+    ${linkBar('full mission simulator maritime emergency steering drill training role play')}
+  `},
+
+  totEvaluate:{title:"Tahap 6 — Mengevaluasi (Evaluate)",sub:"Asesmen Berbasis Kinerja &amp; Refleksi",body:`
+    <p><strong>Definisi:</strong> Peserta merefleksikan apa yang telah dipelajari, fasilitator menilai kinerja, dan peserta menyusun rencana transfer ke situasi kerja nyata.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Evaluasi bukan akhir — ia adalah awal dari siklus pembelajaran berikutnya. Asesmen berbasis kinerja mengukur kompetensi nyata, bukan hafalan. Peserta juga belajar dari kesalahan mereka dan mengembangkan rencana perbaikan.</p>
+    <h4>Metode Asesmen</h4>
+    <ul>
+      <li>Observasi simulasi anjungan dengan rubrik</li>
+      <li>Jurnal refleksi pribadi</li>
+      <li>Portofolio produk (passage plan, checklist, laporan audit)</li>
+      <li>Presentasi &amp; debat dengan kelompok lain</li>
+      <li>Kuis formatif</li>
+      <li>Peer assessment</li>
+    </ul>
+    <div class="hl"><p><strong>Transfer:</strong> Peserta menyusun rencana bagaimana menerapkan pembelajaran di kapal atau kelas berikutnya.</p></div>
+    <h4>Indikator Keberhasilan</h4>
+    <ul>
+      <li>Peserta dapat menjelaskan penyebab kecelakaan dengan tepat</li>
+      <li>Peserta dapat mengidentifikasi regulasi yang relevan</li>
+      <li>Peserta dapat membuat keputusan yang lebih baik dalam simulasi</li>
+      <li>Peserta menunjukkan sikap speak up dan disiplin prosedur</li>
+    </ul>
+    ${linkBar('performance based assessment maritime competency STCW rubric')}
+  `},
+
+  /* ===== 9 ELEMEN ===== */
+  el1:{title:"Elemen 1 — Relevansi",sub:"Materi Terkait Tugas Nyata",body:`
+    <p><strong>Definisi:</strong> Materi pembelajaran harus langsung terkait dengan tugas dan tanggung jawab nyata peserta di kapal atau di tempat kerja.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Peserta orang dewasa lebih termotivasi ketika mereka melihat bahwa materi pembelajaran dapat langsung diterapkan. Relevansi meningkatkan motivasi intrinsik dan mempercepat retensi.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Gunakan kasus perairan sempit untuk melatih navigasi</li>
+      <li>Gunakan kasus Ro-Ro untuk melatih stabilitas dan penanganan muatan</li>
+      <li>Kaitkan materi dengan prosedur kapal yang ada</li>
+      <li>Gunakan contoh-contoh dari pengalaman peserta</li>
+      <li>Beri kesempatan peserta untuk berbagi pengalaman mereka sendiri</li>
+    </ul>
+    ${linkBar('adult learning relevance workplace training motivation intrinsic')}
+  `},
+  el2:{title:"Elemen 2 — Konteks Nyata",sub:"Studi Kasus Otentik",body:`
+    <p><strong>Definisi:</strong> Pembelajaran berangkat dari kasus nyata, bukan skenario fiktif. Dalam modul ini, semua kasus berasal dari putusan Mahkamah Pelayaran yang otentik.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Kasus nyata memiliki kompleksitas yang tidak dapat direplikasi oleh skenario fiktif. Peserta belajar dari keputusan nyata yang diambil oleh orang nyata dengan konsekuensi nyata.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Selalu sertakan kutipan langsung dari putusan dan dokumen resmi</li>
+      <li>Gunakan foto dan video otentik</li>
+      <li>Diskusikan konteks sosial, ekonomi, dan budaya dari kasus</li>
+      <li>Ajak peserta memverifikasi informasi dari sumber primer</li>
+    </ul>
+    ${linkBar('case based learning authentic material maritime accident investigation')}
+  `},
+  el3:{title:"Elemen 3 — Partisipasi Aktif",sub:"Peserta sebagai Pelaku, Bukan Penonton",body:`
+    <p><strong>Definisi:</strong> Peserta menganalisis, berdebat, dan mengambil keputusan — bukan sekadar mendengarkan ceramah.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Pembelajaran yang melibatkan peserta secara aktif menghasilkan retensi yang lebih tinggi. Peserta juga belajar dari interaksi dengan rekan-rekan mereka.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Gunakan diskusi kelompok kecil</li>
+      <li>Lakukan role play dan simulasi keputusan</li>
+      <li>Beri kesempatan peserta untuk memimpin sesi</li>
+      <li>Gunakan pertanyaan terbuka yang memicu diskusi</li>
+      <li>Beri waktu untuk refleksi mandiri</li>
+    </ul>
+    ${linkBar('active learning strategies adult education participation engagement')}
+  `},
+  el4:{title:"Elemen 4 — Umpan Balik",sub:"Koreksi Real-Time",body:`
+    <p><strong>Definisi:</strong> Fasilitator dan rekan memberi koreksi langsung atas keputusan peserta. Umpan balik harus spesifik, konstruktif, dan segera.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Umpan balik yang tepat waktu memungkinkan peserta memperbaiki kesalahan sebelum menjadi kebiasaan. Tanpa umpan balik, peserta mungkin terus mengulangi kesalahan yang sama.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Setelah simulasi, lakukan debriefing dengan fokus pada keputusan kunci</li>
+      <li>Beri umpan balik secara spesifik, bukan umum</li>
+      <li>Fokus pada perilaku, bukan pribadi</li>
+      <li>Beri kesempatan peserta untuk mengevaluasi diri sendiri</li>
+      <li>Libatkan rekan-rekan untuk memberi umpan balik</li>
+    </ul>
+    ${linkBar('feedback techniques simulation training debriefing constructive')}
+  `},
+  el5:{title:"Elemen 5 — Pengulangan Terdistribusi",sub:"Spaced Repetition",body:`
+    <p><strong>Definisi:</strong> Konsep kunci diulang di beberapa sesi berbeda dengan jeda waktu — bukan dijejalkan dalam satu sesi.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Riset menunjukkan bahwa pengulangan terdistribusi (spaced repetition) menghasilkan retensi jangka panjang yang jauh lebih baik dibandingkan dengan belajar intensif dalam satu waktu. Konsep-konsep kunci perlu muncul berulang kali dalam konteks yang berbeda.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Rule 5 dan Rule 6 dibahas di seksi Hukum, diulang di Aktivitas, dan diuji di kuis</li>
+      <li>Konsep BRM muncul di kasus nasional, kasus internasional, dan TOT</li>
+      <li>Berikan kesempatan review sebelum sesi baru</li>
+      <li>Gunakan format yang berbeda untuk konsep yang sama</li>
+    </ul>
+    ${linkBar('spaced repetition learning retention distributed practice')}
+  `},
+  el6:{title:"Elemen 6 — Multi-Sensori",sub:"Visual, Audio, Kinestetik",body:`
+    <p><strong>Definisi:</strong> Pembelajaran melibatkan berbagai indera — melihat, mendengar, dan melakukan.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Berbagai indera memproses informasi dengan cara yang berbeda. Ketika peserta melihat diagram, mendengar penjelasan, dan melakukan simulasi, mereka membangun representasi mental yang lebih kaya dan tahan lama.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Kombinasikan video, narasi, diagram, dan simulasi fisik</li>
+      <li>Gunakan peragaan alat keselamatan secara langsung</li>
+      <li>Ajak peserta menggambar atau membuat sketsa</li>
+      <li>Beri kesempatan untuk mendengarkan rekaman VHF atau audio asli</li>
+    </ul>
+    ${linkBar('multisensory learning maritime training visual audio kinesthetic')}
+  `},
+  el7:{title:"Elemen 7 — Kolaborasi",sub:"Belajar Bersama",body:`
+    <p><strong>Definisi:</strong> Peserta belajar dalam kelompok, mencerminkan kerja tim di kapal. Kolaborasi juga memperkuat komunikasi.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Di kapal, keselamatan bergantung pada kerja tim yang efektif. Melatih kolaborasi dalam pembelajaran membantu peserta mengembangkan keterampilan komunikasi dan koordinasi yang diperlukan di dunia nyata.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Simulasi bridge team dengan peran berbeda — Nakhoda, perwira jaga, juru mudi</li>
+      <li>Diskusi kelompok kecil untuk menganalisis kasus</li>
+      <li>Peer teaching — peserta mengajar sesama peserta</li>
+      <li>Proyek kelompok yang memerlukan koordinasi</li>
+    </ul>
+    ${linkBar('collaborative learning maritime crew resource management teamwork')}
+  `},
+  el8:{title:"Elemen 8 — Refleksi",sub:"Metakognisi &amp; Komitmen",body:`
+    <p><strong>Definisi:</strong> Peserta menuliskan pembelajaran pribadi, kesadaran baru, dan komitmen perubahan perilaku.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Refleksi mengubah pengalaman menjadi pembelajaran. Tanpa refleksi, peserta mungkin hanya "mengalami" tanpa benar-benar memahami. Refleksi juga membantu peserta mengaitkan pembelajaran dengan pengalaman mereka sendiri.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Jurnal refleksi setelah setiap sesi besar</li>
+      <li>Diskusi kelompok dengan pertanyaan reflektif</li>
+      <li>Presentasi pembelajaran pribadi</li>
+      <li>Komitmen tertulis untuk perubahan perilaku</li>
+      <li>Rencana aksi pribadi yang konkret</li>
+    </ul>
+    ${linkBar('reflective practice maritime professional development metacognition')}
+  `},
+  el9:{title:"Elemen 9 — Asesmen &amp; Transfer",sub:"Dari Kelas ke Kapal",body:`
+    <p><strong>Definisi:</strong> Penilaian berbasis kinerja dan rencana konkret bagaimana pembelajaran diterapkan di kapal atau di pekerjaan nyata.</p>
+    <h4>Mengapa Penting</h4>
+    <p>Pembelajaran yang tidak ditransfer ke pekerjaan nyata tidak memiliki dampak. Asesmen berbasis kinerja mengukur apakah peserta benar-benar dapat menerapkan kompetensi mereka, bukan hanya menghafal teori.</p>
+    <h4>Cara Menerapkan</h4>
+    <ul>
+      <li>Portofolio produk (passage plan, checklist, laporan audit)</li>
+      <li>Presentasi &amp; debat dengan kelompok lain</li>
+      <li>Observasi kinerja dalam simulasi</li>
+      <li>Rencana aksi pribadi untuk penerapan di kapal</li>
+      <li>Follow-up setelah kembali ke kapal</li>
+    </ul>
+    ${linkBar('transfer of training workplace application assessment maritime competency')}
+  `},
+
+  /* ===== LEARNING OUTCOMES ===== */
+  lo1:{title:"LO-1 · C2 — Memahami",sub:"Menjelaskan Kronologi &amp; Penyebab",body:`
+    <p><strong>Kompetensi:</strong> Peserta mampu menjelaskan kronologi dan penyebab kecelakaan KM Tilongkabila dan KMP Tunu Pratama Jaya berdasarkan fakta dalam putusan Mahkamah Pelayaran.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Menyusun garis waktu kejadian dengan benar</li>
+      <li>Mengidentifikasi penyebab langsung vs penyebab mendasar</li>
+      <li>Mengutip fakta dari sumber primer (putusan)</li>
+      <li>Membedakan fakta dari interpretasi</li>
+    </ul>
+    <h4>Rubrik Penilaian</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Kronologi lengkap, penyebab jelas, referensi akurat</li>
+      <li><strong>Baik:</strong> Kronologi benar, penyebab utama disebutkan</li>
+      <li><strong>Cukup:</strong> Kronologi benar, penyebab kurang lengkap</li>
+      <li><strong>Perlu perbaikan:</strong> Kronologi keliru atau tidak lengkap</li>
+    </ul>
+    <h4>Metode Asesmen</h4>
+    <ul>
+      <li>Kuis pilihan ganda tentang kronologi</li>
+      <li>Penyusunan garis waktu (timeline) kelompok</li>
+      <li>Presentasi singkat penyebab kecelakaan</li>
+    </ul>
+    ${linkBar('Bloom taxonomy understanding level C2 maritime accident timeline analysis')}
+  `},
+
+  lo2:{title:"LO-2 · C3 — Menerapkan",sub:"Rule 5 &amp; Rule 6 dalam Keputusan Navigasi",body:`
+    <p><strong>Kompetensi:</strong> Menerapkan Rule 5 dan Rule 6 COLREG/P2TL serta ketentuan SOLAS Bab V dalam keputusan navigasi di perairan sempit.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Menentukan kecepatan aman berdasarkan kondisi aktual</li>
+      <li>Merancang pola pengamatan yang memadai</li>
+      <li>Mengambil keputusan untuk mengurangi kecepatan atau memanggil Nakhoda</li>
+      <li>Menggunakan alat navigasi secara efektif</li>
+      <li>Mendokumentasikan keputusan dengan benar</li>
+    </ul>
+    <h4>Asesmen</h4>
+    <p>Studi kasus kecepatan aman + desain pola pengamatan. Peserta diberi skenario navigasi di alur sempit dan diminta menentukan kecepatan aman, pola pengamatan, dan kriteria pemanggilan Nakhoda.</p>
+    <h4>Rubrik</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Keputusan tepat dengan justifikasi regulasi</li>
+      <li><strong>Baik:</strong> Keputusan tepat dengan justifikasi umum</li>
+      <li><strong>Cukup:</strong> Keputusan kurang tepat namun proses benar</li>
+      <li><strong>Perlu perbaikan:</strong> Keputusan tidak tepat</li>
+    </ul>
+    ${linkBar('COLREG Rule 5 Rule 6 application case study safe speed look-out')}
+  `},
+
+  lo3:{title:"LO-3 · C4 — Menganalisis",sub:"BRM, ISM Code &amp; Kegagalan Keselamatan",body:`
+    <p><strong>Kompetensi:</strong> Menganalisis keterkaitan antara pelaksanaan Bridge Resource Management, penerapan ISM Code, dan terjadinya kegagalan keselamatan.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Menggunakan kerangka <em>root cause analysis</em></li>
+      <li>Menghubungkan temuan dengan elemen ISM Code</li>
+      <li>Mengidentifikasi titik kegagalan sistem</li>
+      <li>Membedakan penyebab langsung dan akar masalah</li>
+      <li>Menyusun diagram sebab-akibat</li>
+    </ul>
+    <h4>Asesmen</h4>
+    <p>Analisis akar masalah dengan diagram sebab-akibat (fishbone diagram). Peserta diminta menganalisis satu kasus secara mendalam dan menyusun rekomendasi berbasis temuan.</p>
+    <h4>Rubrik</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Analisis mendalam, multi-faktor, rekomendasi spesifik</li>
+      <li><strong>Baik:</strong> Analisis multi-faktor, rekomendasi umum</li>
+      <li><strong>Cukup:</strong> Analisis satu faktor dominan</li>
+      <li><strong>Perlu perbaikan:</strong> Analisis tidak sistematis</li>
+    </ul>
+    ${linkBar('root cause analysis ISM Code BRM failure maritime accident analysis')}
+  `},
+
+  lo4:{title:"LO-4 · C5 — Mengevaluasi",sub:"Efektivitas Prosedur SMS/SMK",body:`
+    <p><strong>Kompetensi:</strong> Mengevaluasi efektivitas prosedur kapal (SMS/SMK) terhadap kebutuhan operasional nyata, termasuk kecukupan waktu pemuatan dan lashing.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Menemukan prosedur yang tidak sesuai realita lapangan</li>
+      <li>Menyusun rekomendasi perbaikan berbasis bukti</li>
+      <li>Mengukur kecukupan waktu dengan data aktual</li>
+      <li>Mengidentifikasi kesenjangan antara prosedur dan praktik</li>
+      <li>Menilai efektivitas audit dan tindakan korektif</li>
+    </ul>
+    <h4>Asesmen</h4>
+    <p>Audit SMS simulasi dengan temuan &amp; rekomendasi. Peserta diberi dokumen SMK dan diminta mengevaluasi kecukupannya terhadap kebutuhan operasional nyata.</p>
+    <h4>Rubrik</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Audit komprehensif, temuan valid, rekomendasi aplikatif</li>
+      <li><strong>Baik:</strong> Audit cukup lengkap dengan temuan utama</li>
+      <li><strong>Cukup:</strong> Audit sebagian, temuan terbatas</li>
+      <li><strong>Perlu perbaikan:</strong> Audit tidak sistematis</li>
+    </ul>
+    ${linkBar('ISM Code internal audit effectiveness cargo lashing time RoRo evaluation')}
+  `},
+
+  lo5:{title:"LO-5 · C6 — Mencipta",sub:"Passage Plan &amp; Checklist MARPOL",body:`
+    <p><strong>Kompetensi:</strong> Menyusun passage plan yang aman, checklist MARPOL pascakejadian, dan skenario drill kemudi darurat.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Passage plan mencakup call point &amp; batas kecepatan</li>
+      <li>Checklist MARPOL tanpa asumsi pencemaran</li>
+      <li>Skenario drill aplikatif dan terukur</li>
+      <li>Produk dapat digunakan secara praktis</li>
+      <li>Mencakup elemen kontinjensi</li>
+    </ul>
+    <h4>Asesmen</h4>
+    <p>Produk portofolio + presentasi. Peserta menyusun passage plan untuk rute nyata, checklist MARPOL yang aplikatif, dan skenario drill kemudi darurat.</p>
+    <h4>Rubrik</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Produk lengkap, aplikatif, inovatif</li>
+      <li><strong>Baik:</strong> Produk lengkap, aplikatif</li>
+      <li><strong>Cukup:</strong> Produk cukup lengkap</li>
+      <li><strong>Perlu perbaikan:</strong> Produk tidak lengkap</li>
+    </ul>
+    ${linkBar('passage planning IMO SOPEP MARPOL checklist emergency steering drill')}
+  `},
+
+  lo6:{title:"LO-6 · Afektif — Sikap &amp; Budaya Keselamatan",sub:"Speak Up, Disiplin Prosedur, Komitmen",body:`
+    <p><strong>Kompetensi:</strong> Menunjukkan sikap berani menyampaikan keraguan (speak up), disiplin prosedur, dan komitmen terhadap budaya keselamatan.</p>
+    <h4>Indikator Capaian</h4>
+    <ul>
+      <li>Aktif menyampaikan keraguan dalam simulasi</li>
+      <li>Mengikuti prosedur meski tampak tidak praktis</li>
+      <li>Merefleksikan perilaku sendiri secara jujur</li>
+      <li>Menunjukkan empati terhadap korban dan keluarga</li>
+      <li>Berkomitmen pada perbaikan berkelanjutan</li>
+    </ul>
+    <h4>Asesmen</h4>
+    <p>Observasi simulasi anjungan + jurnal refleksi. Fasilitator mencatat perilaku peserta dalam simulasi, dan peserta menuliskan refleksi pribadi tentang pembelajaran dan komitmen mereka.</p>
+    <h4>Rubrik</h4>
+    <ul>
+      <li><strong>Sangat baik:</strong> Proaktif speak up, disiplin tinggi, refleksi mendalam</li>
+      <li><strong>Baik:</strong> Speak up bila perlu, disiplin prosedur</li>
+      <li><strong>Cukup:</strong> Mengikuti arahan, refleksi dasar</li>
+      <li><strong>Perlu perbaikan:</strong> Pasif, tidak disiplin, refleksi dangkal</li>
+    </ul>
+    ${linkBar('safety culture speak up affective learning outcomes assessment maritime')}
+  `},
+
+  /* ===== TRAINING AIDS ===== */
+  aid1:{title:"Training Aid — Simulator Anjungan",sub:"Full Mission Bridge Simulator",body:`
+    <p><strong>Fungsi:</strong> Melatih olah gerak, kegagalan kemudi, dan komunikasi tim anjungan dalam skenario realistis tanpa risiko nyata.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Apply:</strong> Simulasi BRM dengan peran bergilir</li>
+      <li><strong>Tahap Evaluate:</strong> Observasi kinerja dengan rubrik</li>
+      <li><strong>Tahap Share:</strong> Peserta berbagi pengalaman setelah simulasi</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Peserta dapat mengalami kegagalan kemudi, kegagalan mesin, dan cuaca buruk tanpa risiko nyata</li>
+      <li>Kesalahan dapat dikoreksi tanpa konsekuensi fatal</li>
+      <li>Tim dapat berlatih komunikasi closed-loop</li>
+      <li>Keputusan dapat dievaluasi secara objektif</li>
+    </ul>
+    ${linkBar('full mission bridge simulator maritime training IMO model course')}
+  `},
+
+  aid2:{title:"Training Aid — Peta &amp; ECDIS",sub:"Electronic Chart Display and Information System",body:`
+    <p><strong>Fungsi:</strong> Menandai area sempit, waypoint, titik panggil Nakhoda, dan radius putar. Melatih perencanaan pelayaran digital.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Apply:</strong> Peserta membuat passage plan di ECDIS</li>
+      <li>Menandai area sempit dengan <em>no-go area</em></li>
+      <li>Menetapkan call point di titik-titik kritis</li>
+      <li>Menghitung radius putar pada berbagai kecepatan</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Visualisasi area berbahaya membantu peserta memahami pentingnya margin keselamatan</li>
+      <li>Peserta belajar menggunakan alat navigasi modern</li>
+      <li>Perencanaan pelayaran menjadi lebih sistematis</li>
+    </ul>
+    ${linkBar('ECDIS passage planning IMO performance standards training')}
+  `},
+
+  aid3:{title:"Training Aid — Stability Booklet",sub:"Dokumen Stabilitas Kapal",body:`
+    <p><strong>Fungsi:</strong> Melatih membaca kurva stabilitas, menghitung GM, mengenali overdraft, dan mensimulasikan pergeseran muatan.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Process:</strong> Analisis skenario overdraft KMP Tunu Pratama Jaya</li>
+      <li><strong>Tahap Apply:</strong> Simulasi perhitungan GM dengan berbagai kondisi muatan</li>
+      <li>Membandingkan kurva stabilitas pada kondisi normal dan overdraft</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Peserta memahami mengapa overdraft 0,5 meter bisa berujung pada kegagalan stabilitas total</li>
+      <li>Peserta dapat menghitung GM secara manual</li>
+      <li>Peserta dapat mengidentifikasi kondisi berbahaya dari kurva stabilitas</li>
+    </ul>
+    ${linkBar('ship stability booklet GM calculation IMO intact stability code 2008')}
+  `},
+
+  aid4:{title:"Training Aid — Video Rekonstruksi",sub:"Animasi Kronologi &amp; Rantai Kegagalan",body:`
+    <p><strong>Fungsi:</strong> Menghadirkan kronologi kasus secara visual dan animasi rantai kegagalan stabilitas yang sulit dijelaskan dengan teks.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Experience:</strong> Memicu emosi dan konteks nyata</li>
+      <li><strong>Tahap Process:</strong> Membantu analisis visual rantai kegagalan</li>
+      <li>Diskusi kelompok setelah menonton video</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Memori visual bertahan lebih lama dibanding teks</li>
+      <li>Peserta dapat melihat konsekuensi dari setiap keputusan</li>
+      <li>Kompleksitas rantai kegagalan menjadi lebih mudah dipahami</li>
+    </ul>
+    ${linkBar('maritime accident reconstruction animation MAIB NTSB investigation video')}
+  `},
+
+  aid5:{title:"Training Aid — Checklist &amp; Form",sub:"Departure, Lashing, Audit",body:`
+    <p><strong>Fungsi:</strong> Alat verifikasi bahwa prosedur benar-benar dijalankan. Checklist bukan formalitas — ia adalah bukti kepatuhan.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Apply:</strong> Peserta mengisi checklist berdasarkan skenario</li>
+      <li><strong>Tahap Evaluate:</strong> Verifikasi kelengkapan checklist sebagai bagian penilaian</li>
+      <li>Diskusi tentang item checklist yang paling kritis</li>
+    </ul>
+    <h4>Jenis Checklist</h4>
+    <ul>
+      <li>Departure checklist — persiapan keberangkatan</li>
+      <li>Lashing checklist — verifikasi pengikatan muatan</li>
+      <li>Audit checklist — audit internal SMS</li>
+      <li>Emergency checklist — prosedur darurat</li>
+    </ul>
+    ${linkBar('departure checklist SOLAS cargo securing manual checklist audit')}
+  `},
+
+  aid6:{title:"Training Aid — Alat Keselamatan Nyata",sub:"Life Jacket, Liferaft, APAR",body:`
+    <p><strong>Fungsi:</strong> Peragaan langsung penggunaan alat keselamatan — life jacket, liferaft, APAR, dan peralatan darurat lainnya.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Apply:</strong> Latihan donning life jacket, peluncuran liferaft, penggunaan APAR</li>
+      <li>Integrasi dengan drill sesuai SOLAS</li>
+      <li>Diskusi tentang kondisi alat dan jadwal perawatan</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Keterampilan motorik hanya terbentuk melalui praktik nyata</li>
+      <li>Peserta familiar dengan alat sebelum digunakan dalam darurat</li>
+      <li>Peserta dapat mengidentifikasi kerusakan atau kekurangan alat</li>
+    </ul>
+    ${linkBar('SOLAS life saving appliances training liferaft APAR life jacket')}
+  `},
+
+  aid7:{title:"Training Aid — Aplikasi Interaktif",sub:"Kuis Digital &amp; Polling",body:`
+    <p><strong>Fungsi:</strong> Memperkuat retensi melalui gamifikasi, kuis digital, polling langsung, dan diskusi daring.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Evaluate:</strong> Kuis formatif setelah setiap sesi</li>
+      <li>Polling untuk mengukur pemahaman real-time</li>
+      <li>Diskusi daring untuk peserta yang tidak dapat hadir</li>
+      <li>Gamifikasi untuk meningkatkan motivasi</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Feedback instan membantu peserta memperbaiki pemahaman</li>
+      <li>Fasilitator dapat mengidentifikasi topik yang perlu diulang</li>
+      <li>Peserta lebih terlibat secara aktif</li>
+    </ul>
+    ${linkBar('digital quiz formative assessment maritime training classroom response')}
+  `},
+
+  aid8:{title:"Training Aid — Salinan Putusan",sub:"Sumber Primer Analisis Hukum",body:`
+    <p><strong>Fungsi:</strong> Dokumen otentik sebagai sumber primer analisis. Melatih peserta membaca putusan resmi, bukan ringkasan sekunder.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li><strong>Tahap Process:</strong> Peserta menandai pasal-pasal yang dirujuk</li>
+      <li><strong>Tahap Evaluate:</strong> Mengutip bunyi putusan sebagai dasar argumentasi</li>
+      <li>Diskusi tentang perbedaan antara putusan Mahkamah Pelayaran dan proses hukum lainnya</li>
+    </ul>
+    <h4>Manfaat</h4>
+    <ul>
+      <li>Melatih literasi hukum maritim — keterampilan yang sangat berharga bagi perwira kapal</li>
+      <li>Peserta belajar membaca dokumen resmi dengan kritis</li>
+      <li>Peserta memahami dasar hukum dari setiap keputusan</li>
+    </ul>
+    ${linkBar('Mahkamah Pelayaran putusan kapal Indonesia maritime legal document')}
+  `},
+
+  /* ===== AKTIVITAS ===== */
+  akt1:{title:"Aktivitas 1 — Menyusun Kronologi",sub:"Memisahkan Fakta dari Interpretasi",body:`
+    <p><strong>Tujuan:</strong> Menyusun garis waktu dan memisahkan fakta dari interpretasi.</p>
+    <h4>Langkah Kegiatan</h4>
+    <ol>
+      <li>Baca putusan dan tandai setiap pernyataan waktu</li>
+      <li>Buat tabel: <strong>Waktu</strong> | <strong>Fakta (dari dokumen)</strong> | <strong>Interpretasi (analisis Anda)</strong></li>
+      <li>Tandai titik-titik keputusan kritis (decision points)</li>
+      <li>Untuk setiap titik kritis, tanyakan: "Apakah ada tindakan alternatif yang tersedia saat itu?"</li>
+      <li>Presentasikan temuan dalam 5 menit</li>
+    </ol>
+    <h4>Output</h4>
+    <p>Garis waktu visual + daftar 3 titik keputusan kritis. Peserta dapat menggunakan alat digital (spreadsheet, mind map) atau manual (papan tulis, kertas besar).</p>
+    ${linkBar('maritime accident timeline analysis method fact interpretation')}
+  `},
+
+  akt2:{title:"Aktivitas 2 — Simulasi Bridge Team",sub:"BRM dalam Praktik",body:`
+    <p><strong>Tujuan:</strong> Melatih pembagian tugas, monitoring posisi, komunikasi closed-loop, dan eskalasi.</p>
+    <h4>Skenario</h4>
+    <p>Kapal berlayar di alur sempit malam hari. Kemudi mulai tidak merespons. Tim anjungan harus mengambil keputusan.</p>
+    <h4>Peran</h4>
+    <ul>
+      <li>Nakhoda (duduk di kursi, hanya bertindak jika dipanggil)</li>
+      <li>Perwira Jaga (bertanggung jawab atas navigasi)</li>
+      <li>Juru Mudi (mengoperasikan kemudi)</li>
+      <li>Markonis (komunikasi)</li>
+      <li>Perwira Mesin (di ECR)</li>
+      <li>Pengamat (observer — mencatat pelanggaran komunikasi)</li>
+    </ul>
+    <h4>Metrik Penilaian</h4>
+    <ul>
+      <li>Apakah perwira jaga memanggil Nakhoda tepat waktu?</li>
+      <li>Apakah komunikasi closed-loop dilakukan?</li>
+      <li>Apakah kemudi darurat diaktivasi sesuai prosedur?</li>
+      <li>Apakah tim menunjukkan budaya speak up?</li>
+    </ul>
+    ${linkBar('Bridge Resource Management simulation training role play maritime')}
+  `},
+
+  akt3:{title:"Aktivitas 3 — Keputusan Kecepatan",sub:"Menghitung Kecepatan Aman",body:`
+    <p><strong>Tujuan:</strong> Menganalisis faktor-faktor penentu kecepatan aman di perairan sempit.</p>
+    <h4>Data yang Harus Dianalisis</h4>
+    <ul>
+      <li>Kecepatan kapal (knot) dan jarak henti pada kecepatan tersebut</li>
+      <li>Kekuatan dan arah arus</li>
+      <li>Kedalaman perairan dan efek squat</li>
+      <li>Jarak bebas ke tebing / bahaya</li>
+      <li>Kemampuan olah gerak (turning circle)</li>
+      <li>Jarak pandang dan kondisi cuaca</li>
+    </ul>
+    <h4>Latihan</h4>
+    <p>Hitung jarak henti kapal pada kecepatan 11 knot vs 7 knot. Bandingkan dengan jarak ke tebing saat alarm GPS berbunyi. Berapa margin keselamatan yang tersisa?</p>
+    <div class="hl red"><p><strong>Refleksi:</strong> Apakah kecepatan 12–13 knot di alur selebar 7 cable pada malam hari dapat dipertahankan sebagai "kecepatan aman"?</p></div>
+    ${linkBar('safe speed stopping distance calculation ship navigation narrow channel')}
+  `},
+
+  akt4:{title:"Aktivitas 4 — Audit SMS",sub:"Menemukan Prosedur &amp; Bukti Pelaksanaan",body:`
+    <p><strong>Tujuan:</strong> Melatih taruna melakukan audit terhadap prosedur SMS dan mencari bukti pelaksanaan.</p>
+    <h4>Langkah Kegiatan</h4>
+    <ol>
+      <li>Identifikasi prosedur yang seharusnya ada untuk operasi perairan sempit dan penanganan muatan Ro-Ro</li>
+      <li>Untuk setiap prosedur, cari bukti pelaksanaan: catatan, checklist, laporan drill, dokumentasi foto/video</li>
+      <li>Tandai prosedur yang ada tetapi tidak dilaksanakan, atau dilaksanakan tetapi tidak terdokumentasi</li>
+      <li>Susun laporan audit dengan klasifikasi temuan dan rekomendasi tindakan korektif</li>
+    </ol>
+    <h4>Contoh Temuan dari Kasus Nyata</h4>
+    <ul>
+      <li>Drill kemudi darurat tidak pernah dilakukan secara memadai</li>
+      <li>VDR belum terkoneksi</li>
+      <li>Stowage plan tidak tersedia</li>
+      <li>Peragaan keselamatan hanya berupa video</li>
+    </ul>
+    ${linkBar('ISM Code internal audit checklist corrective action maritime compliance')}
+  `},
+
+  akt5:{title:"Aktivitas 5 — Checklist MARPOL",sub:"Tanpa Asumsi Pencemaran",body:`
+    <p><strong>Tujuan:</strong> Menyusun checklist pemeriksaan risiko lingkungan pascakejadian tanpa mengasumsikan telah terjadi pencemaran.</p>
+    <h4>Isi Checklist</h4>
+    <ul>
+      <li>Identifikasi semua tangki (bahan bakar, ballast, air tawar, sludge, oli bekas)</li>
+      <li>Periksa integritas tangki dan pipa (visual, tekanan, level)</li>
+      <li>Periksa lambung dan sekat kedap</li>
+      <li>Dokumentasikan setiap tanda kebocoran (foto, video, sampel)</li>
+      <li>Aktifkan SOPEP jika ada indikasi pelepasan minyak</li>
+      <li>Catat waktu, lokasi, dan volume estimasi</li>
+      <li>Laporkan kepada otoritas sesuai ketentuan</li>
+    </ul>
+    <div class="hl red"><p><strong>Prinsip:</strong> Kehadiran kecelakaan tubrukan <strong>tidak otomatis</strong> berarti pelanggaran MARPOL. Pelanggaran hanya dapat dinyatakan jika didukung fakta dan dasar hukum.</p></div>
+    ${linkBar('SOPEP MARPOL checklist post incident oil pollution prevention')}
+  `},
+
+  akt6:{title:"Aktivitas 6 — Studi Komparatif Internasional",sub:"Pola Berulang",body:`
+    <p><strong>Tujuan:</strong> Membandingkan kasus nasional dengan kasus internasional dan menemukan pola penyebab yang berulang.</p>
+    <h4>Langkah Kegiatan</h4>
+    <ol>
+      <li>Pilih satu kasus nasional (Tilongkabila atau Tunu)</li>
+      <li>Pilih satu kasus internasional (Costa Concordia, Herald of Free Enterprise, Sewol, El Faro)</li>
+      <li>Bandingkan dalam tabel: <strong>Penyebab langsung</strong>, <strong>Penyebab mendasar</strong>, <strong>Faktor organisasi</strong>, <strong>Perubahan regulasi</strong></li>
+      <li>Presentasikan temuan pola berulangnya</li>
+    </ol>
+    <h4>Pola yang Sering Muncul</h4>
+    <ul>
+      <li>Overconfidence dalam pengambilan keputusan</li>
+      <li>Deviasi dari prosedur yang sudah ditetapkan</li>
+      <li>Komunikasi anjungan yang lemah</li>
+      <li>Pengawasan yang tidak efektif</li>
+      <li>Tekanan komersial yang mengalahkan pertimbangan keselamatan</li>
+    </ul>
+    ${linkBar('comparative maritime accident analysis case study pattern human error')}
+  `}
+};
+
+/* ================= MODAL FUNCTIONS ================= */
+const modalBg = document.getElementById('modalBg');
+const modalContent = document.getElementById('modalContent');
+
+function openModal(key){
+  const d = MODALS[key];
+  if(!d) return;
+  modalContent.innerHTML = `<h3>${d.title}</h3><div class="sub">${d.sub}</div>${d.body}`;
+  modalBg.classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  modalBg.classList.remove('show');
+  document.body.style.overflow='';
+}
+modalBg.addEventListener('click', e=>{ if(e.target===modalBg) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ================= TABS ================= */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.t).classList.add('active');
+  });
+});
+
+/* ================= ACCORDION ================= */
+function toggleAcc(el){
+  const acc = el.parentElement;
+  const isOpen = acc.classList.contains('open');
+  const parent = acc.parentElement;
+  parent.querySelectorAll('.acc.open').forEach(a=>{ if(a!==acc){ a.classList.remove('open'); }});
+  acc.classList.toggle('open', !isOpen);
+}
+
+/* ================= QUIZ ================= */
+document.querySelectorAll('.quiz').forEach(q=>{
+  const ans = q.dataset.answer;
+  const fb = q.querySelector('.fb');
+  q.querySelectorAll('.opt').forEach(o=>{
+    o.addEventListener('click', ()=>{
+      if(q.dataset.done) return;
+      q.dataset.done = '1';
+      const k = o.dataset.k;
+      if(k===ans){ o.classList.add('correct'); fb.textContent = '✅ Benar!'; fb.style.color = '#86efac'; }
+      else {
+        o.classList.add('wrong');
+        q.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.k===ans) x.classList.add('correct'); });
+        fb.textContent = '❌ Belum tepat. Jawaban benar ditandai hijau.';
+        fb.style.color = '#fca5a5';
+      }
+    });
+  });
+});
+
+/* ================= NAV / SCROLL ================= */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=> navLinks.classList.remove('open'));
+});
+
+const progress = document.getElementById('progress');
+const topBtn = document.getElementById('top');
+const sections = [...document.querySelectorAll('section[id]')];
+
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const sc = h.scrollTop;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max>0 ? (sc/max*100) : 0) + '%';
+  topBtn.classList.toggle('show', sc > 500);
+  let cur = '';
+  sections.forEach(s=>{ if(sc >= s.offsetTop - 120) cur = s.id; });
+  navLinks.querySelectorAll('a').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(href && href.startsWith('#')) a.classList.toggle('active', href === '#'+cur);
+  });
+});
+
+topBtn.addEventListener('click', ()=> scrollTo({top:0,behavior:'smooth'}));
+
+console.log('%c⚓ Maritime Learning Hub — by Rafael Sukirno, CE','background:#22d3ee;color:#04121f;font-size:16px;padding:6px 12px;border-radius:6px;font-weight:bold');
+</script>
+</body>
+</html>
